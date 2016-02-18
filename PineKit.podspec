@@ -15,15 +15,15 @@ Pod::Spec.new do |s|
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
+#   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description      = <<-DESC
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/PineKit"
+  s.homepage         = "https://github.com/1985apps/PineKit.git"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Prakash Raman" => "prakash.raman.ka@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/PineKit.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/1985apps/PineKit.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '8.0'

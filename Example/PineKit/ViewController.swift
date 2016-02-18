@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import PineKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print(PineKitVersionNumber)
+        print("this is the view")
     }
 
     override func didReceiveMemoryWarning() {

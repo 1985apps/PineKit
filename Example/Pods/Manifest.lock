@@ -1,0 +1,14 @@
+PODS:
+  - PineKit (0.1.0)
+
+DEPENDENCIES:
+  - PineKit (from `../`)
+
+EXTERNAL SOURCES:
+  PineKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PineKit: ebefeea48f7248106ee6197c0d1fb393c1b160f3
+
+COCOAPODS: 0.39.0

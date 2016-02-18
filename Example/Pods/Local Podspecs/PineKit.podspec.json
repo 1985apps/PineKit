@@ -1,0 +1,25 @@
+{
+  "name": "PineKit",
+  "version": "0.1.0",
+  "summary": "A short description of PineKit.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/PineKit",
+  "license": "MIT",
+  "authors": {
+    "Prakash Raman": "prakash.raman.ka@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/PineKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "PineKit": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}
