@@ -12,7 +12,11 @@ import UIKit
 
 public class PineMenuTransition {
     
-    var mainController: PineMenuViewController?
+    public var mainController: PineMenuViewController?
+    
+    public init(){
+        
+    }
     
     func setController(controller: PineMenuViewController){
         self.mainController = controller
