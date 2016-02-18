@@ -23,7 +23,7 @@ public class PineBaseMenuView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(){
+    public func setup(){
         self.backgroundColor = UIColor.greenColor()
         let b = PineButton(title: "Call")
         self.addSubview(b)
