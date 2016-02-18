@@ -10,5 +10,15 @@ import UIKit
 import PineKit
 
 class ElementViewController: PineBaseViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = PineConfig.Color.red
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 
 }

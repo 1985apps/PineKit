@@ -27,15 +27,13 @@ public class PineBaseViewController : UIViewController {
     
     func determineBackButton(){
         let count = self.navigationController?.viewControllers.count
-        var name = "menu"
         var action = "openmenu:"
         
         if count > 1 {
-            name = "back"
             action = "goback:"
         }
         
-        let icon = UIImage(named: name)?.imageWithRenderingMode(.AlwaysOriginal)
+        let icon = preferredBackButton()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: icon, landscapeImagePhone: .None, style: .Plain, target: self, action: Selector(action))
     }
     
@@ -47,6 +45,13 @@ public class PineBaseViewController : UIViewController {
     func openmenu(sender: AnyObject? = nil){
         let parent = self.parentViewController?.parentViewController as! PineMenuViewController
         parent.toggleMenu()
+    }
+    
+    /* BUTTONS */
+    func preferredBackButton() -> UIImage {
+        let count = self.navigationController?.viewControllers.count
+        let name = count <= 1 ? "menu" : "back"
+        return (UIImage(named: name)?.imageWithRenderingMode(.AlwaysOriginal))!
     }
     
 }

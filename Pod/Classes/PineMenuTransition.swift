@@ -15,7 +15,7 @@ public class PineMenuTransition {
     var mainController: PineMenuViewController?
     
     func setController(controller: PineMenuViewController){
-//        self.mainController = controller
+        self.mainController = controller
     }
     
     func toggle(){

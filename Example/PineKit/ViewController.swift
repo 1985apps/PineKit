@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             button.width == button.superview!.width * 0.75
         }
         
-        button.addTarget(self, action: "enter", forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: "enter:", forControlEvents: .TouchUpInside)
     }
     
     func enter(sender: AnyObject?){
