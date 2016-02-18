@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import Cartography
 
 public class PineButton : UIButton {
     
@@ -28,6 +28,10 @@ public class PineButton : UIButton {
         self.backgroundColor = PineConfig.Color.red
         self.layer.cornerRadius = 2
         self.titleLabel?.font = PineConfig.Font.get(.Bold, size: 14)
+        constrain(self) { button in
+            button.height == PineConfig.Button.height
+        }
+
     }
     
     // THIS FUNCTION SHOULD BE OVERRIDDEN IN CASE OF SUB CLASSES

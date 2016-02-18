@@ -17,7 +17,7 @@ public class PineMenuViewController : UIViewController, PineMenuDelegate  {
     var transition = PineMenuTransition()
     var rootViewController = PineBaseViewController()
     
-    init(menuView: PineBaseMenuView, rootViewController: PineBaseViewController, transition: PineMenuTransition = PineMenuTransition()){
+    public init(menuView: PineBaseMenuView, rootViewController: PineBaseViewController, transition: PineMenuTransition = PineMenuTransition()){
         
         super.init(nibName: nil, bundle: nil)
         

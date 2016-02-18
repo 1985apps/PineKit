@@ -38,12 +38,14 @@ public class PineConfig {
     }
     
     public struct Button {
-        public static var height = 56
         
-        struct Hollow {
+        public static var height: CGFloat = 56
+        
+        public struct Hollow {
             public static var height = 44
             public static var borderColor = Color.cream
         }
+        
     }
     
     public struct Menu {

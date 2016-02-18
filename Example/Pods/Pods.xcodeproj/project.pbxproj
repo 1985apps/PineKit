@@ -14,6 +14,7 @@
 		34BCF5FA05DBF5B9F217057E1EA757A9 /* Pods-PineKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 590EA5CFF3663DEA9B6A03A611450459 /* Pods-PineKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		369CA2AACEED2517C99D77D7700DFCEA /* Distribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB7A46AB1BCE18F00B683998086AFF /* Distribute.swift */; };
 		40409E65D89125B3B8E71C87C97B97A7 /* PineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743FE89DE0B069D6E08C7F339D464179 /* PineLabel.swift */; };
+		42C6EF841C75E53800334756 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20015800B011D1E412FBF7930026C406 /* Cartography.framework */; };
 		42D89A4C91C79330C4858E151D0FBC56 /* PineBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E2D7EBA9FE61BB1DE11EFF9317BD67 /* PineBaseViewController.swift */; };
 		452C09D0CAC1F8286ABA1CE076033B23 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67DFC18B64ED49E17196327486063C /* Context.swift */; };
 		48ADE3FB3F30FCA5893083351449DA98 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84731979502C1051DDD3380C8CBE6F8 /* ViewUtils.swift */; };
@@ -174,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C6EF841C75E53800334756 /* Cartography.framework in Frameworks */,
 				9D23FE23555964725FBF406F4973118C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

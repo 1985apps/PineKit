@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cartography
 import PineKit
 
 class ViewController: UIViewController {
@@ -24,11 +25,19 @@ class ViewController: UIViewController {
     }
     
     func setup(){
-        var button = PineButton(title: "Button")
+        let button = PineButton(title: "Start Here")
         self.view.addSubview(button)
+        constrain(button) { button in
+            button.center == button.superview!.center
+            button.width == button.superview!.width * 0.75
+        }
         
-        button.frame = CGRect(x: 20, y: 20, width: 100, height: 100)
+        button.addTarget(self, action: "enter", forControlEvents: .TouchUpInside)
     }
-
+    
+    func enter(sender: AnyObject?){
+        let menu = PineMenuViewController.init(menuView: MenuView(), rootViewController: ElementViewController())
+        self.presentViewController(menu, animated: true, completion: nil)
+    }
 }
 

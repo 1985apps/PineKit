@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PineKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,12 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        updatePineConfig()
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.makeKeyAndVisible()
         
         self.window?.rootViewController = ViewController()
         return true
+    }
+    
+    func updatePineConfig(){
+        
+        // PineConfig.Button.height = 100
     }
 
     func applicationWillResignActive(application: UIApplication) {

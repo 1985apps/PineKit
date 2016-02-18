@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		420871201C75C55100A1C123 /* PineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4208711F1C75C55100A1C123 /* PineKit.framework */; };
+		42C6EF831C75E25600334756 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C6EF821C75E25600334756 /* Cartography.framework */; };
 		42CDA35D1C75D25B00FC52B9 /* PineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CDA35C1C75D25B00FC52B9 /* PineKit.framework */; };
+		42CDA3611C75E11C00FC52B9 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA3601C75E11C00FC52B9 /* MenuView.swift */; };
+		42CDA3631C75E14000FC52B9 /* ElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA3621C75E14000FC52B9 /* ElementViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -32,7 +35,10 @@
 /* Begin PBXFileReference section */
 		26C8F578A030297B04C162E3 /* Pods-PineKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PineKit_Example/Pods-PineKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4208711F1C75C55100A1C123 /* PineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PineKit.framework; path = "Pods/../build/Debug-iphoneos/PineKit.framework"; sourceTree = "<group>"; };
+		42C6EF821C75E25600334756 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = "Pods/../build/Debug-iphoneos/Cartography.framework"; sourceTree = "<group>"; };
 		42CDA35C1C75D25B00FC52B9 /* PineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PineKit.framework; path = "build/Debug-iphoneos/PineKit.framework"; sourceTree = "<group>"; };
+		42CDA3601C75E11C00FC52B9 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		42CDA3621C75E14000FC52B9 /* ElementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementViewController.swift; sourceTree = "<group>"; };
 		53E2D107D391701009E715F3 /* Pods_PineKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PineKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* PineKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C6EF831C75E25600334756 /* Cartography.framework in Frameworks */,
 				42CDA35D1C75D25B00FC52B9 /* PineKit.framework in Frameworks */,
 				420871201C75C55100A1C123 /* PineKit.framework in Frameworks */,
 				698ED26D28F7908E81E3A24C /* Pods_PineKit_Example.framework in Frameworks */,
@@ -105,6 +112,8 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				42CDA3601C75E11C00FC52B9 /* MenuView.swift */,
+				42CDA3621C75E14000FC52B9 /* ElementViewController.swift */,
 			);
 			name = "Example for PineKit";
 			path = PineKit;
@@ -148,6 +157,7 @@
 		9E241F7582C8AF7D8B5404E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42C6EF821C75E25600334756 /* Cartography.framework */,
 				4208711F1C75C55100A1C123 /* PineKit.framework */,
 				DC53703DFA2FDCA911C2EAC3 /* Pods_PineKit_Example.framework */,
 				42CDA35C1C75D25B00FC52B9 /* PineKit.framework */,
@@ -368,7 +378,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				42CDA3611C75E11C00FC52B9 /* MenuView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				42CDA3631C75E14000FC52B9 /* ElementViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

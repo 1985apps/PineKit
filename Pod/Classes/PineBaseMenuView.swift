@@ -14,7 +14,7 @@ public class PineBaseMenuView : UIView {
     
     public var delegate : PineMenuDelegate?
     
-    init(){
+    public init(){
         super.init(frame: CGRect.zero)
         setup()
     }
