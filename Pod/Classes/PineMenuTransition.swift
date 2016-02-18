@@ -15,7 +15,7 @@ public class PineMenuTransition {
     public var mainController: PineMenuViewController?
     
     public init(){
-        
+	self.mainController = nil        
     }
     
     func setController(controller: PineMenuViewController){
