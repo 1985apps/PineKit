@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 
-class PineButton : UIButton {
+public class PineButton : UIButton {
     
-    init(title: String){
+    public init(title: String){
         super.init(frame: CGRect.zero)
         self.setTitle(title, forState: .Normal)
         setup()
@@ -20,7 +20,7 @@ class PineButton : UIButton {
     }
     
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -31,15 +31,15 @@ class PineButton : UIButton {
     }
     
     // THIS FUNCTION SHOULD BE OVERRIDDEN IN CASE OF SUB CLASSES
-    func style(){
+    public func style(){
 
     }
     
     
     // Hollow Button
-    class Hollow : PineButton {
+    public class Hollow : PineButton {
         
-        override func style(){
+        override public func style(){
             super.style()
             self.backgroundColor = UIColor.clearColor()
             self.layer.borderWidth = 1

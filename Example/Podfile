@@ -10,3 +10,6 @@ target 'PineKit_Tests', :exclusive => true do
 
   
 end
+
+
+pod 'Cartography'

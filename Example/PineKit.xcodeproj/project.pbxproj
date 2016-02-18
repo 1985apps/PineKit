@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		420871201C75C55100A1C123 /* PineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4208711F1C75C55100A1C123 /* PineKit.framework */; };
+		42CDA35D1C75D25B00FC52B9 /* PineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CDA35C1C75D25B00FC52B9 /* PineKit.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		698ED26D28F7908E81E3A24C /* Pods_PineKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC53703DFA2FDCA911C2EAC3 /* Pods_PineKit_Example.framework */; };
+		E04A0B61F8C190D7BA4BD3B4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE91FC6D5169D178B1DC58C /* Pods.framework */; };
 		F68FA88850411CE48F731750 /* Pods_PineKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E2D107D391701009E715F3 /* Pods_PineKit_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,7 @@
 /* Begin PBXFileReference section */
 		26C8F578A030297B04C162E3 /* Pods-PineKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PineKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PineKit_Example/Pods-PineKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4208711F1C75C55100A1C123 /* PineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PineKit.framework; path = "Pods/../build/Debug-iphoneos/PineKit.framework"; sourceTree = "<group>"; };
+		42CDA35C1C75D25B00FC52B9 /* PineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PineKit.framework; path = "build/Debug-iphoneos/PineKit.framework"; sourceTree = "<group>"; };
 		53E2D107D391701009E715F3 /* Pods_PineKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PineKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* PineKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PineKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		607FACE51AFB9204008FA782 /* PineKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PineKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		6DE91FC6D5169D178B1DC58C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BAA02378E0A37804FA112A0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A828910F27538E4BF480FAED /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D61BC8D0899B9F5DF782C97B /* PineKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PineKit.podspec; path = ../PineKit.podspec; sourceTree = "<group>"; };
@@ -54,8 +58,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42CDA35D1C75D25B00FC52B9 /* PineKit.framework in Frameworks */,
 				420871201C75C55100A1C123 /* PineKit.framework in Frameworks */,
 				698ED26D28F7908E81E3A24C /* Pods_PineKit_Example.framework in Frameworks */,
+				E04A0B61F8C190D7BA4BD3B4 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +150,9 @@
 			children = (
 				4208711F1C75C55100A1C123 /* PineKit.framework */,
 				DC53703DFA2FDCA911C2EAC3 /* Pods_PineKit_Example.framework */,
+				42CDA35C1C75D25B00FC52B9 /* PineKit.framework */,
 				53E2D107D391701009E715F3 /* Pods_PineKit_Tests.framework */,
+				6DE91FC6D5169D178B1DC58C /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -274,7 +282,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PineKit_Example/Pods-PineKit_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5D3D0F35A04368121EA6791B /* Copy Pods Resources */ = {

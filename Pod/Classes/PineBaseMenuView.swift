@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 
-class PineBaseMenuView : UIView {
+public class PineBaseMenuView : UIView {
     
-    var delegate : PineMenuDelegate?
+    public var delegate : PineMenuDelegate?
     
     init(){
         super.init(frame: CGRect.zero)
         setup()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

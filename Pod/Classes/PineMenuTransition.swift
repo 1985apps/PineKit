@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class PineMenuTransition {
+public class PineMenuTransition {
     
     var mainController: PineMenuViewController?
     

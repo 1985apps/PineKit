@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class PineMenuTransitionXY : PineMenuTransition {
+public class PineMenuTransitionXY : PineMenuTransition {
     
     override func open(){
         UIView.animateWithDuration(PineConfig.Menu.transitionDuration) { () -> Void in

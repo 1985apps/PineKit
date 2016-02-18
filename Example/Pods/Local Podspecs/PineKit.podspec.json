@@ -1,15 +1,15 @@
 {
   "name": "PineKit",
   "version": "0.1.0",
-  "summary": "A short description of PineKit.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/PineKit",
+  "summary": "UI Development Kit",
+  "description": "The smallest pod ever!",
+  "homepage": "https://github.com/1985apps/PineKit.git",
   "license": "MIT",
   "authors": {
     "Prakash Raman": "prakash.raman.ka@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/PineKit.git",
+    "git": "https://github.com/1985apps/PineKit.git",
     "tag": "0.1.0"
   },
   "platforms": {

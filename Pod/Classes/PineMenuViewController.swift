@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class PineMenuViewController : UIViewController, PineMenuDelegate  {
+public class PineMenuViewController : UIViewController, PineMenuDelegate  {
     
     var menuView: PineBaseMenuView?
     var contentNavigationController: UINavigationController?
@@ -30,17 +30,17 @@ class PineMenuViewController : UIViewController, PineMenuDelegate  {
         self.menuView!.delegate = self
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+     public override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setup()
     }
     
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -75,8 +75,8 @@ class PineMenuViewController : UIViewController, PineMenuDelegate  {
     }
     
     
-    /* DELEGATE METHODS */
-    func loadContentViewController(viewController: PineBaseViewController) {
+    /* DELEGATE METHODS public */
+    public func loadContentViewController(viewController: PineBaseViewController) {
         let last = self.contentNavigationController?.viewControllers.last as! PineBaseViewController
         last.pushViewController(viewController)
         self.transition.close()

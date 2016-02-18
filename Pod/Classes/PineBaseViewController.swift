@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 
 
-class PineBaseViewController : UIViewController {
+public class PineBaseViewController : UIViewController {
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         determineBackButton()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    func pushViewController(viewController: UIViewController){
+    public func pushViewController(viewController: UIViewController){
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-protocol PineMenuDelegate {
+public protocol PineMenuDelegate {
     
     func loadContentViewController(viewController: PineBaseViewController)
     
