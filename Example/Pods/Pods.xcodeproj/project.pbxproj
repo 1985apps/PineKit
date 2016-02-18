@@ -14,6 +14,7 @@
 		34BCF5FA05DBF5B9F217057E1EA757A9 /* Pods-PineKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 590EA5CFF3663DEA9B6A03A611450459 /* Pods-PineKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		369CA2AACEED2517C99D77D7700DFCEA /* Distribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB7A46AB1BCE18F00B683998086AFF /* Distribute.swift */; };
 		40409E65D89125B3B8E71C87C97B97A7 /* PineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743FE89DE0B069D6E08C7F339D464179 /* PineLabel.swift */; };
+		424F7C861C76102700BB9EC1 /* PineMenuTransitionSqueeze.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F7C851C76102700BB9EC1 /* PineMenuTransitionSqueeze.swift */; };
 		42C6EF841C75E53800334756 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20015800B011D1E412FBF7930026C406 /* Cartography.framework */; };
 		42D89A4C91C79330C4858E151D0FBC56 /* PineBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E2D7EBA9FE61BB1DE11EFF9317BD67 /* PineBaseViewController.swift */; };
 		452C09D0CAC1F8286ABA1CE076033B23 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67DFC18B64ED49E17196327486063C /* Context.swift */; };
@@ -108,6 +109,7 @@
 		373222A8C261810FACCB20F9088BB09F /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Cartography/Constraint.swift; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		41B7A959B9C0E83755180D6BD85AF225 /* Cartography.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cartography.xcconfig; sourceTree = "<group>"; };
+		424F7C851C76102700BB9EC1 /* PineMenuTransitionSqueeze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineMenuTransitionSqueeze.swift; sourceTree = "<group>"; };
 		4297ED6EE9CE885BD8A2DBD4A43C4EF6 /* Pods-PineKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PineKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		48AF7B4AEA4CCB0E88BC528CE09ACD9F /* Cartography-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cartography-dummy.m"; sourceTree = "<group>"; };
 		4BFD5FBD7F4D5CFA1E0992CF70A32A6E /* Pods-PineKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PineKit_Tests.modulemap"; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				743FE89DE0B069D6E08C7F339D464179 /* PineLabel.swift */,
 				89A7FCF5FEDFFF103EABE9D364C6DDB4 /* PineMenuDelegate.swift */,
 				694D33C5D911D419F16EA3C05934AD64 /* PineMenuTransition.swift */,
+				424F7C851C76102700BB9EC1 /* PineMenuTransitionSqueeze.swift */,
 				8B5AFC8CC2A46BF67DACFC8E6D16B248 /* PineMenuTransitionXY.swift */,
 				F7A1524FE2E7E5F6D5471CA7D9C728DD /* PineMenuViewController.swift */,
 				9CBA759D101E6D0659C3132A66C0ABFD /* ReplaceMe.swift */,
@@ -693,6 +696,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				424F7C861C76102700BB9EC1 /* PineMenuTransitionSqueeze.swift in Sources */,
 				B46780178BF27B65B7C57F0EB96AD043 /* PineBaseMenuView.swift in Sources */,
 				42D89A4C91C79330C4858E151D0FBC56 /* PineBaseViewController.swift in Sources */,
 				77E958C2EEECACAE0F073B51D0DCC805 /* PineButton.swift in Sources */,
