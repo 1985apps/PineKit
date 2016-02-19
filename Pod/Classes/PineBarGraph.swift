@@ -12,16 +12,19 @@ import Cartography
 
 public class PineBarGraph: UIView {
     
-    var yDivisions = 5
+    var yDivisions : CGFloat = 5
+    var axisMargin = 20
     
-    var ySet: PineBarGraphYSet?
+    var xSet : [Dictionary<String, String>] = []
+    var ySet : PineBarGraphYSet?
+    
     let labelsView = UIView()
+    let yAxisView = UIView()
     
-    public init(ySet: PineBarGraphYSet){
+    public init(xSet: [Dictionary<String, String>], ySet: PineBarGraphYSet){
         super.init(frame: CGRect.zero)
         self.ySet = ySet
-        
-//        setup()
+        self.xSet = xSet
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -29,38 +32,30 @@ public class PineBarGraph: UIView {
     }
     
     public func setup(){
-        setupLabels()
-        
-//        self.backgroundColor = PineConfig.Color.red
-        self.layer.borderColor = UIColor.grayColor().CGColor
-        self.layer.borderWidth = 1
-        
+        setupXAxis()
         setupYAxis()
     }
     
-    func setupLabels(){
+    func setupXAxis(){
         
         self.addSubview(self.labelsView)
-        labelsView.backgroundColor = UIColor.grayColor()
-        labelsView.layer.borderWidth = 1
-        labelsView.layer.borderColor = UIColor.blackColor().CGColor
-        
-        print(self.frame.size.height)
+
         var frame = self.frame
-        frame.size.height = 40
+        frame.size.height = 20
         frame.origin.y = self.frame.size.height - frame.height
-        frame.origin.x = 30
+        frame.origin.x = CGFloat(self.axisMargin)
         frame.size.width = frame.width - frame.origin.x
         labelsView.frame = frame
-        print(frame)
         
-        let count : CGFloat = CGFloat(self.ySet!.labels.count)
+        let count : CGFloat = CGFloat(self.xSet.count)
         let labelWidth = frame.width / count
         var x : CGFloat = 0
         
         print(labelsView.frame.width)
-        for (index, label) in (self.ySet?.labels)!.enumerate() {
+        for item in self.xSet {
+            let label = item["text"]!
             let l = PineLabel(text: label)
+            l.font = PineConfig.Font.get(.Light, size: 11)
             l.textAlignment = .Center
             labelsView.addSubview(l)
             let f = CGRect(x: x, y: 0, width: labelWidth, height: frame.height)
@@ -71,8 +66,26 @@ public class PineBarGraph: UIView {
     
     func setupYAxis(){
         let r = self.ySet?.range
-        let sectionSize = ((r?.endIndex)! - (r?.startIndex)!) / yDivisions
+        let sectionSize = ((r?.endIndex)! - (r?.startIndex)!) / Int(yDivisions)
         print(sectionSize)
+        
+        self.addSubview(yAxisView)
+        self.yAxisView.frame = CGRect(x: 0, y: 0, width:CGFloat(self.axisMargin), height: self.frame.height - 30)
+        
+        var y = yAxisView.frame.height
+        let sectionHeight = yAxisView.frame.height / yDivisions
+        var value = Int((r?.startIndex)!)
+        
+        for _ in 0...(Int(self.yDivisions) - 1) {
+            let line = PineBarGraphHorizonalGridLine(text: String(value))
+            self.addSubview(line)
+            
+            line.frame = CGRect(x: 0, y: y, width: self.frame.width, height: 10)
+            
+            y = y - sectionHeight
+            value = value + sectionSize
+        }
+        
     }
 
 }

@@ -44,10 +44,16 @@ class ViewController: UIViewController {
         
         
         // GRAPH
-        let y = PineBarGraphYSet(range: 0...100, labels: ["Morning", "Afternoon", "Evening", "Night"])
+        let x = [
+            ["name": "morning", "text": "Morning"],
+            ["name": "morning", "text": "Afternoon"],
+            ["name": "morning", "text": "Evening"],
+            ["name": "morning", "text": "Night"]
+        ]
         
+        let y = PineBarGraphYSet(range: 0...100)
+        let g = PineBarGraph(xSet: x, ySet: y)
         
-        let g = PineBarGraph(ySet: y)
         self.view.addSubview(g)
         g.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200)
         g.setup()
