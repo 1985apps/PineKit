@@ -12,6 +12,15 @@ import UIKit
 
 public class PineMenuTransitionSqueeze : PineMenuTransition {
     
+    var squeezeBy : CGFloat = PineConfig.Menu.Transition.Squeeze.by
+    var moveX = PineConfig.Menu.Transition.Squeeze.x
+    
+    public override init(){
+        super.init()
+    }
+    
+    
+    
     override func open(){
         UIView.animateWithDuration(PineConfig.Menu.transitionDuration) { () -> Void in
             self.mainController?.contentNavigationController!.view.frame = self.getOpenFrame()
@@ -19,12 +28,11 @@ public class PineMenuTransitionSqueeze : PineMenuTransition {
     }
     
     func getOpenFrame() -> CGRect {
-        let diff : CGFloat = 100.0
         var frame = self.mainController?.contentNavigationController?.view.frame
-        let height : CGFloat = (frame?.size.height)! - diff
-        frame?.size.height = height - diff
-        frame?.origin.x = (frame?.size.width)! - diff
-        frame?.origin.y = diff
+        let height : CGFloat = (frame?.size.height)! - self.squeezeBy
+        frame?.size.height = height - self.squeezeBy
+        frame?.origin.x = self.moveX
+        frame?.origin.y = self.squeezeBy
         return frame!
     }
     

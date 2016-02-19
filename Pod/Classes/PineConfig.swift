@@ -59,6 +59,19 @@ public class PineConfig {
     
     public struct Menu {
         public static var transitionDuration = 0.5
+        
+        public struct Transition {
+            
+            public static var duration = Menu.transitionDuration
+            
+            public struct Squeeze {
+            
+                public static var by : CGFloat = 80
+                public static var x : CGFloat  = 150
+                
+            }
+            
+        }
     }
     
 }
