@@ -12,8 +12,8 @@ import UIKit
 
 public class PineMenuTransitionSqueeze : PineMenuTransition {
     
-    var squeezeBy : CGFloat = PineConfig.Menu.Transition.Squeeze.by
-    var moveX = PineConfig.Menu.Transition.Squeeze.x
+    public var squeezeBy : CGFloat = PineConfig.Menu.Transition.Squeeze.by
+    public var moveX = PineConfig.Menu.Transition.Squeeze.x
     
     public override init(){
         super.init()
