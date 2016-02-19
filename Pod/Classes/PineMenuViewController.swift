@@ -47,7 +47,6 @@ public class PineMenuViewController : UIViewController, PineMenuDelegate  {
     
     func setup(){
         self.view.addSubview(self.menuView!)
-        self.menuView!.frame = self.view.frame
         setupNavigationController()
     }
     

@@ -15,6 +15,7 @@
 		28515F6FFAA0E2F9591A862D532F33AC /* Compound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC46FFC7DDB178E3BD611737EBF2104 /* Compound.swift */; };
 		2B55B164702B90FDC034391BAB93CA64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E862EF3B81C1A775A96F4244A3E950 /* Foundation.framework */; };
 		369CA2AACEED2517C99D77D7700DFCEA /* Distribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB7A46AB1BCE18F00B683998086AFF /* Distribute.swift */; };
+		42B5A22A1C770FD70043329E /* PineMenuTransitionSlideOverContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5A2291C770FD70043329E /* PineMenuTransitionSlideOverContent.swift */; };
 		452C09D0CAC1F8286ABA1CE076033B23 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67DFC18B64ED49E17196327486063C /* Context.swift */; };
 		4729CEA30AF8C9DBFC400AFD3634773A /* PineKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC5A2C8B2F1E311AF0EC17A300E4F93 /* PineKit-dummy.m */; };
 		48ADE3FB3F30FCA5893083351449DA98 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84731979502C1051DDD3380C8CBE6F8 /* ViewUtils.swift */; };
@@ -135,6 +136,7 @@
 		3E4FB3A8E7E883DA0E288FEEDA033133 /* Cartography.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cartography.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B7A959B9C0E83755180D6BD85AF225 /* Cartography.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cartography.xcconfig; sourceTree = "<group>"; };
 		4297ED6EE9CE885BD8A2DBD4A43C4EF6 /* Pods-PineKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PineKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		42B5A2291C770FD70043329E /* PineMenuTransitionSlideOverContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineMenuTransitionSlideOverContent.swift; sourceTree = "<group>"; };
 		45C595ADFD0560A2449C8CE1C9C47B08 /* PineConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PineConfig.swift; sourceTree = "<group>"; };
 		48AF7B4AEA4CCB0E88BC528CE09ACD9F /* Cartography-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cartography-dummy.m"; sourceTree = "<group>"; };
 		4BFD5FBD7F4D5CFA1E0992CF70A32A6E /* Pods-PineKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PineKit_Tests.modulemap"; sourceTree = "<group>"; };
@@ -322,19 +324,36 @@
 			path = "Target Support Files/Pods-PineKit_Example";
 			sourceTree = "<group>";
 		};
+		42B5A2271C770EB00043329E /* Menus */ = {
+			isa = PBXGroup;
+			children = (
+				42B5A2281C770EC10043329E /* Transitions */,
+				D8AF8E23DD6DBA013A045A2E4F0BB96D /* PineBaseMenuView.swift */,
+				8AD4CD14E67B1C9D40E0219F78D6EE9D /* PineMenuDelegate.swift */,
+				1D35A9C9D7FAA999AD5BF4BE4CF82370 /* PineMenuViewController.swift */,
+			);
+			name = Menus;
+			sourceTree = "<group>";
+		};
+		42B5A2281C770EC10043329E /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				21A9A725829E7683A66C1482111D3934 /* PineMenuTransition.swift */,
+				4DE7B1647A466E0263E756D98539D21A /* PineMenuTransitionXY.swift */,
+				B6F0DFB1714C3BD3B245B34D2C9D7746 /* PineMenuTransitionSqueeze.swift */,
+				42B5A2291C770FD70043329E /* PineMenuTransitionSlideOverContent.swift */,
+			);
+			name = Transitions;
+			sourceTree = "<group>";
+		};
 		47803F97740DD1BF5E469C2BABEF55A1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D8AF8E23DD6DBA013A045A2E4F0BB96D /* PineBaseMenuView.swift */,
+				42B5A2271C770EB00043329E /* Menus */,
 				79D5067E828850DF4C6B5BBD62857FB4 /* PineBaseViewController.swift */,
 				A60B5B5A08C014D9CFE95A4CBAC45124 /* PineButton.swift */,
 				45C595ADFD0560A2449C8CE1C9C47B08 /* PineConfig.swift */,
 				F11785E8AA95DBDB284710691D4134F1 /* PineLabel.swift */,
-				8AD4CD14E67B1C9D40E0219F78D6EE9D /* PineMenuDelegate.swift */,
-				21A9A725829E7683A66C1482111D3934 /* PineMenuTransition.swift */,
-				B6F0DFB1714C3BD3B245B34D2C9D7746 /* PineMenuTransitionSqueeze.swift */,
-				4DE7B1647A466E0263E756D98539D21A /* PineMenuTransitionXY.swift */,
-				1D35A9C9D7FAA999AD5BF4BE4CF82370 /* PineMenuViewController.swift */,
 				2526F27D002D72CFBB823463B8A4559B /* PineTextField.swift */,
 				B409CD01E2750130A869D7CFEAF85C40 /* ReplaceMe.swift */,
 			);
@@ -686,6 +705,7 @@
 				1736B2DE76DD82906BEEDEB8E5182834 /* PineMenuViewController.swift in Sources */,
 				E9CF542683245453B0E8136809DA0F3E /* PineTextField.swift in Sources */,
 				CB4183EA5A816A67433320D65ACE235D /* ReplaceMe.swift in Sources */,
+				42B5A22A1C770FD70043329E /* PineMenuTransitionSlideOverContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

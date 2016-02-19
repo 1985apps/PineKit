@@ -10,26 +10,40 @@ import Foundation
 import UIKit
 
 
-public class PineMenuTransition {
+public class PineMenuTransition : NSObject {
     
     public var mainController: PineMenuViewController?
+    public var menuView: PineBaseMenuView?
     
-    public init(){
-	self.mainController = nil        
+    public override init(){
+        self.mainController = nil        
     }
     
+    // ONCE THE CONTROLLER IS SETUP THE MENU IS SETUP AS WELL
+    // START MENU POSITION IS VERY IMPORTANT
     func setController(controller: PineMenuViewController){
         self.mainController = controller
+        self.menuView = self.mainController!.menuView!
+        self.setup()
+    }
+    
+    func setup(){
+        self.mainController!.menuView!.frame = self.mainController!.view.frame
     }
     
     func toggle(){
-        let contentFrame = self.mainController!.contentNavigationController!.view.frame
-        let controllerFrame = self.mainController!.view.frame
-        if controllerFrame != contentFrame {
+
+        if self.isOpen() {
             close()
         } else {
             open()
         }
+    }
+    
+    func isOpen() -> Bool {
+        let contentFrame = self.mainController!.contentNavigationController!.view.frame
+        let controllerFrame = self.mainController!.view.frame
+        return (controllerFrame != contentFrame) ? true : false
     }
     
     func open(){

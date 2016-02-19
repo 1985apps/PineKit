@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     func enter(sender: AnyObject?){
-        let menu = PineMenuViewController.init(menuView: MenuView(), rootViewController: ElementViewController(), transition: PineMenuTransitionSqueeze())
+        let menu = PineMenuViewController.init(menuView: MenuView(), rootViewController: ElementViewController(), transition: PineMenuTransitionSlideOverContent())
         self.presentViewController(menu, animated: true, completion: nil)
     }
 }

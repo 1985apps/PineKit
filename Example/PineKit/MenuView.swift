@@ -11,4 +11,10 @@ import PineKit
 
 class MenuView: PineBaseMenuView {
 
+    
+    override func setup() {
+        self.backgroundColor = UIColor.greenColor()
+        print("I am here")
+    }
+    
 }
