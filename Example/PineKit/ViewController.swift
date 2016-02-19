@@ -41,12 +41,22 @@ class ViewController: UIViewController {
             text.width == PineConfig.TextField.width
             text.height == PineConfig.TextField.height
         }
-
+        
+        
+        // GRAPH
+        let y = PineBarGraphYSet(range: 0...100, labels: ["Morning", "Afternoon", "Evening", "Night"])
+        
+        
+        let g = PineBarGraph(ySet: y)
+        self.view.addSubview(g)
+        g.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200)
+        g.setup()
     }
     
     func enter(sender: AnyObject?){
         let menu = PineMenuViewController.init(menuView: MenuView(), rootViewController: ElementViewController(), transition: PineMenuTransitionSqueeze())
         self.presentViewController(menu, animated: true, completion: nil)
+        
     }
 }
 
