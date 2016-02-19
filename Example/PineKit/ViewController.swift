@@ -55,8 +55,10 @@ class ViewController: UIViewController {
         let g = PineBarGraph(xSet: x, ySet: y)
         
         self.view.addSubview(g)
-        g.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200)
+        g.frame = CGRect(x: 10, y: 20, width: self.view.frame.width - 20, height: 200)
         g.setup()
+        
+        g.applyLayer([30, 50, 20, 77])
     }
     
     func enter(sender: AnyObject?){

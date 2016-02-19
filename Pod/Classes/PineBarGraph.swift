@@ -13,12 +13,13 @@ import Cartography
 public class PineBarGraph: UIView {
     
     var yDivisions : CGFloat = 5
-    var axisMargin = 20
+    var axisMargin : CGFloat = 20
     
     var xSet : [Dictionary<String, String>] = []
     var ySet : PineBarGraphYSet?
     
     let labelsView = UIView()
+    var canvas = UIView()
     let yAxisView = UIView()
     
     public init(xSet: [Dictionary<String, String>], ySet: PineBarGraphYSet){
@@ -32,19 +33,30 @@ public class PineBarGraph: UIView {
     }
     
     public func setup(){
+        setupCanvas()
         setupXAxis()
         setupYAxis()
+    }
+    
+    func setupCanvas(){
+        self.addSubview(self.canvas)
+
+        var frame = CGRect.zero
+        frame.origin.x = self.axisMargin
+        frame.size.width = self.frame.width - self.axisMargin - 10
+        frame.size.height = self.frame.height - self.axisMargin
+        self.canvas.frame = frame
+        
     }
     
     func setupXAxis(){
         
         self.addSubview(self.labelsView)
 
-        var frame = self.frame
+        var frame = self.canvas.frame
+        
         frame.size.height = 20
         frame.origin.y = self.frame.size.height - frame.height
-        frame.origin.x = CGFloat(self.axisMargin)
-        frame.size.width = frame.width - frame.origin.x
         labelsView.frame = frame
         
         let count : CGFloat = CGFloat(self.xSet.count)
@@ -86,6 +98,45 @@ public class PineBarGraph: UIView {
             value = value + sectionSize
         }
         
+    }
+    
+    public func applyLayer(values: [CGFloat]){
+        
+        for (index, value) in values.enumerate() {
+            
+            let bar = UIView()
+            var frame = self.getFrameForColumn(number: CGFloat(index), value: value)
+            let animateToHeight = frame.height
+            let animateToY = frame.origin.y
+            
+            frame.size.height = 0
+            frame.origin.y = self.canvas.frame.height
+            bar.frame = frame
+
+            self.canvas.addSubview(bar)
+
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                frame.size.height = animateToHeight
+                frame.origin.y = animateToY
+                bar.frame = frame
+                bar.backgroundColor = PineConfig.Color.purpleLight
+            })
+            
+        }
+    }
+    
+    func getFrameForColumn(number number: CGFloat, value: CGFloat) -> CGRect {
+        
+        let canvasWidth = self.canvas.frame.width
+        let sectionWidth = canvasWidth / CGFloat(self.xSet.count)
+        
+        let barWidth = sectionWidth * 0.66
+        let diff = sectionWidth - barWidth
+        let height = self.canvas.frame.height * value / 100
+        let y = self.canvas.frame.height - height
+        
+        let x = (number * sectionWidth) + (diff / 2)
+        return CGRect(x: x, y: y, width: barWidth, height: height)
     }
 
 }

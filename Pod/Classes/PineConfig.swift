@@ -19,7 +19,9 @@ public class PineConfig {
         public static var red = UIColor(red:0.851, green:0.345, blue:0.341, alpha:1.00)
         public static var cream = UIColor(red:0.765, green:0.796, blue:0.820, alpha:1.00)
         public static var purple = UIColor(red:0.196, green:0.188, blue:0.369, alpha:1.00)
+        public static var purpleLight = UIColor(red:0.506, green:0.522, blue:0.839, alpha:1.00)
         public static var grayLight = UIColor(red:0.957, green:0.961, blue:0.969, alpha:1.00)
+        public static var grayExtraLight = UIColor(red:0.953, green:0.957, blue:0.961, alpha:1.00)
         
         // NAMED COLORS
         public static var primary = blue
@@ -72,6 +74,12 @@ public class PineConfig {
             }
             
         }
+    }
+    
+    public struct Graph {
+        
+        public static var gridLineColor = Color.grayExtraLight
+        
     }
     
 }

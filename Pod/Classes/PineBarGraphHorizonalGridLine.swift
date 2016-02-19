@@ -13,6 +13,7 @@ import Cartography
 public class PineBarGraphHorizonalGridLine: UIView {
     
     var text = ""
+    var lineColor = PineConfig.Graph.gridLineColor
     
     public init(text: String){
         super.init(frame: CGRect.zero)
@@ -36,7 +37,7 @@ public class PineBarGraphHorizonalGridLine: UIView {
         }
         
         let line = UIView()
-        line.backgroundColor = UIColor.grayColor()
+        line.backgroundColor = self.lineColor
         self.addSubview(line)
         constrain(line, label) { (line, label) in
             line.centerY == label.centerY
