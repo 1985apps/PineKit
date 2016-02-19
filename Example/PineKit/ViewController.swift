@@ -33,6 +33,15 @@ class ViewController: UIViewController {
         }
         
         button.addTarget(self, action: "enter:", forControlEvents: .TouchUpInside)
+        let text = PineTextField(placeholder: "Email Address")
+        self.view.addSubview(text)
+        constrain(text, button) { (text, button) -> () in
+            text.top == button.bottom + 20
+            text.centerX == text.superview!.centerX
+            text.width == PineConfig.TextField.width
+            text.height == PineConfig.TextField.height
+        }
+
     }
     
     func enter(sender: AnyObject?){

@@ -1,6 +1,7 @@
 PODS:
   - Cartography (0.6.0)
-  - PineKit (0.1.0)
+  - PineKit (0.1.0):
+    - Cartography
 
 DEPENDENCIES:
   - Cartography
@@ -12,6 +13,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
-  PineKit: d3e5b5841b93329b4faa66abb425c3ca2ab014fd
+  PineKit: 1bf38f2e1426527afcd09f5272d218c4d4b33f88
 
 COCOAPODS: 0.39.0

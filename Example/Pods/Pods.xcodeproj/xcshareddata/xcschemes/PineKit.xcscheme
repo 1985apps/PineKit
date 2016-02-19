@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '940FF86E12DD1A9E3CD3B627'
+               BlueprintIdentifier = '52A0D3141ED55D1EF0EF7AED'
                BlueprintName = 'PineKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'PineKit.framework'>
