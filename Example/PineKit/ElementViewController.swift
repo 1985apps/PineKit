@@ -15,6 +15,7 @@ class ElementViewController: PineBaseViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = PineConfig.Color.red
+//        self.view.layer.cornerRadius = 20
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

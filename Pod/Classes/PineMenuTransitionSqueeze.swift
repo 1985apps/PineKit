@@ -20,11 +20,20 @@ public class PineMenuTransitionSqueeze : PineMenuTransition {
     }
     
     
-    
     override func open(){
+        let navigationView = self.mainController?.contentNavigationController!.view
+        let contentController = self.mainController?.contentNavigationController?.viewControllers.last
+        
         UIView.animateWithDuration(PineConfig.Menu.transitionDuration) { () -> Void in
-            self.mainController?.contentNavigationController!.view.frame = self.getOpenFrame()
+            navigationView!.frame = self.getOpenFrame()
+            contentController?.view.layer.cornerRadius = 4
         }
+        
+        let layer = navigationView?.layer
+        layer!.shadowColor = UIColor.blackColor().CGColor
+        layer!.shadowOpacity = 0.2
+        layer!.shadowOffset = CGSizeZero
+        layer!.shadowRadius = 4
     }
     
     func getOpenFrame() -> CGRect {
@@ -34,6 +43,12 @@ public class PineMenuTransitionSqueeze : PineMenuTransition {
         frame?.origin.x = self.moveX
         frame?.origin.y = self.squeezeBy
         return frame!
+    }
+    
+    override func close(){
+        super.close()
+        let contentController = self.mainController?.contentNavigationController?.viewControllers.last
+        contentController?.view.layer.cornerRadius = 0
     }
     
     
