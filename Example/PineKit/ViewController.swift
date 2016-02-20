@@ -59,6 +59,18 @@ class ViewController: UIViewController {
         g.setup()
         
         g.applyLayer([30, 50, 20, 77])
+        
+        let items = [
+            ["text": "Hello", "value": "hello", "icon": "menu"],
+            ["text": "There", "value": "here", "icon": "back"]
+        ]
+        let group = PineSelectGroup(items: items)
+        self.view.addSubview(group)
+        group.snp_makeConstraints { (make) -> Void in
+            make.bottom.left.right.equalTo(self.view)
+            make.height.equalTo(100)
+        }
+        
     }
     
     func enter(sender: AnyObject?){

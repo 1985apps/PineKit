@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PineKit_Tests/Cartography.framework"
+  install_framework "Pods-PineKit_Tests/SnapKit.framework"
   install_framework "Pods-PineKit_Tests/PineKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PineKit_Tests/Cartography.framework"
+  install_framework "Pods-PineKit_Tests/SnapKit.framework"
   install_framework "Pods-PineKit_Tests/PineKit.framework"
 fi

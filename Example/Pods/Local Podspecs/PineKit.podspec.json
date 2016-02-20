@@ -25,6 +25,9 @@
   "dependencies": {
     "Cartography": [
 
+    ],
+    "SnapKit": [
+      "~> 0.15.0"
     ]
   }
 }

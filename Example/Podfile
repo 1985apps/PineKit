@@ -13,3 +13,4 @@ end
 
 
 pod 'Cartography'
+pod 'SnapKit', '~> 0.15.0'

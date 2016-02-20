@@ -27,6 +27,10 @@ public class PineConfig {
         public static var primary = blue
     }
     
+    public struct Size {
+        public static var icon = CGSize(width: 44, height: 44)
+    }
+    
     public struct Font {
         
         public enum Family : String {
