@@ -64,13 +64,15 @@ class ViewController: UIViewController {
             ["text": "Hello", "value": "hello", "icon": "menu"],
             ["text": "There", "value": "here", "icon": "back"]
         ]
-        let group = PineRadioGroup(items: items)
+        var group = PineRadioGroup(items: items)
         self.view.addSubview(group)
         group.snp_makeConstraints { (make) -> Void in
             make.bottom.left.right.equalTo(self.view)
             make.height.equalTo(100)
         }
         
+        group.itemHeight = 100
+        group.positionItems()
     }
     
     func enter(sender: AnyObject?){

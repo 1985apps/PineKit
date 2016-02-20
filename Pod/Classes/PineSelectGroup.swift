@@ -14,6 +14,7 @@ public class PineSelectGroup: UIView {
     public var items: [UIView] = []
     var callOnSelection : PineSelectGroup -> Void = {_ in }
     public var separator : Bool = true
+    public var itemHeight = 40
     
 
     public required init?(coder aDecoder: NSCoder) {
@@ -97,6 +98,7 @@ public class PineSelectGroup: UIView {
     }
     
     public func positionItems(){
+        
         if self.items.count <= 1 {
             return
         }
@@ -104,9 +106,9 @@ public class PineSelectGroup: UIView {
         for index in 1...(self.items.count - 1) {
             let item = self.items[index]
             item.backgroundColor = UIColor.blueColor()
-            item.snp_makeConstraints(closure: { (make) -> Void in
+            item.snp_updateConstraints(closure: { (make) -> Void in
                 make.left.width.equalTo(self)
-                make.height.equalTo(40)
+                make.height.equalTo(self.itemHeight)
                 make.top.equalTo(self.items[index - 1].snp_bottom).offset(1)
             })
         }
