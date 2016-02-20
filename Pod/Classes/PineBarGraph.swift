@@ -12,6 +12,8 @@ import Cartography
 
 public class PineBarGraph: UIView {
     
+    public var barColor = PineConfig.Color.purple
+    
     var yDivisions : CGFloat = 5
     var axisMargin : CGFloat = 20
     
@@ -119,7 +121,7 @@ public class PineBarGraph: UIView {
                 frame.size.height = animateToHeight
                 frame.origin.y = animateToY
                 bar.frame = frame
-                bar.backgroundColor = PineConfig.Color.purpleLight
+                bar.backgroundColor = self.barColor
             })
             
         }
