@@ -64,15 +64,18 @@ class ViewController: UIViewController {
             ["text": "Hello", "value": "hello", "icon": "menu"],
             ["text": "There", "value": "here", "icon": "back"]
         ]
-        var group = PineRadioGroup(items: items)
-        self.view.addSubview(group)
-        group.snp_makeConstraints { (make) -> Void in
-            make.bottom.left.right.equalTo(self.view)
-            make.height.equalTo(100)
-        }
+
+        let t = PineTextField(placeholder: "this is here")
+        t.textAlignment = .Center
+        t.style()
+        self.view.addSubview(t)
         
-        group.itemHeight = 100
-        group.positionItems()
+        t.snp_makeConstraints { (make) -> Void in
+            make.height.equalTo(PineConfig.TextField.height)
+            make.width.equalTo(250)
+            make.left.equalTo(self.view).offset(10)
+            make.bottom.equalTo(self.view).inset(20)
+        }
     }
     
     func enter(sender: AnyObject?){

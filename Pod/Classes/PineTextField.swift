@@ -13,11 +13,12 @@ import Cartography
 public class PineTextField: UITextField {
     
     let line = UIView()
-    var label = PineLabel(text: "")
+    public var label = PineLabel(text: "")
     
     public init(placeholder: String){
         let frame = CGRect(x: 0, y: 0, width: PineConfig.TextField.width, height: PineConfig.TextField.width)
         super.init(frame: frame)
+        self.contentVerticalAlignment = .Bottom
         self.placeholder = placeholder
         self.setup()
         self.style()
@@ -45,6 +46,7 @@ public class PineTextField: UITextField {
             label.leading == label.superview!.leading
             label.top == label.superview!.top
             label.left == label.superview!.left
+            label.right == label.superview!.right
         }
         self.label.text = ""
         
@@ -60,7 +62,16 @@ public class PineTextField: UITextField {
     }
     
     public func style(){
-        
+        self.label.font = PineConfig.Font.get(.Bold, size: 12)
+        self.label.textAlignment = self.textAlignment
+    }
+    
+    public override func editingRectForBounds(rect: CGRect) -> CGRect {
+        return self.textRectForBounds(rect)
+    }
+
+    public override func textRectForBounds(rect: CGRect) -> CGRect {
+        return CGRectInset(rect, 0, 10)
     }
     
     func onChange(sender: AnyObject?){
