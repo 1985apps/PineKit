@@ -80,6 +80,12 @@ public class PineConfig {
         }
     }
     
+    public struct NavigationBar {
+        
+        public static var height: CGFloat = 44
+        public static var heightWithStatusBar: CGFloat = 20 + NavigationBar.height
+    }
+    
     public struct Graph {
         
         public static var gridLineColor = Color.grayExtraLight
