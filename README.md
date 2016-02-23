@@ -35,6 +35,24 @@ PineKit is a framework containing a lot of classes and structures which are comp
 - Layout Elements (PineLinearLayout, PineMenuViewController, ...)
 - Base Elements (PineBaseViewController, ...)
 
+### UI Elements
+#### PineLabel(title: String) : UILabel
+Creates a label with the fonts set in the PineConfig
+
+```swift
+     let lable = PineLabel(title: String)
+     self.view.addSubview(label)
+```
+
+#### PineTextField(placeholder: String) : UITextField
+A float placeholder text field, where the floating placeholder only shows when the textfield is not empty
+
+#### PineButton(title: String) : UIButton
+A Solid Botton with rounded corners
+
+#### PineButton.Hollow(title: String) : UIButton
+A sub class of the PineButton where the
+
 ## Author
 
 Prakash Raman, prakash.raman.ka@gmail.com
