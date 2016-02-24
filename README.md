@@ -47,6 +47,12 @@ Creates a label with the fonts set in the PineConfig
 #### PineTextField(placeholder: String) : UITextField
 A float placeholder text field, where the floating placeholder only shows when the textfield is not empty
 
+```swift
+     let tf = PineTextField(title: String)
+     tf.textAlignment = .Center
+     self.view.addSubview(label)
+```
+
 #### PineButton(title: String) : UIButton
 A Solid Botton with rounded corners
 

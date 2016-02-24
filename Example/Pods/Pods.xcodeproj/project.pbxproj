@@ -19,6 +19,7 @@
 		2C6812DF8D2FA46D417636D9B6C14CA7 /* PineSelectGroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BFC137B09A18C83F6F00C352B7E296 /* PineSelectGroupItem.swift */; };
 		369CA2AACEED2517C99D77D7700DFCEA /* Distribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E02A266EEC8EEB3B26BA61C253D4FA /* Distribute.swift */; };
 		3A01A8FD9091B99A13A4F93BC43AD3E3 /* PineMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB9C6866026522C3F83FCD60DE4DB34 /* PineMenuDelegate.swift */; };
+		422A40C21C7DC23600439274 /* PineLinearLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422A40C11C7DC23600439274 /* PineLinearLayout.swift */; };
 		423BBAA41C78620700DB7ACF /* PineIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BBAA31C78620700DB7ACF /* PineIcon.swift */; };
 		423BBAA91C78687800DB7ACF /* PineRadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BBAA71C78687800DB7ACF /* PineRadioGroup.swift */; };
 		423BBAAA1C78687800DB7ACF /* PineRadioGroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BBAA81C78687800DB7ACF /* PineRadioGroupItem.swift */; };
@@ -185,6 +186,7 @@
 		3ADB071C5E61125C39ED0AB1F590C559 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		3CCAEF5ABE87521521125C99B78AF739 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Source/Debugging.swift; sourceTree = "<group>"; };
 		40E4889C155FE6680BA1AEC0F56221FF /* View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = View.swift; path = Cartography/View.swift; sourceTree = "<group>"; };
+		422A40C11C7DC23600439274 /* PineLinearLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineLinearLayout.swift; sourceTree = "<group>"; };
 		423BBAA31C78620700DB7ACF /* PineIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineIcon.swift; sourceTree = "<group>"; };
 		423BBAA71C78687800DB7ACF /* PineRadioGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineRadioGroup.swift; sourceTree = "<group>"; };
 		423BBAA81C78687800DB7ACF /* PineRadioGroupItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineRadioGroupItem.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 				423BBAA81C78687800DB7ACF /* PineRadioGroupItem.swift */,
 				D9762BFF721905BADA930BC5EA47204D /* PineTextField.swift */,
 				AF5F519FFA7807E5F5385D76257257CB /* ReplaceMe.swift */,
+				422A40C11C7DC23600439274 /* PineLinearLayout.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -937,6 +940,7 @@
 				93A4396DC0B70E181B40403FE48D810B /* PineMenuTransitionXY.swift in Sources */,
 				863A4832ACB58A2896BB40FE4BD1F4FE /* PineMenuViewController.swift in Sources */,
 				E97262133D05938D39DC3B64398A7A19 /* PineSelectGroup.swift in Sources */,
+				422A40C21C7DC23600439274 /* PineLinearLayout.swift in Sources */,
 				2C6812DF8D2FA46D417636D9B6C14CA7 /* PineSelectGroupItem.swift in Sources */,
 				66FCE7677D5E1B0716AAE30C6830D22A /* PineTextField.swift in Sources */,
 				423BBAA41C78620700DB7ACF /* PineIcon.swift in Sources */,
