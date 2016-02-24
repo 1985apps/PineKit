@@ -35,13 +35,15 @@ class ViewController: UIViewController {
             make.edges.equalTo(self.view).inset(30)
         }
         let b = PineButton(title: "hello")
-        layout.addSubview(b)
+        let c = PineButton(title: "Next Button")
+        
+        layout.addSubviews([b, c])
+        
+        
         b.snp_makeConstraints { (make) -> Void in
             make.width.height.equalTo(100)
         }
         
-        let c = PineButton(title: "Next Button")
-        layout.addSubview(c)
         c.snp_makeConstraints { (make) -> Void in
             make.width.height.equalTo(b)
         }

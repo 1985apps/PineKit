@@ -37,6 +37,12 @@ public class PineLinearLayout: UIView {
         positionViewVertical(view)
     }
     
+    public func addSubviews(views: [UIView]){
+        for view in views {
+            self.addSubview(view)
+        }
+    }
+    
     public func positionViewVertical(view: UIView){
         view.snp_makeConstraints { (make) -> Void in
             if self.subviews.count <= 1 {
