@@ -53,7 +53,10 @@ class ViewController: UIViewController {
         let v2 =  UIView()
         v2.backgroundColor = UIColor.greenColor()
         
-        let swipe = PineSwipeView(views: [v1, v2])
+        let swipe = PineSwipeView(views: [v1, v2], onChange: { stage -> Void in
+            print("after it is complete")
+            print("stage is : \(stage)")
+        })
         self.view.addSubview(swipe)
         swipe.snp_makeConstraints { (make) -> Void in
             make.left.right.equalTo(self.view).inset(20)
