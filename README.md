@@ -9,23 +9,6 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
-
-- [PineKit](#)
-	- [Usage](#)
-	- [Requirements](#)
-	- [Installation](#)
-	- [Dependecies](#)
-	- [PineElements](#)
-		- [UI Elements](#)
-			- [PineLabel(title: String) : UILabel](#)
-			- [PineTextField(placeholder: String) : UITextField](#)
-			- [PineButton(title: String) : UIButton](#)
-			- [PineButton.Hollow(title: String) : UIButton](#)
-			- [sd](#)
-	- [Author](#)
-	- [License](#)
-
 ## Requirements
 
 ## Installation
