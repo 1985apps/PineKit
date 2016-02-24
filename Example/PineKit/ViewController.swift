@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     
         let layout = PineLinearLayout(type: .Vertical, gutter: 10, alignment: .Center)
         self.view.addSubview(layout)
-        layout.backgroundColor = UIColor.grayColor()
+        layout.backgroundColor = UIColor.whiteColor()
         layout.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view).inset(30)
         }
@@ -47,6 +47,20 @@ class ViewController: UIViewController {
         c.snp_makeConstraints { (make) -> Void in
             make.width.height.equalTo(b)
         }
+        
+        let v1 = UIView()
+        v1.backgroundColor = UIColor.redColor()
+        let v2 =  UIView()
+        v2.backgroundColor = UIColor.greenColor()
+        
+        let swipe = PineSwipeView(views: [v1, v2])
+        self.view.addSubview(swipe)
+        swipe.snp_makeConstraints { (make) -> Void in
+            make.left.right.equalTo(self.view).inset(20)
+            make.height.equalTo(40)
+            make.bottom.equalTo(self.view).inset(40)
+        }
+//        swipe.backgroundColor = UIColor.blueColor()
         
     }
     
