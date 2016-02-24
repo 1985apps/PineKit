@@ -27,7 +27,7 @@ public class PineButton : UIButton {
     func setup(){
         self.backgroundColor = PineConfig.Color.red
         self.layer.cornerRadius = 2
-        self.titleLabel?.font = PineConfig.Font.get(.Bold, size: 14)
+        self.titleLabel?.font = PineConfig.Font.get(PineConfig.Font.BOLD, size: 14)
 //        constrain(self) { button in
 //            button.height == PineConfig.Button.height
 //        }

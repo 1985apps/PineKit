@@ -28,7 +28,7 @@ public class PineLabel : UILabel {
     }
     
     func setup(){
-        self.font = PineConfig.Font.get(.Bold, size: 14)
+        self.font = PineConfig.Font.get(PineConfig.Font.BOLD, size: 14)
     }
     
     // THIS FUNCTION SHOULD BE OVERRIDDEN IN CASE OF SUB CLASSES

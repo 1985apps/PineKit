@@ -50,14 +50,26 @@ A float placeholder text field, where the floating placeholder only shows when t
 ```swift
      let tf = PineTextField(title: String)
      tf.textAlignment = .Center
-     self.view.addSubview(label)
+     self.view.addSubview(tf)
 ```
 
 #### PineButton(title: String) : UIButton
-A Solid Botton with rounded corners
+A Solid Button with rounded corners
+
+```swift
+     let button = PineButton(title: String)
+     self.view.addSubview(button)
+```
 
 #### PineButton.Hollow(title: String) : UIButton
-A sub class of the PineButton where the
+A sub class of the PineButton where only the border is visiable and the background color is "clearColor()"
+
+```swift
+     let button = PineButton.Hollow(title: String)
+     self.view.addSubview(button)
+```
+
+#### sd
 
 ## Author
 

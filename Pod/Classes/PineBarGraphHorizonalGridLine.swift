@@ -27,7 +27,7 @@ public class PineBarGraphHorizonalGridLine: UIView {
     
     public func setup(){
         let label = PineLabel(text: self.text)
-        label.font = PineConfig.Font.get(.Light, size: 11)
+        label.font = PineConfig.Font.get(PineConfig.Font.REGULAR, size: 11)
         self.addSubview(label)
         constrain(label, self) { label, row in
             label.top == row.top

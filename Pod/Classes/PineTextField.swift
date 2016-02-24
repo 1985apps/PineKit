@@ -62,7 +62,7 @@ public class PineTextField: UITextField {
     }
     
     public func style(){
-        self.label.font = PineConfig.Font.get(.Bold, size: 12)
+        self.label.font = PineConfig.Font.get(PineConfig.Font.BOLD, size: 12)
         self.label.textAlignment = self.textAlignment
     }
     

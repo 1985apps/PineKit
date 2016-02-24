@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         let v2 =  UIView()
         v2.backgroundColor = UIColor.greenColor()
         
-        let swipe = PineSwipeView(views: [v1, v2], onChange: { stage -> Void in
+        let swipe = PineSwipeView(stages: [v1, v2], onChange: { stage -> Void in
             print("after it is complete")
             print("stage is : \(stage)")
         })

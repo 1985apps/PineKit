@@ -11,14 +11,14 @@ import Foundation
 
 public class PineSwipeView: UIView {
     
-    public var views : [UIView] = []
+    public var stages : [UIView] = []
     public var onChange : (stage : Int) -> Void = {_ in}
     public var stage = 1
     
 
-    public init(views: [UIView] = [], onChange: ((stage: Int) -> Void)? = nil){
+    public init(stages: [UIView] = [], onChange: ((stage: Int) -> Void)? = nil){
         super.init(frame: CGRect.zero)
-        self.views = views.reverse()
+        self.stages = stages.reverse()
         self.clipsToBounds = true
         if onChange != nil {
             self.onChange = onChange!
@@ -31,7 +31,7 @@ public class PineSwipeView: UIView {
     }
     
     public func setup(){
-        for view in self.views {
+        for view in self.stages {
             self.addSubview(view)
         }
         setupPan()
@@ -40,16 +40,16 @@ public class PineSwipeView: UIView {
     public func setupPan(){
     // REGISTERS THE PAN
         let pan = UIPanGestureRecognizer(target: self, action: "panning:")
-        if self.views.count == 0 {
+        if self.stages.count == 0 {
             return
         }
-        self.views.last!.addGestureRecognizer(pan)
+        self.stages.last!.addGestureRecognizer(pan)
     }
     
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        for view in self.views {
+        for view in self.stages {
             view.frame = CGRect(origin: CGPoint.zero, size: self.frame.size)
         }
     }
@@ -72,7 +72,7 @@ public class PineSwipeView: UIView {
     }
     
     public func resetView(){
-        let v = self.views.last
+        let v = self.stages.last
         UIView.animateWithDuration(0.3) { () -> Void in
             var f = v!.frame
             f.origin.x = 0
@@ -83,18 +83,18 @@ public class PineSwipeView: UIView {
     
     // MOVES THE VIEW COMPLETELY OUT
     // REMOVES FROM THE SUPER VIEW
-    // REMOVES FROM THE SELF.VIEWS
+    // REMOVES FROM THE SELF.stages
     // CALLS ONCHAGE
     // INCREMENTS "STAGE"
     public func nextView(){
-        let view = self.views.last
+        let view = self.stages.last
         UIView.animateWithDuration(0.1, animations: { () -> Void in
             var f = view?.frame
             f?.origin.x = self.frame.width
             view?.frame = f!
         }) { (done) -> Void in
             view?.removeFromSuperview()
-            self.views.removeLast()
+            self.stages.removeLast()
             self.setupPan() // SETUPS UP THE PAN FOR THE NEXT VIEW
             
             self.onChange(stage: self.stage)

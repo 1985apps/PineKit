@@ -69,7 +69,7 @@ public class PineBarGraph: UIView {
         for item in self.xSet {
             let label = item["text"]!
             let l = PineLabel(text: label)
-            l.font = PineConfig.Font.get(.Light, size: 11)
+            l.font = PineConfig.Font.get(PineConfig.Font.LIGHT, size: 11)
             l.textAlignment = .Center
             labelsView.addSubview(l)
             let f = CGRect(x: x, y: 0, width: labelWidth, height: frame.height)

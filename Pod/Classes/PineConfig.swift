@@ -31,19 +31,18 @@ public class PineConfig {
         public static var icon = CGSize(width: 44, height: 44)
     }
     
-    public struct Font {
+    public class Font {
         
-        public enum Family : String {
-            case Regular = "HelveticaNeue"
-            case Bold = "HelveticaNeue-Bold"
-            case Light = "HelveticaNeue-Light"
+        static var REGULAR = "HelveticaNeue"
+        static var BOLD = "HelveticaNeue-Bold"
+        static var LIGHT = "HelveticaNeue-Light"
+        
+        public static func get(type: String = REGULAR, size: CGFloat = 17.0) -> UIFont {
+            return UIFont(name: type, size: size)!
         }
         
-        public static func get(type: Family = .Regular, size: CGFloat = 17.0) -> UIFont {
-            return UIFont(name: type.rawValue, size: size)!
-        }
     }
-    
+        
     public struct Button {
         
         public static var height: CGFloat = 56
