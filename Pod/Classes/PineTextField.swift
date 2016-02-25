@@ -53,7 +53,6 @@ public class PineTextField: UITextField {
         
         // EVENTS
         self.addTarget(self, action: "onChange:", forControlEvents: .EditingChanged)
-        self.addTarget(self, action: "onBlur:", forControlEvents: .EditingDidEnd)
         
     }
     
