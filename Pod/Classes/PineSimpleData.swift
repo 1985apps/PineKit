@@ -26,13 +26,18 @@ public class PineSimpleData: NSObject, NSCoding {
     }
     
     required convenience public init(coder aDecoder: NSCoder){
-        let data = aDecoder.decodeObjectForKey("raw") as! Dictionary<String, AnyObject>
+        var data = Dictionary<String, AnyObject>()
+        if (aDecoder.decodeObjectForKey("raw") != nil) {
+            data = (aDecoder.decodeObjectForKey("raw") as! Dictionary<String, AnyObject>)
+        }
         self.init(data: data)
     }
     
     public func save(){
         NSKeyedArchiver.archiveRootObject(self, toFile: PineSimpleData.ArchiveURL.path!)
     }
+    
+    /* STATIC METHODS */
     
     public static func getSingle() -> PineSimpleData {
         let item = NSKeyedUnarchiver.unarchiveObjectWithFile(PineSimpleData.ArchiveURL.path!) as? PineSimpleData
