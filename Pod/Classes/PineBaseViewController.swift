@@ -26,15 +26,7 @@ public class PineBaseViewController : UIViewController {
     }
     
     func determineBackButton(){
-        let count = self.navigationController?.viewControllers.count
-        var action = "openmenu:"
-        
-        if count > 1 {
-            action = "goback:"
-        }
-        
-        let icon = preferredBackButton()
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: icon, landscapeImagePhone: .None, style: .Plain, target: self, action: Selector(action))
+        self.navigationItem.leftBarButtonItem = preferredLeftBarButtonItem()
     }
     
     func goback(sender: AnyObject? = nil){
@@ -52,6 +44,12 @@ public class PineBaseViewController : UIViewController {
         let count = self.navigationController?.viewControllers.count
         let name = count <= 1 ? "menu" : "back"
         return (UIImage(named: name)?.imageWithRenderingMode(.AlwaysOriginal))!
+    }
+    
+    func preferredLeftBarButtonItem() -> UIBarButtonItem {
+        let count = self.navigationController?.viewControllers.count
+        let action =  count > 1 ? "goback:" : "openmenu:"
+        return UIBarButtonItem(image: preferredBackButton(), landscapeImagePhone: .None, style: .Plain, target: self, action: Selector(action))
     }
     
 }
