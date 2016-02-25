@@ -64,7 +64,13 @@ class ViewController: UIViewController {
             make.bottom.equalTo(self.view).inset(40)
         }
 //        swipe.backgroundColor = UIColor.blueColor()
-        
+        PineSimpleData.update("name", value: "Prakash Raman")
+        print(PineSimpleData.getFull())
+        PineSimpleData.update("last", value: "Raman")
+        print(PineSimpleData.getFull())
+        PineSimpleData.remove("last")
+        print(PineSimpleData.getFull())
+    
     }
     
 }
