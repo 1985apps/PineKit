@@ -49,6 +49,7 @@ public class PineTextField: UITextField {
             label.right == label.superview!.right
         }
         self.label.text = ""
+        self.label.textColor = PineConfig.Color.blue
         
         // EVENTS
         self.addTarget(self, action: "onChange:", forControlEvents: .EditingChanged)
@@ -79,11 +80,7 @@ public class PineTextField: UITextField {
             self.label.text = ""
         } else {
             self.label.text = self.placeholder
-            self.label.textColor = PineConfig.Color.blue
         }
     }
 
-    func onBlur(sender: AnyObject?){
-        self.label.textColor = PineConfig.Color.grayLight
-    }
 }
