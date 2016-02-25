@@ -57,6 +57,14 @@ public class PineSimpleData: NSObject, NSCoding {
         return getSingle().data[key]
     }
     
+    public static func getString(key: String) -> String? {
+        return get(key) as? String
+    }
+    
+    public static func getInt(key: String) -> Int? {
+        return get(key) as? Int
+    }
+    
     public static func getFull() -> Dictionary<String, AnyObject> {
         return getSingle().data
     }
