@@ -28,10 +28,6 @@ public class PineButton : UIButton {
         self.backgroundColor = PineConfig.Color.red
         self.layer.cornerRadius = 2
         self.titleLabel?.font = PineConfig.Font.get(PineConfig.Font.BOLD, size: 14)
-//        constrain(self) { button in
-//            button.height == PineConfig.Button.height
-//        }
-
     }
     
     // THIS FUNCTION SHOULD BE OVERRIDDEN IN CASE OF SUB CLASSES
@@ -48,6 +44,7 @@ public class PineButton : UIButton {
             self.backgroundColor = UIColor.clearColor()
             self.layer.borderWidth = 1
             self.layer.borderColor = PineConfig.Color.cream.CGColor
+            self.setTitleColor(PineConfig.Color.cream, forState: .Normal)
         }
         
     }
