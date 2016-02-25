@@ -81,6 +81,11 @@ public class PineMenuViewController : UIViewController, PineMenuDelegate  {
         self.transition.close()
     }
     
-
+    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
+        if let style = self.contentNavigationController?.viewControllers.last?.preferredStatusBarStyle() {
+            return style
+        }
+        return .Default
+    }
     
 }
