@@ -42,14 +42,14 @@ public class PineSelectGroup: UIView {
         addAnchorItem()
     }
 
-    public func createItem(data: Dictionary<String, String>, group: PineSelectGroup) -> UIView {
+    public func createItem(data: Dictionary<String, AnyObject>, group: PineSelectGroup) -> UIView {
         let item = PineSelectGroupItem(data: data, group: self)
         return item
     }
 
     func pushItems(items: [AnyObject]){
         for (index, item) in items.enumerate() {
-            let entry = item as! Dictionary<String, String>
+            let entry = item as! Dictionary<String, AnyObject>
             let i = createItem(entry, group: self) as! PineSelectGroupItem
             addItem(i)
         }

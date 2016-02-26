@@ -37,7 +37,7 @@ public class PineLinearLayout: UIView {
         positionViewVertical(view)
     }
     
-    public func addSubviews(views: [UIView]){
+    public override func addSubviews(views: [UIView]){
         for view in views {
             self.addSubview(view)
         }

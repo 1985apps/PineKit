@@ -11,7 +11,7 @@ import SnapKit
 
 public class PineSelectGroupItem : UIView {
 
-    public var data : Dictionary<String, String> = Dictionary<String, String>()
+    public var data : Dictionary<String, AnyObject> = Dictionary<String, AnyObject>()
 
     public enum State {
         case Active, Inactive
@@ -25,11 +25,11 @@ public class PineSelectGroupItem : UIView {
     public var group: PineSelectGroup? = nil
 
 
-    public init(data: Dictionary<String, String>, group: PineSelectGroup){
+    public init(data: Dictionary<String, AnyObject>, group: PineSelectGroup){
         super.init(frame: CGRect.zero)
         self.data = data
-        self.text = data["text"] ?? ""
-        self.value = data["value"] ?? ""
+        self.text = data["text"] as? String ?? ""
+        self.value = data["value"] as? String ?? ""
         self.group = group
 
         setup()

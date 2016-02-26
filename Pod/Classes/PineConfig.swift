@@ -92,3 +92,15 @@ public class PineConfig {
     }
 
 }
+
+/* EXTENTION TO THE UIVIEW */
+
+extension UIView {
+    
+    func addSubviews(views: [UIView]){
+        for view in views {
+            self.addSubview(view)
+        }
+    }
+    
+}
