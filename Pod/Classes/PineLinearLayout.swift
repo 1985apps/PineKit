@@ -17,7 +17,7 @@ public enum PineLinearLayoutAlignment {
     case Left, Right, Center
 }
 
-public class PineLinearLayout: UIScrollView {
+public class PineLinearLayout: UIView {
 
     var gutter : CGFloat = 0
     var alignment: PineLinearLayoutAlignment? = nil
@@ -66,27 +66,6 @@ public class PineLinearLayout: UIScrollView {
 
     public override func layoutSubviews() {
         super.layoutSubviews()
-        self.waitAndResetContentSize()
-    }
-
-    public func waitAndResetContentSize(){
-        if contentSizeRestTimer != nil {
-            contentSizeRestTimer?.invalidate()
-        }
-        contentSizeRestTimer = NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: "recalculateContentSize:", userInfo: nil, repeats: false)
-    }
-
-    public func calculateContentHeight() -> CGFloat {
-        var height : CGFloat = 0
-        for view in self.subviews {
-            height += view.frame.height
-        }
-        return height - 5
-    }
-
-    public func recalculateContentSize(sender: AnyObject? = nil){
-        self.contentSize = CGSize(width: self.frame.width, height: self.calculateContentHeight())
-        self.contentSizeRestTimer = nil
     }
 
 }
