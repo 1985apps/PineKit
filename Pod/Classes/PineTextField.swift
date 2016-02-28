@@ -53,7 +53,7 @@ public class PineTextField: UITextField {
         
         // EVENTS
         self.addTarget(self, action: "onChange:", forControlEvents: .EditingChanged)
-        
+        self.font = PineConfig.Font.get(PineConfig.Font.REGULAR, size: 14)
     }
     
     public func setBottomBorderColor(color: UIColor) -> PineTextField {
