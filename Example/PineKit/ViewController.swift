@@ -37,7 +37,9 @@ class ViewController: UIViewController {
         let b = PineButton(title: "hello")
         let c = PineButton(title: "Next Button")
         
-        layout.addSubviews([b, c])
+//        layout.addSubviews([b, c])
+        layout.addSubview(b)
+        layout.addSubview(c)
         
         
         b.snp_makeConstraints { (make) -> Void in

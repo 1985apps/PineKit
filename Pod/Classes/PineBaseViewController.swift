@@ -16,6 +16,11 @@ public class PineBaseViewController : UIViewController {
         super.viewDidLoad()
         determineBackButton()
     }
+    
+    public func setNavigationTitleColor(color: UIColor){
+        let attrs : NSDictionary = [NSForegroundColorAttributeName : color]
+        self.navigationController?.navigationBar.titleTextAttributes = attrs as? [String : AnyObject]
+    }
 
     override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

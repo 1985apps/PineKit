@@ -56,7 +56,7 @@ public class PineConfig {
 
     public struct TextField {
 
-        public static var height : CGFloat = 54
+        public static var height : CGFloat = 50
         public static var width : CGFloat  = 200
         public static var bottomBorderColor = Color.grayLight
 

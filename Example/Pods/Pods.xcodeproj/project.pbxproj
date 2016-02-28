@@ -24,6 +24,7 @@
 		423BBAA41C78620700DB7ACF /* PineIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BBAA31C78620700DB7ACF /* PineIcon.swift */; };
 		423BBAA91C78687800DB7ACF /* PineRadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BBAA71C78687800DB7ACF /* PineRadioGroup.swift */; };
 		423BBAAA1C78687800DB7ACF /* PineRadioGroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BBAA81C78687800DB7ACF /* PineRadioGroupItem.swift */; };
+		42446FB91C837171002E72FB /* PineProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42446FB81C837171002E72FB /* PineProfileImageView.swift */; };
 		42A779D58037B030E7B59C3979651526 /* EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415F922FDB66430BEC29253007E49D6 /* EdgeInsets.swift */; };
 		42CAC59C1C7F1A0000FE3566 /* PineSimpleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAC59B1C7F1A0000FE3566 /* PineSimpleData.swift */; };
 		452C09D0CAC1F8286ABA1CE076033B23 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4B0C216BC10F542A6063228CD7C20 /* Context.swift */; };
@@ -193,6 +194,7 @@
 		423BBAA31C78620700DB7ACF /* PineIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineIcon.swift; sourceTree = "<group>"; };
 		423BBAA71C78687800DB7ACF /* PineRadioGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineRadioGroup.swift; sourceTree = "<group>"; };
 		423BBAA81C78687800DB7ACF /* PineRadioGroupItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineRadioGroupItem.swift; sourceTree = "<group>"; };
+		42446FB81C837171002E72FB /* PineProfileImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineProfileImageView.swift; sourceTree = "<group>"; };
 		4297ED6EE9CE885BD8A2DBD4A43C4EF6 /* Pods-PineKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PineKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		42CAC59B1C7F1A0000FE3566 /* PineSimpleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineSimpleData.swift; sourceTree = "<group>"; };
 		43E02A266EEC8EEB3B26BA61C253D4FA /* Distribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Distribute.swift; path = Cartography/Distribute.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				68E9424EE6D4A158C7E96FC27763C6E0 /* PineBarGraphHorizonalGridLine.swift */,
 				754B85B301204EE4293B2FA2DC4EFF08 /* PineBarGraphYSet.swift */,
 				AF06B6DCDC7D29F75A7B556175603549 /* PineBaseMenuView.swift */,
+				42446FB81C837171002E72FB /* PineProfileImageView.swift */,
 				B8CED9190FD07472C3A8E483E0DF5379 /* PineBaseViewController.swift */,
 				4E78E864465B04E0D7DB5B13A000E299 /* PineButton.swift */,
 				068310BEAC596CBDBEE15965D69988DF /* PineConfig.swift */,
@@ -948,6 +951,7 @@
 				863A4832ACB58A2896BB40FE4BD1F4FE /* PineMenuViewController.swift in Sources */,
 				E97262133D05938D39DC3B64398A7A19 /* PineSelectGroup.swift in Sources */,
 				422A40C21C7DC23600439274 /* PineLinearLayout.swift in Sources */,
+				42446FB91C837171002E72FB /* PineProfileImageView.swift in Sources */,
 				2C6812DF8D2FA46D417636D9B6C14CA7 /* PineSelectGroupItem.swift in Sources */,
 				66FCE7677D5E1B0716AAE30C6830D22A /* PineTextField.swift in Sources */,
 				422A40C41C7DCFE600439274 /* PineSwipeView.swift in Sources */,
