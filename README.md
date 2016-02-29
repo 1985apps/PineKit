@@ -5,6 +5,12 @@
 [![License](https://img.shields.io/cocoapods/l/PineKit.svg?style=flat)](http://cocoapods.org/pods/PineKit)
 [![Platform](https://img.shields.io/cocoapods/p/PineKit.svg?style=flat)](http://cocoapods.org/pods/PineKit)
 
+## About
+
+PineKit is a iOS Functional UI Library. It contians helper classes for TextField, Labels, Data Storage and Menu Transitions.
+
+We at [1985](http://1985.co.in) use this Library for all our iOS development! And we built it :)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -68,8 +74,6 @@ A sub class of the PineButton where only the border is visiable and the backgrou
      let button = PineButton.Hollow(title: String)
      self.view.addSubview(button)
 ```
-
-#### sd
 
 ## Author
 
