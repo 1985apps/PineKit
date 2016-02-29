@@ -12,10 +12,10 @@ import UIKit
 
 public class PineMenuViewController : UIViewController, PineMenuDelegate  {
     
-    var menuView: PineBaseMenuView?
-    var contentNavigationController: UINavigationController?
-    var transition = PineMenuTransition()
-    var rootViewController = PineBaseViewController()
+    public var menuView: PineBaseMenuView?
+    public var contentNavigationController: UINavigationController?
+    public var transition = PineMenuTransition()
+    public var rootViewController = PineBaseViewController()
     
     public init(menuView: PineBaseMenuView, rootViewController: PineBaseViewController, transition: PineMenuTransition = PineMenuTransition()){
         
