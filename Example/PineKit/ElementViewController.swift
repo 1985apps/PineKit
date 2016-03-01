@@ -21,5 +21,13 @@ class ElementViewController: PineBaseViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
+    
+    override func preferredRightButton() -> UIImage {
+        return UIImage(named: "menu")!
+    }
+    
+    override func preferredRightButtonTarget(sender: AnyObject) {
+        print("you clicked me")
+    }
 
 }

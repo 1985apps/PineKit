@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         setup()
     }
 
@@ -27,53 +26,19 @@ class ViewController: UIViewController {
     }
     
     func setup(){
-    
-        let layout = PineLinearLayout(type: .Vertical, gutter: 10, alignment: .Center)
-        self.view.addSubview(layout)
-        layout.backgroundColor = UIColor.whiteColor()
-        layout.snp_makeConstraints { (make) -> Void in
-            make.edges.equalTo(self.view).inset(30)
-        }
-        let b = PineButton(title: "hello")
-        let c = PineButton(title: "Next Button")
-        
-//        layout.addSubviews([b, c])
-        layout.addSubview(b)
-        layout.addSubview(c)
-        
-        
+        let b = PineButton(title: "this is it")
+        self.view.addSubview(b)
         b.snp_makeConstraints { (make) -> Void in
-            make.width.height.equalTo(100)
+            make.left.right.bottom.equalTo(self.view).inset(20)
+            make.height.equalTo(50)
         }
         
-        c.snp_makeConstraints { (make) -> Void in
-            make.width.height.equalTo(b)
-        }
-        
-        let v1 = UIView()
-        v1.backgroundColor = UIColor.redColor()
-        let v2 =  UIView()
-        v2.backgroundColor = UIColor.greenColor()
-        
-        let swipe = PineSwipeView(stages: [v1, v2], onChange: { stage -> Void in
-            print("after it is complete")
-            print("stage is : \(stage)")
-        })
-        self.view.addSubview(swipe)
-        swipe.snp_makeConstraints { (make) -> Void in
-            make.left.right.equalTo(self.view).inset(20)
-            make.height.equalTo(40)
-            make.bottom.equalTo(self.view).inset(40)
-        }
-//        swipe.backgroundColor = UIColor.blueColor()
-        PineSimpleData.update("name", value: "Prakash Raman")
-        print(PineSimpleData.getString("name"))
-        print(PineSimpleData.getFull())
-        PineSimpleData.update("last", value: "Raman")
-        print(PineSimpleData.getFull())
-        PineSimpleData.remove("last")
-        print(PineSimpleData.getFull())
+        b.addTarget(self, action: "open:", forControlEvents: .TouchUpInside)
+    }
     
+    func open(sender: AnyObject){
+        let menu = PineMenuViewController(menuView: MenuView(), rootViewController: ElementViewController())
+        self.presentViewController(menu, animated: true, completion: nil)
     }
     
 }

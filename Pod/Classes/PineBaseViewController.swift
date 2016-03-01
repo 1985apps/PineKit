@@ -14,6 +14,7 @@ public class PineBaseViewController : UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        determineNavBarButtons()
         determineBackButton()
     }
     
@@ -29,9 +30,18 @@ public class PineBaseViewController : UIViewController {
     public func pushViewController(viewController: UIViewController){
         self.navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    func determineNavBarButtons(){
+        determineBackButton()
+        determineRightButton()
+    }
 
     func determineBackButton(){
         self.navigationItem.leftBarButtonItem = preferredLeftBarButtonItem()
+    }
+    
+    func determineRightButton(){
+        self.navigationItem.rightBarButtonItem = preferredRightButtonItem()
     }
 
     public func goback(sender: AnyObject? = nil){
@@ -55,6 +65,19 @@ public class PineBaseViewController : UIViewController {
         let count = self.navigationController?.viewControllers.count
         let action =  count > 1 ? "goback:" : "openmenu:"
         return UIBarButtonItem(image: preferredBackButton(), landscapeImagePhone: .None, style: .Plain, target: self, action: Selector(action))
+    }
+    
+    public func preferredRightButton() -> UIImage {
+        return UIImage()
+    }
+    
+    public func preferredRightButtonItem() -> UIBarButtonItem {
+        let image = preferredBackButton()
+        return UIBarButtonItem(image: image, landscapeImagePhone: .None, style: .Plain, target: self, action: Selector("preferredRightButtonTarget:"))
+    }
+    
+    public func preferredRightButtonTarget(sender: AnyObject){
+        
     }
 
 }
