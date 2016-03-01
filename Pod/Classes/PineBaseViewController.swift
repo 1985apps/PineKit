@@ -17,7 +17,7 @@ public class PineBaseViewController : UIViewController {
         determineNavBarButtons()
         determineBackButton()
     }
-    
+
     public func setNavigationTitleColor(color: UIColor){
         let attrs : NSDictionary = [NSForegroundColorAttributeName : color]
         self.navigationController?.navigationBar.titleTextAttributes = attrs as? [String : AnyObject]
@@ -30,7 +30,7 @@ public class PineBaseViewController : UIViewController {
     public func pushViewController(viewController: UIViewController){
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
+
     func determineNavBarButtons(){
         determineBackButton()
         determineRightButton()
@@ -39,7 +39,7 @@ public class PineBaseViewController : UIViewController {
     func determineBackButton(){
         self.navigationItem.leftBarButtonItem = preferredLeftBarButtonItem()
     }
-    
+
     func determineRightButton(){
         self.navigationItem.rightBarButtonItem = preferredRightButtonItem()
     }
@@ -66,18 +66,18 @@ public class PineBaseViewController : UIViewController {
         let action =  count > 1 ? "goback:" : "openmenu:"
         return UIBarButtonItem(image: preferredBackButton(), landscapeImagePhone: .None, style: .Plain, target: self, action: Selector(action))
     }
-    
+
     public func preferredRightButton() -> UIImage {
         return UIImage()
     }
-    
+
     public func preferredRightButtonItem() -> UIBarButtonItem {
-        let image = preferredBackButton()
+        let image = preferredRightButton()
         return UIBarButtonItem(image: image, landscapeImagePhone: .None, style: .Plain, target: self, action: Selector("preferredRightButtonTarget:"))
     }
-    
+
     public func preferredRightButtonTarget(sender: AnyObject){
-        
+
     }
 
 }
