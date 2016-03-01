@@ -29,5 +29,9 @@ class ElementViewController: PineBaseViewController {
     override func preferredRightButtonTarget(sender: AnyObject) {
         print("you clicked me")
     }
+    
+    override func preferredTitleView() -> UIView? {
+        return UIImageView(image: UIImage(named: "menu"))
+    }
 
 }

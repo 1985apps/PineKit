@@ -34,6 +34,7 @@ public class PineBaseViewController : UIViewController {
     func determineNavBarButtons(){
         determineBackButton()
         determineRightButton()
+        determinTitleView()
     }
 
     func determineBackButton(){
@@ -42,6 +43,12 @@ public class PineBaseViewController : UIViewController {
 
     func determineRightButton(){
         self.navigationItem.rightBarButtonItem = preferredRightButtonItem()
+    }
+    
+    func determinTitleView(){
+        if let view = preferredTitleView() {
+            self.navigationItem.titleView = view
+        }
     }
 
     public func goback(sender: AnyObject? = nil){
@@ -78,6 +85,10 @@ public class PineBaseViewController : UIViewController {
 
     public func preferredRightButtonTarget(sender: AnyObject){
 
+    }
+    
+    public func preferredTitleView() -> UIView? {
+        return nil
     }
 
 }
