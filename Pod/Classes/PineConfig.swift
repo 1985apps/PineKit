@@ -16,6 +16,7 @@ public class PineConfig {
 
     public struct Color {
         public static var blue = UIColor(red:0.153, green:0.290, blue:0.380, alpha:1.00)
+        public static var blueLight = UIColor(red:0.345, green:0.702, blue:0.863, alpha:1.00)
         public static var red = UIColor(red:0.851, green:0.345, blue:0.341, alpha:1.00)
         public static var cream = UIColor(red:0.765, green:0.796, blue:0.820, alpha:1.00)
         public static var purple = UIColor(red:0.196, green:0.188, blue:0.369, alpha:1.00)
@@ -77,6 +78,10 @@ public class PineConfig {
             }
 
         }
+    }
+    
+    public struct Switch {
+        public static var onTintColor = PineConfig.Color.blueLight
     }
 
     public struct NavigationBar {

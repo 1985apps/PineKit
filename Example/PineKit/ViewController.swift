@@ -34,6 +34,13 @@ class ViewController: UIViewController {
         }
         
         b.addTarget(self, action: "open:", forControlEvents: .TouchUpInside)
+        
+        let s = PineSwitch(text: "Show nofitications every day")
+        self.view.addSubview(s)
+        s.snp_makeConstraints { (make) -> Void in
+            make.top.left.equalTo(self.view).offset(30)
+        }
+        
     }
     
     func open(sender: AnyObject){

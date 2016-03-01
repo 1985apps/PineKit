@@ -25,6 +25,7 @@
 		423BBAA91C78687800DB7ACF /* PineRadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BBAA71C78687800DB7ACF /* PineRadioGroup.swift */; };
 		423BBAAA1C78687800DB7ACF /* PineRadioGroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BBAA81C78687800DB7ACF /* PineRadioGroupItem.swift */; };
 		42446FB91C837171002E72FB /* PineProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42446FB81C837171002E72FB /* PineProfileImageView.swift */; };
+		425ABD071C85A0DC00A203FB /* PineSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425ABD061C85A0DC00A203FB /* PineSwitch.swift */; };
 		42A779D58037B030E7B59C3979651526 /* EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415F922FDB66430BEC29253007E49D6 /* EdgeInsets.swift */; };
 		42CAC59C1C7F1A0000FE3566 /* PineSimpleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAC59B1C7F1A0000FE3566 /* PineSimpleData.swift */; };
 		452C09D0CAC1F8286ABA1CE076033B23 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4B0C216BC10F542A6063228CD7C20 /* Context.swift */; };
@@ -195,6 +196,7 @@
 		423BBAA71C78687800DB7ACF /* PineRadioGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineRadioGroup.swift; sourceTree = "<group>"; };
 		423BBAA81C78687800DB7ACF /* PineRadioGroupItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineRadioGroupItem.swift; sourceTree = "<group>"; };
 		42446FB81C837171002E72FB /* PineProfileImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineProfileImageView.swift; sourceTree = "<group>"; };
+		425ABD061C85A0DC00A203FB /* PineSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineSwitch.swift; sourceTree = "<group>"; };
 		4297ED6EE9CE885BD8A2DBD4A43C4EF6 /* Pods-PineKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PineKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		42CAC59B1C7F1A0000FE3566 /* PineSimpleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineSimpleData.swift; sourceTree = "<group>"; };
 		43E02A266EEC8EEB3B26BA61C253D4FA /* Distribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Distribute.swift; path = Cartography/Distribute.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				422A40C11C7DC23600439274 /* PineLinearLayout.swift */,
 				422A40C31C7DCFE600439274 /* PineSwipeView.swift */,
 				42CAC59B1C7F1A0000FE3566 /* PineSimpleData.swift */,
+				425ABD061C85A0DC00A203FB /* PineSwitch.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -947,6 +950,7 @@
 				68A2522D4115D89C9FC8F2EA65A2A5E1 /* PineMenuTransition.swift in Sources */,
 				655257E16AB748D6D99E2443744E7ED7 /* PineMenuTransitionSlideOverContent.swift in Sources */,
 				9D58A0C145F8B1178F36E7DA3E76F47D /* PineMenuTransitionSqueeze.swift in Sources */,
+				425ABD071C85A0DC00A203FB /* PineSwitch.swift in Sources */,
 				93A4396DC0B70E181B40403FE48D810B /* PineMenuTransitionXY.swift in Sources */,
 				863A4832ACB58A2896BB40FE4BD1F4FE /* PineMenuViewController.swift in Sources */,
 				E97262133D05938D39DC3B64398A7A19 /* PineSelectGroup.swift in Sources */,
