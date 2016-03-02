@@ -41,6 +41,14 @@ class ViewController: UIViewController {
             make.top.left.equalTo(self.view).offset(30)
         }
         
+        let ip = PineImagePicker(controller: self)
+        self.view.addSubview(ip)
+        
+        ip.snp_makeConstraints { (make) -> Void in
+            make.center.equalTo(self.view)
+            make.width.height.equalTo(100)
+        }
+        
     }
     
     func open(sender: AnyObject){

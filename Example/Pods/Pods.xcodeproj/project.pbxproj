@@ -28,6 +28,7 @@
 		425ABD071C85A0DC00A203FB /* PineSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425ABD061C85A0DC00A203FB /* PineSwitch.swift */; };
 		42A779D58037B030E7B59C3979651526 /* EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415F922FDB66430BEC29253007E49D6 /* EdgeInsets.swift */; };
 		42CAC59C1C7F1A0000FE3566 /* PineSimpleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CAC59B1C7F1A0000FE3566 /* PineSimpleData.swift */; };
+		42ECA44D1C874B2A00AA781B /* PineImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ECA44C1C874B2A00AA781B /* PineImagePicker.swift */; };
 		452C09D0CAC1F8286ABA1CE076033B23 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD4B0C216BC10F542A6063228CD7C20 /* Context.swift */; };
 		48ADE3FB3F30FCA5893083351449DA98 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B8D37172BE80893AA96C4ED635EA0 /* ViewUtils.swift */; };
 		498AA3619847F5AC11CF6C8EF278A2D1 /* PineBaseMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF06B6DCDC7D29F75A7B556175603549 /* PineBaseMenuView.swift */; };
@@ -199,6 +200,7 @@
 		425ABD061C85A0DC00A203FB /* PineSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineSwitch.swift; sourceTree = "<group>"; };
 		4297ED6EE9CE885BD8A2DBD4A43C4EF6 /* Pods-PineKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PineKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		42CAC59B1C7F1A0000FE3566 /* PineSimpleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineSimpleData.swift; sourceTree = "<group>"; };
+		42ECA44C1C874B2A00AA781B /* PineImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineImagePicker.swift; sourceTree = "<group>"; };
 		43E02A266EEC8EEB3B26BA61C253D4FA /* Distribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Distribute.swift; path = Cartography/Distribute.swift; sourceTree = "<group>"; };
 		45AAA587BAC6FB4BE67A92606593EC53 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F9A5C5C81B9786C95E5740D165D96D /* Cartography-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cartography-dummy.m"; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				422A40C31C7DCFE600439274 /* PineSwipeView.swift */,
 				42CAC59B1C7F1A0000FE3566 /* PineSimpleData.swift */,
 				425ABD061C85A0DC00A203FB /* PineSwitch.swift */,
+				42ECA44C1C874B2A00AA781B /* PineImagePicker.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -943,6 +946,7 @@
 				59EFE2514594D06D97CAB83C508D1D2B /* PineBaseViewController.swift in Sources */,
 				8E3789F8BCE18B87B8B25CA6684B2192 /* PineButton.swift in Sources */,
 				E010A53B628E64CB75CDDF2B2BE26084 /* PineConfig.swift in Sources */,
+				42ECA44D1C874B2A00AA781B /* PineImagePicker.swift in Sources */,
 				423BBAAA1C78687800DB7ACF /* PineRadioGroupItem.swift in Sources */,
 				15F8D8435D9211D803F1E28F4C02773F /* PineKit-dummy.m in Sources */,
 				F9BD2584796A8FE3061E6A5DDFA2D9BD /* PineLabel.swift in Sources */,
