@@ -11,6 +11,7 @@ import Foundation
 
 public class PineSwitch: UISwitch {
     
+    /// The total distance travelled by the bicycle, in meters.
     public var label = PineLabel()
     
     public init(text: String) {
@@ -28,6 +29,14 @@ public class PineSwitch: UISwitch {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /**
+    Take a bike out for a spin.
+     
+     - Parameters:
+        - meter: The distance to travel in meters.
+     
+     - Returns: Nothing
+     */
     public func setup(){
         self.addSubview(self.label)
         self.label.snp_makeConstraints { (make) -> Void in
