@@ -9,23 +9,38 @@
 import UIKit
 import Foundation
 
+/**
+    An easy-to-use wrapper convenience class to NSCoding. It's primary usage is as a key - value pair peristent (NSCoding) data storage. 
+ 
+    Could be used to hold session variables, etc.
+ 
+        // To set a value
+        PineSimpleData.update("tvshow", "LOST")
+ 
+        // To retrieve a value
+        PineSimpleData.get("tvshow") // RETURNS: "LOST"
+ 
+        // To remove a value
+        PineSimpleData.remove("tvshow")
+*/
 public class PineSimpleData: NSObject, NSCoding {
 
+    /// The Dictionary<String, AnyObject>  instance variable that holds the key-value pairs.
     public var data: Dictionary<String, AnyObject> = Dictionary<String, AnyObject>()
     
-    public static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    public static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("PineSimpleData")
+    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("PineSimpleData")
     
-    public init(data: Dictionary<String, AnyObject>) {
+    init(data: Dictionary<String, AnyObject>) {
         super.init()
         self.data = data
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
+    func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.data, forKey: "raw")
     }
     
-    required convenience public init(coder aDecoder: NSCoder){
+    required convenience init(coder aDecoder: NSCoder){
         var data = Dictionary<String, AnyObject>()
         if (aDecoder.decodeObjectForKey("raw") != nil) {
             data = (aDecoder.decodeObjectForKey("raw") as! Dictionary<String, AnyObject>)
@@ -33,13 +48,12 @@ public class PineSimpleData: NSObject, NSCoding {
         self.init(data: data)
     }
     
-    public func save(){
+    func save(){
         NSKeyedArchiver.archiveRootObject(self, toFile: PineSimpleData.ArchiveURL.path!)
     }
     
-    /* STATIC METHODS */
     
-    public static func getSingle() -> PineSimpleData {
+    static func getSingle() -> PineSimpleData {
         let item = NSKeyedUnarchiver.unarchiveObjectWithFile(PineSimpleData.ArchiveURL.path!) as? PineSimpleData
         if (item != nil) {
             return item!
@@ -47,28 +61,67 @@ public class PineSimpleData: NSObject, NSCoding {
         return PineSimpleData(data: Dictionary<String, AnyObject>())
     }
     
+    /**
+    Set / update a value of the data storage
+
+    - parameter key: String
+    - parameter value: AnyObject
+    */
     public static func update(key: String, value: AnyObject?){
         let single = getSingle()
         single.data[key] = value
         single.save()
     }
     
+    /**
+    Retrieves the value associated to the key
+
+    - parameter key: String
+
+    - returns: AnyObject
+     
+     */
     public static func get(key: String) -> AnyObject? {
         return getSingle().data[key]
     }
     
+    /**
+     Retrieves the type-casted String value associated to the key
+     
+     - parameter key: String
+     
+     - returns: AnyObject
+     
+     */
     public static func getString(key: String) -> String? {
         return get(key) as? String
     }
     
+    /** 
+    Retrives type-casted Int of the value associated to the key
+
+    - parameter key: String
+
+    - returns: Int
+    */
     public static func getInt(key: String) -> Int? {
         return get(key) as? Int
     }
     
+    /**
+    Returns the data dictionary holding the entire key-value pair
+
+    - returns: Dictionary<String, AnyObject>
+    */
     public static func getFull() -> Dictionary<String, AnyObject> {
         return getSingle().data
     }
     
+    /**
+    Removes a key (value) from the data dictionary
+
+    - parameter key: String
+    */
     public static func remove(key: String){
         let single = getSingle()
         single.data.removeValueForKey(key)
