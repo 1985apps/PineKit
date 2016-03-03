@@ -36,11 +36,11 @@ public class PineSimpleData: NSObject, NSCoding {
         self.data = data
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.data, forKey: "raw")
     }
     
-    required convenience init(coder aDecoder: NSCoder){
+    required convenience public init(coder aDecoder: NSCoder){
         var data = Dictionary<String, AnyObject>()
         if (aDecoder.decodeObjectForKey("raw") != nil) {
             data = (aDecoder.decodeObjectForKey("raw") as! Dictionary<String, AnyObject>)

@@ -7,7 +7,7 @@
 
 ## About
 
-PineKit is a iOS Functional UI Library. It contians helper classes for TextField, Labels, Data Storage and Menu Transitions.
+PineKit is a highly extendable iOS Swift UI Framework for building iOS Applications
 
 We at [1985](http://1985.co.in) use this Library for all our iOS development! And we built it :)
 
