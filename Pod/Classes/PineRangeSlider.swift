@@ -67,15 +67,14 @@ public class PineRangeSlider: UIControl {
         self.bar!.snp_makeConstraints { (make) -> Void in
             make.centerY.equalTo(self)
             make.left.right.equalTo(self).inset(self.minBall!.frame.width / 2)
-            make.height.equalTo(2)
+            make.height.equalTo(self.preferredBarHeight())
         }
         
         self.barActive!.snp_makeConstraints { (make) -> Void in
             make.centerY.equalTo(self)
             make.left.equalTo(self.minBall!.snp_centerX)
             make.right.equalTo(self.maxBall!.snp_centerX)
-            make.height.equalTo(self.preferredBarHeight())
-            
+            make.height.equalTo(self.minBall!)
         }
         
         minBall!.snp_makeConstraints { (make) -> Void in
