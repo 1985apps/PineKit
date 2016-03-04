@@ -21,6 +21,8 @@ public class PineRangeSlider: UIControl {
     
     public var bar : UIView?
     public var barActive: UIView?
+    
+    public var onChange : PineRangeSlider -> Void = {_ in }
 
     // THIS IS USED TO ONLY CAPTURE THE ORIGINAL OFFSET
     var _moveByOffset : CGFloat = 0
@@ -34,10 +36,11 @@ public class PineRangeSlider: UIControl {
         self.init(min: 0, max: 100)
     }
     
-    public init(min: CGFloat, max: CGFloat){
+    public init(min: CGFloat, max: CGFloat, onChange: ((PineRangeSlider) -> Void) = {_ in} ){
         super.init(frame: CGRect.zero)
         self.min = min
         self.max = max
+        self.onChange = onChange
         setup()
     }
 
@@ -131,7 +134,7 @@ public class PineRangeSlider: UIControl {
             move = 0
         }
         self.minBallPositionConstraint?.updateOffset(move)
-        print(self.getValues())
+        self.onChange(self)
     }
     
     func panningMaxBall(pan: UIPanGestureRecognizer){
@@ -153,7 +156,7 @@ public class PineRangeSlider: UIControl {
             self.maxBallPositionConstraint = make.left.equalTo(move).constraint
         })
         
-        print(self.getValues())
+        self.onChange(self)
     }
     
     

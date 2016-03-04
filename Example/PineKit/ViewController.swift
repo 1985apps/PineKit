@@ -41,7 +41,10 @@ class ViewController: UIViewController {
             make.top.left.equalTo(self.view).offset(30)
         }
         
-        let slider = PineRangeSlider(min: 40, max: 50)
+
+        let slider = PineRangeSlider(min: 40, max: 50) { (slider) -> Void in
+            print(slider.getValues())
+        }
         self.view.addSubview(slider)
         slider.snp_makeConstraints { (make) -> Void in
             make.center.equalTo(self.view)
