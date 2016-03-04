@@ -135,7 +135,6 @@ public class PineRangeSlider: UIControl {
     }
     
     func panningMaxBall(pan: UIPanGestureRecognizer){
-        let finger = pan.locationInView(self)
         var move : CGFloat = 0
         if pan.state == .Began {
             self._moveByOffset = pan.locationInView(self).x - pan.locationInView(pan.view).x
@@ -162,7 +161,7 @@ public class PineRangeSlider: UIControl {
         let min = ((minBall?.frame.origin.x)! / self.frame.width)
         let max = ((maxBall?.frame.origin.x)! / self.frame.width)
         let rangeSize = self.max - self.min
-        return  ["min" : rangeSize * min, "max": rangeSize * max]
+        return  ["min" : (self.min + rangeSize * min), "max": (self.min + rangeSize * max)]
     }
 
     
