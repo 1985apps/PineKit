@@ -51,16 +51,16 @@ public class PineRangeSlider: UIControl {
     public func setup(){
         self.clipsToBounds = true
         
-        self.minBall = UIImageView(image: getThumbImage())
-        self.maxBall = UIImageView(image: getThumbImage())
+        self.minBall = UIImageView(image: preferredThumbImage())
+        self.maxBall = UIImageView(image: preferredThumbImage())
         
         self.userInteractionEnabled = true
 
         self.minBall!.tintColor = self.ballTintColor
         self.maxBall!.tintColor = self.ballTintColor
         
-        self.bar = getBarView()
-        self.barActive = getBarActiveView()
+        self.bar = preferredBarView()
+        self.barActive = preferredBarActiveView()
         
         self.addSubviews([self.bar!, self.barActive!, self.minBall!, self.maxBall!])
     
@@ -74,7 +74,7 @@ public class PineRangeSlider: UIControl {
             make.centerY.equalTo(self)
             make.left.equalTo(self.minBall!.snp_centerX)
             make.right.equalTo(self.maxBall!.snp_centerX)
-            make.height.equalTo(2)
+            make.height.equalTo(self.preferredBarHeight())
             
         }
         
@@ -104,20 +104,24 @@ public class PineRangeSlider: UIControl {
         super.layoutSubviews()
     }
     
-    public func getBarView() -> UIView {
+    public func preferredBarView() -> UIView {
         let view = UIView()
         view.backgroundColor = PineConfig.Color.grayLight
         return view
     }
     
-    public func getBarActiveView() -> UIView {
-        let view = self.getBarView()
+    public func preferredBarActiveView() -> UIView {
+        let view = self.preferredBarView()
         view.backgroundColor = PineConfig.Color.blue
         return view
     }
     
-    public func getThumbImage() -> UIImage {
+    public func preferredThumbImage() -> UIImage {
         return UIImage(named: "filled-circle+black")!.imageWithRenderingMode(.AlwaysTemplate)
+    }
+    
+    public func preferredBarHeight() -> CGFloat {
+        return 2
     }
     
     func panningMinBall(pan: UIPanGestureRecognizer){
