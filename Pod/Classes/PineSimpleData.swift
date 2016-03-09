@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import SwiftyJSON
 
 /**
     An easy-to-use wrapper convenience class to NSCoding. It's primary usage is as a key - value pair peristent (NSCoding) data storage. 
