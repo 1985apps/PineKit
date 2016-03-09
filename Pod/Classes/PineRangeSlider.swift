@@ -163,11 +163,12 @@ public class PineRangeSlider: UIControl {
     }
     
     
-    public func getValues() -> Dictionary<String, CGFloat> {
+    public func getValues() -> (min: CGFloat, max: CGFloat) {
         let min = ((minBall?.frame.origin.x)! / self.frame.width)
         let max = ((maxBall?.frame.origin.x)! / self.frame.width)
         let rangeSize = self.max - self.min
-        return  ["min" : (self.min + rangeSize * min), "max": (self.min + rangeSize * max)]
+        return (min: (self.min + rangeSize * min), max: (self.min + rangeSize * max))
+        
     }
 
     

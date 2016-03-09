@@ -20,7 +20,7 @@ public class PineSelectGroupItem : UIView {
     public let label = UILabel()
     public let icon = PineIcon(named: "checkbox_inactive")
     public var text: String = ""
-    public var value: String = ""
+    public var value: AnyObject = ""
     public var state: State = .Inactive
     public var group: PineSelectGroup? = nil
 
@@ -29,7 +29,7 @@ public class PineSelectGroupItem : UIView {
         super.init(frame: CGRect.zero)
         self.data = data
         self.text = data["text"] as? String ?? ""
-        self.value = data["value"] as? String ?? ""
+        self.value = data["value"] ?? ""
         self.group = group
 
         setup()

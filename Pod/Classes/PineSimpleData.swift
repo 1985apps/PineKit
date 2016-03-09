@@ -117,11 +117,10 @@ public class PineSimpleData: NSObject, NSCoding {
         return getSingle().data
     }
     
-    /**
-    Removes a key (value) from the data dictionary
-
-    - parameter key: String
-    */
+    public static func getJSON(key: String) -> JSON {
+        return JSON(get(key)!)
+    }
+    
     public static func remove(key: String){
         let single = getSingle()
         single.data.removeValueForKey(key)

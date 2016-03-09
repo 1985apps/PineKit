@@ -44,6 +44,7 @@ class ViewController: UIViewController {
 
         let slider = PineRangeSlider(min: 40, max: 50) { (slider) -> Void in
             print(slider.getValues())
+            print(slider.getValues().min)
         }
         
         self.view.addSubview(slider)

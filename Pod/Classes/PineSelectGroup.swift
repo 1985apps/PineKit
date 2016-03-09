@@ -83,13 +83,13 @@ public class PineSelectGroup: UIView {
         return selected
     }
 
-    public func getSelectedValues() -> [String] {
-        return self.getSelectedItems().map { (let item) -> String in
+    public func getSelectedValues() -> [AnyObject] {
+        return self.getSelectedItems().map { (let item) -> AnyObject in
             return item.value
         }
     }
 
-    public func getSelectedValue() -> String {
+    public func getSelectedValue() -> AnyObject {
         return self.getSelectedValues().first!
     }
 
@@ -114,7 +114,7 @@ public class PineSelectGroup: UIView {
     }
 
     // OVERIDE THIS FUNCTION TO DO THINGS AFTER THE GROUP HAS BEEN DRAWN
-    func after(){
+    public func after(){
 
     }
 
