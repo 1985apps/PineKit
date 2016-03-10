@@ -13,6 +13,7 @@ import PineKit
 class ViewController: UIViewController {
     
     var bar = UINavigationBar()
+    var swipe = PineSwipeView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,39 +27,41 @@ class ViewController: UIViewController {
     }
     
     func setup(){
-        let b = PineButton(title: "this is it")
+        let v1 = UIView()
+        let v2 = UIView()
+        let v3 = UIView()
+        v1.backgroundColor = UIColor.blueColor()
+        v2.backgroundColor = UIColor.redColor()
+        v3.backgroundColor = UIColor.greenColor()
+        
+        swipe = PineSwipeView(stages: [v1, v2, v3]) { (stage) -> Void in
+            print("@ \(stage)")
+        }
+        self.view.addSubview(swipe)
+        
+        swipe.snp_makeConstraints { (make) -> Void in
+            make.center.equalTo(self.view)
+            make.height.equalTo(40)
+            make.width.equalTo(200)
+        }
+        
+        let b = PineButton(title: "Back")
         self.view.addSubview(b)
         b.snp_makeConstraints { (make) -> Void in
-            make.left.right.bottom.equalTo(self.view).inset(20)
-            make.height.equalTo(50)
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(100)
+            make.width.height.equalTo(100)
         }
-        
-        b.addTarget(self, action: "open:", forControlEvents: .TouchUpInside)
-        
-        let s = PineSwitch(text: "Show nofitications every day")
-        self.view.addSubview(s)
-        s.snp_makeConstraints { (make) -> Void in
-            make.top.left.equalTo(self.view).offset(30)
-        }
-        
-
-        let slider = PineRangeSlider(min: 40, max: 50) { (slider) -> Void in
-            print(slider.getValues())
-            print(slider.getValues().min)
-        }
-        
-        self.view.addSubview(slider)
-        slider.snp_makeConstraints { (make) -> Void in
-            make.center.equalTo(self.view)
-            make.width.equalTo(200)
-            make.height.equalTo(32)
-        }
-        
+        b.addTarget(self, action: "go:", forControlEvents: .TouchUpInside)
     }
     
     func open(sender: AnyObject){
         let menu = PineMenuViewController(menuView: MenuView(), rootViewController: ElementViewController())
         self.presentViewController(menu, animated: true, completion: nil)
+    }
+    
+    func go(sender: AnyObject?){
+        swipe.back()
     }
     
 }

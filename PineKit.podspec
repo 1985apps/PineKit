@@ -39,5 +39,6 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'Cartography'
   s.dependency 'SnapKit', '~> 0.15.0'
+  s.dependency 'SwiftyJSON'
   
 end

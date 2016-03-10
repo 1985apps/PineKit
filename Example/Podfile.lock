@@ -3,7 +3,9 @@ PODS:
   - PineKit (0.1.0):
     - Cartography
     - SnapKit (~> 0.15.0)
+    - SwiftyJSON
   - SnapKit (0.15.0)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Cartography
@@ -16,7 +18,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
-  PineKit: 87c432bb2b0736053186ec5cf97bb75315ec65d9
+  PineKit: d60cee8dd213b4040e4108222c87a3e866e10640
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0
