@@ -140,6 +140,16 @@ public class PineRangeSlider: UIControl {
         self.onChange(self)
     }
     
+    public func setMinBallValue(var move: CGFloat){
+        // DOES NOT LET THE BALL GO OVER MAX; AND LESS THAN 0
+        if(move + (maxBall?.frame.width)! > maxBall!.frame.origin.x) {
+            move = maxBall!.frame.origin.x - (maxBall?.frame.width)!
+        } else if (move < 0){
+            move = 0
+        }
+        self.minBallPositionConstraint?.updateOffset(move)
+    }
+    
     func panningMaxBall(pan: UIPanGestureRecognizer){
         var move : CGFloat = 0
         if pan.state == .Began {

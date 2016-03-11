@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     var bar = UINavigationBar()
     var swipe = PineSwipeView()
+    var range = PineRangeSlider(min: 1, max: 10)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,41 +28,47 @@ class ViewController: UIViewController {
     }
     
     func setup(){
-        let v1 = UIView()
-        let v2 = UIView()
-        let v3 = UIView()
-        v1.backgroundColor = UIColor.blueColor()
-        v2.backgroundColor = UIColor.redColor()
-        v3.backgroundColor = UIColor.greenColor()
         
-        swipe = PineSwipeView(stages: [v1, v2, v3]) { (stage) -> Void in
-            print("@ \(stage)")
-        }
-        self.view.addSubview(swipe)
-        
-        swipe.snp_makeConstraints { (make) -> Void in
+        self.view.addSubview(range)
+        range.snp_makeConstraints { (make) -> Void in
             make.center.equalTo(self.view)
-            make.height.equalTo(40)
             make.width.equalTo(200)
+            make.height.equalTo(30)
         }
         
-        let b = PineButton(title: "Back")
+        let b = PineButton(title: "Move")
         self.view.addSubview(b)
         b.snp_makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view)
             make.top.equalTo(100)
-            make.width.height.equalTo(100)
+            make.height.width.equalTo(100)
         }
-        b.addTarget(self, action: "go:", forControlEvents: .TouchUpInside)
+        
+        b.addTarget(self, action: "move:", forControlEvents: .TouchUpInside)
+        
+        let thumb = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 20))
+        thumb.backgroundColor = UIColor.grayColor()
+        
+//        let seg = PineSegmentedControl(labels: ["one", "two", "three", "four"], thumbview: thumb)
+        let seg = PineSegmentedControl(labels: ["1", "2", "3"], thumbview: thumb) { segment in
+            print(segment.active)
+        }
+
+        self.view.addSubview(seg)
+        seg.snp_makeConstraints { (make) -> Void in
+            make.bottom.left.right.equalTo(self.view).inset(20)
+            make.height.equalTo(70)
+        }
+        seg.backgroundColor = UIColor.greenColor()
+        
     }
     
     func open(sender: AnyObject){
         let menu = PineMenuViewController(menuView: MenuView(), rootViewController: ElementViewController())
         self.presentViewController(menu, animated: true, completion: nil)
     }
-    
-    func go(sender: AnyObject?){
-        swipe.back()
+
+    func move(sender: AnyObject?){
+        range.setMinBallValue(3)
     }
     
 }
