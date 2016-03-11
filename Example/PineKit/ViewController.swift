@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var bar = UINavigationBar()
     var swipe = PineSwipeView()
     var range = PineRangeSlider(min: 1, max: 10)
+    var tf = PineTextField(placeholder: "sdf")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,36 +30,19 @@ class ViewController: UIViewController {
     
     func setup(){
         
-        self.view.addSubview(range)
-        range.snp_makeConstraints { (make) -> Void in
+        let items = [
+            ["text": "testing", "value": true],
+            ["text": "raw", "value": false],
+        ]
+        let iv = PineSelectTextFieldInputView(items: items)
+        
+        tf = PineTextField(placeholder: "Click here")
+        tf.inputView = iv
+        self.view.addSubview(tf)
+        tf.snp_makeConstraints { (make) -> Void in
             make.center.equalTo(self.view)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
         }
-        
-        let b = PineButton(title: "Move")
-        self.view.addSubview(b)
-        b.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(100)
-            make.height.width.equalTo(100)
-        }
-        
-        b.addTarget(self, action: "move:", forControlEvents: .TouchUpInside)
-        
-        let thumb = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 20))
-        thumb.backgroundColor = UIColor.grayColor()
-        
-//        let seg = PineSegmentedControl(labels: ["one", "two", "three", "four"], thumbview: thumb)
-        let seg = PineSegmentedControl(labels: ["1", "2", "3"], thumbview: thumb) { segment in
-            print(segment.active)
-        }
-
-        self.view.addSubview(seg)
-        seg.snp_makeConstraints { (make) -> Void in
-            make.bottom.left.right.equalTo(self.view).inset(20)
-            make.height.equalTo(70)
-        }
-        seg.backgroundColor = UIColor.greenColor()
+        iv.done.addTarget(self, action: "done:", forControlEvents: .TouchUpInside)
         
     }
     
@@ -66,9 +50,9 @@ class ViewController: UIViewController {
         let menu = PineMenuViewController(menuView: MenuView(), rootViewController: ElementViewController())
         self.presentViewController(menu, animated: true, completion: nil)
     }
-
-    func move(sender: AnyObject?){
-        range.setMinBallValue(3)
+    
+    func done(sender: AnyObject?){
+        tf.resignFirstResponder()
     }
     
 }
