@@ -26,7 +26,7 @@ public class PineSelectTextFieldInputView: UIControl {
     }
     
     public func setup(){
-        self.select = PineSelectGroup(items: items)
+        self.select = preferredSelectGroup()
         self.addSubview(done)
         self.addSubview(select)
         style()
@@ -49,6 +49,10 @@ public class PineSelectTextFieldInputView: UIControl {
             make.left.right.bottom.equalTo(self)
             make.height.equalTo(PineConfig.Button.height)
         }
+    }
+    
+    public func preferredSelectGroup() -> PineSelectGroup {
+        return PineSelectGroup(items: items)
     }
     
 }
