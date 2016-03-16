@@ -12,7 +12,7 @@ public class PineSelectTextFieldInputView: UIControl {
     
     public var done : PineButton = PineButton(title: "DONE")
     public var select : PineSelectGroup = PineSelectGroup()
-    var items : [AnyObject] = []
+    public var items : [AnyObject] = []
     
     public init(items: [AnyObject] = []){
         super.init(frame: CGRectZero)
