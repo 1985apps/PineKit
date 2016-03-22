@@ -34,16 +34,15 @@ class ViewController: UIViewController {
             ["text": "testing", "value": true],
             ["text": "raw", "value": false],
         ]
-        let iv = PineSelectTextFieldInputView(items: items)
         
-        tf = PineTextField(placeholder: "Click here")
-        tf.inputView = iv
-        self.view.addSubview(tf)
-        tf.snp_makeConstraints { (make) -> Void in
+        let sel = PineSelectGroup(items: items)
+        sel.singleSelect = true
+        self.view.addSubview(sel)
+        sel.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(200)
             make.center.equalTo(self.view)
         }
-        iv.done.addTarget(self, action: "done:", forControlEvents: .TouchUpInside)
-        
+
     }
     
     func open(sender: AnyObject){

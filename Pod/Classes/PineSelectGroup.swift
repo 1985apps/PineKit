@@ -15,7 +15,7 @@ public class PineSelectGroup: UIView {
     var callOnSelection : PineSelectGroup -> Void = {_ in }
     public var separator : Bool = true
     public var itemHeight = 40
-
+    public var singleSelect = false
 
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -39,7 +39,7 @@ public class PineSelectGroup: UIView {
     }
 
     public func setup(){
-        addAnchorItem()
+        
     }
 
     public func createItem(data: Dictionary<String, AnyObject>, group: PineSelectGroup) -> UIView {
@@ -48,22 +48,11 @@ public class PineSelectGroup: UIView {
     }
 
     func pushItems(items: [AnyObject]){
-        for (index, item) in items.enumerate() {
+        for (_, item) in items.enumerate() {
             let entry = item as! Dictionary<String, AnyObject>
             let i = createItem(entry, group: self) as! PineSelectGroupItem
             addItem(i)
         }
-    }
-
-    func addAnchorItem(){
-        let first = UIView()
-        self.addSubview(first)
-
-        first.snp_makeConstraints { (make) -> Void in
-            make.width.top.left.equalTo(self)
-            make.height.equalTo(0)
-        }
-        self.items.append(first)
     }
 
     func addItem(item: PineSelectGroupItem){
@@ -96,6 +85,12 @@ public class PineSelectGroup: UIView {
     public func onSelection(){
         self.callOnSelection(self)
     }
+    
+    public func unselectAll(){
+        for item in self.items {
+            (item as! PineSelectGroupItem).set(state: .Inactive).update()
+        }
+    }
 
     public func positionItems(){
 
@@ -103,12 +98,15 @@ public class PineSelectGroup: UIView {
             return
         }
 
-        for index in 1...(self.items.count - 1) {
+        for index in 0...(self.items.count - 1) {
             let item = self.items[index]
+            
+            let top = index == 0 ? self.snp_top : self.items[index - 1].snp_bottom
+            
             item.snp_updateConstraints(closure: { (make) -> Void in
                 make.left.width.equalTo(self)
                 make.height.equalTo(self.itemHeight)
-                make.top.equalTo(self.items[index - 1].snp_bottom).offset(1)
+                make.top.equalTo(top).offset(1)
             })
         }
     }
@@ -117,5 +115,6 @@ public class PineSelectGroup: UIView {
     public func after(){
 
     }
+
 
 }

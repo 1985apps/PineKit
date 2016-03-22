@@ -74,6 +74,9 @@ public class PineSelectGroupItem : UIView {
 
     func tapped(sender: UITapGestureRecognizer? = nil){
         let s : State = (self.state == .Active) ? .Inactive : .Active
+        if self.group?.singleSelect == true {
+            self.group?.unselectAll()
+        }
         set(state: s).beforeUpdate().update()
         self.group?.onSelection()
     }
