@@ -20,7 +20,7 @@ public class PineJSONModel: NSObject {
     }
     
     public func map() {
-        
+         
     }
     
 }
