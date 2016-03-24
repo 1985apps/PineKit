@@ -78,8 +78,13 @@ public class PineBaseViewController : UIViewController {
     /// Opens the menu view
     /// This would work only if this is part of a PineMenuViewController
     public func openmenu(sender: AnyObject? = nil){
-        let parent = self.parentViewController?.parentViewController as! PineMenuViewController
-        parent.toggleMenu()
+        if var parent = self.parentViewController {
+            if var parent = parent.parentViewController {
+                (parent as! PineMenuViewController).toggleMenu()
+            } else {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
     }
 
     /**

@@ -13,12 +13,18 @@ public class PineSelectTextFieldInputView: UIControl {
     public var done : PineButton = PineButton(title: "DONE")
     public var select : PineSelectGroup = PineSelectGroup()
     public var items : [AnyObject] = []
+    public var textField : UITextField? = nil
     
     public init(items: [AnyObject] = []){
         super.init(frame: CGRectZero)
         self.frame = CGRect(x: 0, y: 0, width: 0, height: 250)
         self.items = items
         setup()
+    }
+    
+    convenience public init(textField: UITextField, items: [AnyObject] = []) {
+        self.init(items: items)
+        self.textField = textField
     }
     
     public required init?(coder aDecoder: NSCoder) {

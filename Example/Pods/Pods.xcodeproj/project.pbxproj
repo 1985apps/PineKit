@@ -26,6 +26,7 @@
 		3BBCD583FA09A8383134FB82A0B4DB7C /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37292B068F436C9961C478132872E458 /* LayoutConstraint.swift */; };
 		421212DC1C92CC2E0064907E /* PineSelectTextFieldInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421212DB1C92CC2E0064907E /* PineSelectTextFieldInputView.swift */; };
 		429302DB1C919B5300460DCB /* PineSegmentedControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429302DA1C919B5300460DCB /* PineSegmentedControll.swift */; };
+		42D987CD1CA3F212001DEC69 /* PineJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D987CC1CA3F212001DEC69 /* PineJSONModel.swift */; };
 		452C09D0CAC1F8286ABA1CE076033B23 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2E70904451B0A65DDAD4A40A52018 /* Context.swift */; };
 		455176A9E9F9CAE175936661420B6EC8 /* PineLinearLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783458FCDE8ED98B0A72B74F2D96D066 /* PineLinearLayout.swift */; };
 		47004309D1E566FA09F2FBD89EF14529 /* Pods-PineKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C6B00FED638A71DC6CDADEE6D058F4C1 /* Pods-PineKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -233,6 +234,7 @@
 		421212DB1C92CC2E0064907E /* PineSelectTextFieldInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineSelectTextFieldInputView.swift; sourceTree = "<group>"; };
 		429302DA1C919B5300460DCB /* PineSegmentedControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineSegmentedControll.swift; sourceTree = "<group>"; };
 		4297ED6EE9CE885BD8A2DBD4A43C4EF6 /* Pods-PineKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PineKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		42D987CC1CA3F212001DEC69 /* PineJSONModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineJSONModel.swift; sourceTree = "<group>"; };
 		42EA086A590159869957E2BD4BBA5476 /* ConstraintGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintGroup.swift; path = Cartography/ConstraintGroup.swift; sourceTree = "<group>"; };
 		442F1ADCFBA4F9AC2DF3EA9089DA95C6 /* PineMenuTransitionSqueeze.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PineMenuTransitionSqueeze.swift; sourceTree = "<group>"; };
 		44C313204D45A6A11D406E8BB0D4C041 /* Cartography.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Cartography.modulemap; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 				8AF08AF40E3A55060C69856782489A10 /* ReplaceMe.swift */,
 				429302DA1C919B5300460DCB /* PineSegmentedControll.swift */,
 				421212DB1C92CC2E0064907E /* PineSelectTextFieldInputView.swift */,
+				42D987CC1CA3F212001DEC69 /* PineJSONModel.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 				90F175F0CBCBF402F1EC8A430C3DDA7F /* PineBarGraphYSet.swift in Sources */,
 				F9AECEE3295C9B056C4AD8C67AF2C431 /* PineBaseMenuView.swift in Sources */,
 				1DE2437FFEB0FA9C48CBAB63F6C339B9 /* PineBaseViewController.swift in Sources */,
+				42D987CD1CA3F212001DEC69 /* PineJSONModel.swift in Sources */,
 				B1C0F414E243C3D2E9B7E471F2D73F19 /* PineButton.swift in Sources */,
 				385B6C126F3804198C0B64F49BA8AFC6 /* PineConfig.swift in Sources */,
 				A037354F20D3A4B4BE136A800DE561F2 /* PineIcon.swift in Sources */,
