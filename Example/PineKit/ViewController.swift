@@ -9,6 +9,7 @@
 import UIKit
 import Cartography
 import PineKit
+import SwiftyJSON
 
 class ViewController: UIViewController {
     
@@ -42,6 +43,8 @@ class ViewController: UIViewController {
             make.size.equalTo(200)
             make.center.equalTo(self.view)
         }
+        
+        let m = PineJSONModel(map: JSON("[]"))
 
     }
     
