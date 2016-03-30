@@ -45,6 +45,13 @@ class ViewController: UIViewController {
         }
         
         let m = PineJSONModel(map: JSON("[]"))
+        
+        let c = PineCardView()
+        view.addSubview(c)
+        c.snp_makeConstraints { (make) in
+            make.center.equalTo(view)
+            make.size.equalTo(100)
+        }
 
     }
     
