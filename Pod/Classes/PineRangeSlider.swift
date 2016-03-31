@@ -15,6 +15,7 @@ public class PineRangeSlider: UIControl {
     
     public var min : CGFloat = 0
     public var max : CGFloat = 100
+    public var seed : (min: CGFloat, max: CGFloat)? = nil
     
     public var minBall: UIImageView?
     public var maxBall: UIImageView?
@@ -101,6 +102,17 @@ public class PineRangeSlider: UIControl {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
+        
+        // THIS SHOULD RUN ONLY ONCE
+        if let s = seed {
+            let xs = getXForValues(s.min, max: s.max)
+            self.minBallPositionConstraint?.updateOffset(xs.min)
+            self.maxBallPositionConstraint?.uninstall()
+            maxBall?.snp_makeConstraints(closure: { (make) in
+                self.maxBallPositionConstraint = make.left.equalTo(xs.max - (maxBall?.frame.width)!).constraint
+            })
+            self.seed = nil
+        }
     }
     
     public func preferredBarView() -> UIView {
@@ -178,8 +190,20 @@ public class PineRangeSlider: UIControl {
         let max = ((maxBall?.frame.origin.x)! / self.frame.width)
         let rangeSize = self.max - self.min
         return (min: (self.min + rangeSize * min), max: (self.min + rangeSize * max))
-        
     }
-
+    
+    public func setDefaultValues(min min: CGFloat, max: CGFloat){
+        self.seed = (min, max)
+    }
+    
+    func getXForValues(min: CGFloat, max: CGFloat) -> (min: CGFloat, max: CGFloat){
+        let rangeSize = self.max - self.min
+        let minPc = (100 * (min - self.min)) / rangeSize
+        let maxPc = (100 * (max - self.min)) / rangeSize
+        
+        let minX = self.frame.width * minPc / 100
+        let maxX = self.frame.width * maxPc / 100
+        return (minX, maxX)
+    }
     
 }

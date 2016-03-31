@@ -23,4 +23,8 @@ public class PineJSONModel: NSObject {
          
     }
     
+    public func pull(key: String) -> JSON {
+        return _map[key]
+    }
+    
 }

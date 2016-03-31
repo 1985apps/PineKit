@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     var swipe = PineSwipeView()
     var range = PineRangeSlider(min: 1, max: 10)
     var tf = PineTextField(placeholder: "sdf")
+    
+    var balls : PineRangeSlider? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,29 +32,26 @@ class ViewController: UIViewController {
     }
     
     func setup(){
-        
-        let items = [
-            ["text": "testing", "value": true],
-            ["text": "raw", "value": false],
-        ]
-        
-        let sel = PineSelectGroup(items: items)
-        sel.singleSelect = true
-        self.view.addSubview(sel)
-        sel.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(200)
-            make.center.equalTo(self.view)
+        balls = PineRangeSlider(min: 20, max: 40) { (ball) in
+            print(ball.getValues())
         }
-        
-        let m = PineJSONModel(map: JSON("[]"))
-        
-        let c = PineCardView()
-        view.addSubview(c)
-        c.snp_makeConstraints { (make) in
+        view.addSubview(balls!)
+        balls!.snp_makeConstraints { (make) in
             make.center.equalTo(view)
-            make.size.equalTo(100)
+            make.width.equalTo(view).multipliedBy(0.60)
+            make.height.equalTo(35)
         }
-
+        
+        balls!.setDefaultValues(min: 25, max: 40)
+        
+        let b = PineButton(title: "Click")
+        view.addSubview(b)
+        b.snp_makeConstraints { (make) in
+            make.left.right.bottom.equalTo(view).inset(25)
+            make.height.equalTo(50)
+        }
+        
+        b.addTarget(self, action: #selector(self.done(_:)), forControlEvents: .TouchUpInside)
     }
     
     func open(sender: AnyObject){
@@ -61,7 +60,7 @@ class ViewController: UIViewController {
     }
     
     func done(sender: AnyObject?){
-        tf.resignFirstResponder()
+        print(balls?.getValues())
     }
     
 }
