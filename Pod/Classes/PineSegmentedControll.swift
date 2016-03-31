@@ -10,7 +10,7 @@ import UIKit
 
 public class PineSegmentedControl: UIControl {
     
-    var labels : [PineLabel] = []
+    public var labels : [PineLabel] = []
     var onchange : PineSegmentedControl -> Void = {_ in}
     
     public var active : Int = 0 {
