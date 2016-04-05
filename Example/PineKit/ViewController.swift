@@ -32,26 +32,25 @@ class ViewController: UIViewController {
     }
     
     func setup(){
-        balls = PineRangeSlider(min: 20, max: 40) { (ball) in
-            print(ball.getValues())
+        let one = UIView()
+        one.backgroundColor = UIColor.redColor()
+        
+        let two = UIView()
+        two.backgroundColor = UIColor.grayColor()
+        
+        let c = UIImageView(image: UIImage(named: "filled-circle+black"))
+        let d = UIImageView(image: UIImage(named: "filled-circle+black"))
+        
+        let f = PineFluidGridLayout(views: [one, two, c, d])
+        c.snp_makeConstraints { (make) in
+            make.center.equalTo(c.superview!)
         }
-        view.addSubview(balls!)
-        balls!.snp_makeConstraints { (make) in
+        view.addSubview(f)
+        f.snp_makeConstraints { (make) in
             make.center.equalTo(view)
-            make.width.equalTo(view).multipliedBy(0.60)
-            make.height.equalTo(35)
+            make.size.equalTo(200)
         }
-        
-        balls!.setDefaultValues(min: 25, max: 40)
-        
-        let b = PineButton(title: "Click")
-        view.addSubview(b)
-        b.snp_makeConstraints { (make) in
-            make.left.right.bottom.equalTo(view).inset(25)
-            make.height.equalTo(50)
-        }
-        
-        b.addTarget(self, action: #selector(self.done(_:)), forControlEvents: .TouchUpInside)
+        f.backgroundColor = UIColor.grayColor()
     }
     
     func open(sender: AnyObject){

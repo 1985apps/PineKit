@@ -25,6 +25,7 @@
 		38DCFE822AC870D870A8FEFBCF34E40C /* PineMenuTransitionSqueeze.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F1ADCFBA4F9AC2DF3EA9089DA95C6 /* PineMenuTransitionSqueeze.swift */; };
 		3BBCD583FA09A8383134FB82A0B4DB7C /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37292B068F436C9961C478132872E458 /* LayoutConstraint.swift */; };
 		421212DC1C92CC2E0064907E /* PineSelectTextFieldInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421212DB1C92CC2E0064907E /* PineSelectTextFieldInputView.swift */; };
+		422EB1631CB3E12800B9CFC5 /* PineFluidGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422EB1621CB3E12800B9CFC5 /* PineFluidGridLayout.swift */; };
 		422F36331CABCA2300DD2B68 /* PineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F36321CABCA2300DD2B68 /* PineCardView.swift */; };
 		429302DB1C919B5300460DCB /* PineSegmentedControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429302DA1C919B5300460DCB /* PineSegmentedControll.swift */; };
 		42D987CD1CA3F212001DEC69 /* PineJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D987CC1CA3F212001DEC69 /* PineJSONModel.swift */; };
@@ -233,6 +234,7 @@
 		3CEB9D1AAD875A06EBEE168D2C566EDA /* PineMenuTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PineMenuTransition.swift; sourceTree = "<group>"; };
 		3F5BB7749C37D3C10127A0BE9ACFDC84 /* PineRadioGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PineRadioGroup.swift; sourceTree = "<group>"; };
 		421212DB1C92CC2E0064907E /* PineSelectTextFieldInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineSelectTextFieldInputView.swift; sourceTree = "<group>"; };
+		422EB1621CB3E12800B9CFC5 /* PineFluidGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineFluidGridLayout.swift; sourceTree = "<group>"; };
 		422F36321CABCA2300DD2B68 /* PineCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineCardView.swift; sourceTree = "<group>"; };
 		429302DA1C919B5300460DCB /* PineSegmentedControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineSegmentedControll.swift; sourceTree = "<group>"; };
 		4297ED6EE9CE885BD8A2DBD4A43C4EF6 /* Pods-PineKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PineKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 				421212DB1C92CC2E0064907E /* PineSelectTextFieldInputView.swift */,
 				42D987CC1CA3F212001DEC69 /* PineJSONModel.swift */,
 				422F36321CABCA2300DD2B68 /* PineCardView.swift */,
+				422EB1621CB3E12800B9CFC5 /* PineFluidGridLayout.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -974,6 +977,7 @@
 			files = (
 				71110C3C21348239D86E6142D6E294CF /* PineBarGraph.swift in Sources */,
 				C0D98D02878F59C5F018326DA69E4800 /* PineBarGraphHorizonalGridLine.swift in Sources */,
+				422EB1631CB3E12800B9CFC5 /* PineFluidGridLayout.swift in Sources */,
 				90F175F0CBCBF402F1EC8A430C3DDA7F /* PineBarGraphYSet.swift in Sources */,
 				F9AECEE3295C9B056C4AD8C67AF2C431 /* PineBaseMenuView.swift in Sources */,
 				1DE2437FFEB0FA9C48CBAB63F6C339B9 /* PineBaseViewController.swift in Sources */,
