@@ -51,6 +51,15 @@ class ViewController: UIViewController {
             make.size.equalTo(200)
         }
         f.backgroundColor = UIColor.grayColor()
+        
+        var r = PineRating(rating: 3)
+        view.addSubview(r)
+        r.snp_makeConstraints { (make) in
+            make.centerX.equalTo(f)
+            make.top.equalTo(f.snp_bottom).offset(30)
+            make.width.equalTo(200)
+            make.height.equalTo(40)
+        }
     }
     
     func open(sender: AnyObject){
