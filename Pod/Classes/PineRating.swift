@@ -26,7 +26,7 @@ public class PineRating: UIControl {
     }
     
     public func setup(){
-        for i in 0...Int(self.outof) {
+        for i in 0...Int(self.outof) - 1 {
             let iv = UIImageView(image: getPreferredImageForIndex(i))
             items.append(iv)
             self.addSubview(iv)
@@ -44,7 +44,7 @@ public class PineRating: UIControl {
     }
     
     public func getPreferredImageForIndex(index: Int = 0) -> UIImage {
-        return index <= Int(self.rating) ? getPreferredImage() : getPreferredDullImage()
+        return index < Int(self.rating) ? getPreferredImage() : getPreferredDullImage()
     }
     
     public override func layoutSubviews() {
