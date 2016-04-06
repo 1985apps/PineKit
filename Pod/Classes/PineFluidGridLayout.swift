@@ -10,9 +10,9 @@ import UIKit
 
 public class PineFluidGridLayout: UIView {
     
-    var items : [UIView] = []
-    var containers : [UIView] = []
-    var maxColumns: Int = 3
+    public var items : [UIView] = []
+    public var containers : [UIView] = []
+    public var maxColumns: Int = 3
     
     public init(views: [UIView], maxColumns: Int = 3){
         super.init(frame: CGRectZero)
