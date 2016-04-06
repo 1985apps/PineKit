@@ -128,7 +128,7 @@ public class PineSimpleData: NSObject, NSCoding {
         single.save()
     }
     
-    public static func removeKeys(keys: [String]){
+    public static func remove(keys: [String]){
         for key in keys {
             remove(key)
         }
