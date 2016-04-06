@@ -46,7 +46,7 @@ public class PineFluidGridLayout: UIView {
     // THIS METHOD ONLY FIXES THE FRAMES OF THE BOXES
     func positionBoxes(){
         let boxWidth = self.frame.width / CGFloat(items.count > maxColumns ? maxColumns : items.count)
-        let rows = round((CGFloat(items.count) / CGFloat(maxColumns)) + 0.5)
+        let rows = ceil((CGFloat(items.count) / CGFloat(maxColumns)))
         let boxHeight = self.frame.height / CGFloat(rows)
         
         var x = CGFloat(0.0);
