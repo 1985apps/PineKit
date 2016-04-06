@@ -31,11 +31,10 @@ public class PineFluidGridLayout: UIView {
         }
         for item in items {
             let box = UIView()
-            box.addSubview(item)
-            
             self.containers.append(box)
             self.addSubview(box)
             
+            box.addSubview(item)
         }
     }
     
@@ -54,7 +53,10 @@ public class PineFluidGridLayout: UIView {
         var y = CGFloat(0.0);
         var index = 0
         
-        for box in containers {
+        for itemIndex in 0...containers.count - 1  {
+            let box = containers[itemIndex]
+            let item = items[itemIndex]
+            
             let frame = CGRect(x: x, y: boxHeight * y, width: boxWidth, height: boxHeight)
             box.frame = frame
 
@@ -67,6 +69,10 @@ public class PineFluidGridLayout: UIView {
             } else {
                 index++
             }
+            
+            item.snp_makeConstraints(closure: { (make) in
+                make.center.equalTo(box)
+            })
             
         }
         

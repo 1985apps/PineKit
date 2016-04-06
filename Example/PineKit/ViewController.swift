@@ -32,34 +32,23 @@ class ViewController: UIViewController {
     }
     
     func setup(){
-        let one = UIView()
-        one.backgroundColor = UIColor.redColor()
         
-        let two = UIView()
-        two.backgroundColor = UIColor.grayColor()
-        
+        let a = UIImageView(image: UIImage(named: "filled-circle+black"))
+        let b = UIImageView(image: UIImage(named: "filled-circle+black"))
         let c = UIImageView(image: UIImage(named: "filled-circle+black"))
         let d = UIImageView(image: UIImage(named: "filled-circle+black"))
         
-        let f = PineFluidGridLayout(views: [one, two, c, d])
-        c.snp_makeConstraints { (make) in
-            make.center.equalTo(c.superview!)
-        }
-        view.addSubview(f)
-        f.snp_makeConstraints { (make) in
-            make.center.equalTo(view)
-            make.size.equalTo(200)
-        }
-        f.backgroundColor = UIColor.grayColor()
+        let f = PineFluidGridLayout(views: [a, b, c, d])
         
-        var r = PineRating(rating: 3)
-        view.addSubview(r)
-        r.snp_makeConstraints { (make) in
-            make.centerX.equalTo(f)
-            make.top.equalTo(f.snp_bottom).offset(30)
-            make.width.equalTo(200)
-            make.height.equalTo(40)
+        view.addSubview(f)
+        
+        f.snp_makeConstraints { (make) in
+            make.center.equalTo(self.view)
+            make.size.equalTo(300)
         }
+        
+        f.backgroundColor = UIColor.grayColor()
+
     }
     
     func open(sender: AnyObject){
