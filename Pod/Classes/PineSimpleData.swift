@@ -128,4 +128,10 @@ public class PineSimpleData: NSObject, NSCoding {
         single.save()
     }
     
+    public static func clear(){
+        let single = getSingle()
+        single.data.removeAll()
+        single.save()
+    }
+    
 }
