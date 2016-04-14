@@ -33,21 +33,16 @@ class ViewController: UIViewController {
     
     func setup(){
         
-        let a = UIImageView(image: UIImage(named: "filled-circle+black"))
-        let b = UIImageView(image: UIImage(named: "filled-circle+black"))
-        let c = UIImageView(image: UIImage(named: "filled-circle+black"))
-        let d = UIImageView(image: UIImage(named: "filled-circle+black"))
+        let ip = Picker(controller: self)
+        view.addSubview(ip)
         
-        let f = PineFluidGridLayout(views: [a, b, c])
-        
-        view.addSubview(f)
-        
-        f.snp_makeConstraints { (make) in
-            make.center.equalTo(self.view)
-            make.size.equalTo(300)
+        ip.snp_makeConstraints { (make) in
+            make.center.equalTo(view)
+            make.size.equalTo(80)
+            
         }
         
-        f.backgroundColor = UIColor.grayColor()
+        ip.backgroundColor = UIColor.greenColor()
 
     }
     
@@ -58,6 +53,14 @@ class ViewController: UIViewController {
     
     func done(sender: AnyObject?){
         print(balls?.getValues())
+    }
+    
+    class Picker : PineImagePicker {
+        
+        override func onSelection(image image: UIImage) {
+            print("yes I am selected")
+        }
+        
     }
     
 }

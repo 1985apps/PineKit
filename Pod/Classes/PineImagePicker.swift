@@ -62,9 +62,15 @@ public class PineImagePicker: UIImageView, UINavigationControllerDelegate, UIIma
     
     public func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         picker.dismissViewControllerAnimated(true, completion: nil)
-        self.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.contentMode = UIViewContentMode.ScaleAspectFill
         self.clipsToBounds = true
+
+        onSelection(image: image!)
+    }
+    
+    public func onSelection(image image: UIImage){
+        self.image = image
     }
 
 }

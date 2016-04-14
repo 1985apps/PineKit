@@ -13,6 +13,7 @@ public class PineFluidGridLayout: UIView {
     public var items : [UIView] = []
     public var containers : [UIView] = []
     public var maxColumns: Int = 3
+    public var rows : Int = 0
     
     public init(views: [UIView], maxColumns: Int = 3){
         super.init(frame: CGRectZero)
@@ -29,6 +30,7 @@ public class PineFluidGridLayout: UIView {
         if items.count == 0 {
             return
         }
+        self.rows = Int(ceil((CGFloat(items.count) / CGFloat(maxColumns))))
         for item in items {
             let box = UIView()
             self.containers.append(box)
@@ -46,7 +48,6 @@ public class PineFluidGridLayout: UIView {
     // THIS METHOD ONLY FIXES THE FRAMES OF THE BOXES
     func positionBoxes(){
         let boxWidth = self.frame.width / CGFloat(items.count > maxColumns ? maxColumns : items.count)
-        let rows = ceil((CGFloat(items.count) / CGFloat(maxColumns)))
         let boxHeight = self.frame.height / CGFloat(rows)
         
         var x = CGFloat(0.0);
