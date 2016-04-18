@@ -40,5 +40,6 @@ Pod::Spec.new do |s|
   s.dependency 'Cartography'
   s.dependency 'SnapKit', '~> 0.15.0'
   s.dependency 'SwiftyJSON'
-  
+  s.dependency 'Alamofire', '~> 3.3'  
+
 end

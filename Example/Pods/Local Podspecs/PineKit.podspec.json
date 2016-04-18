@@ -31,6 +31,9 @@
     ],
     "SwiftyJSON": [
 
+    ],
+    "Alamofire": [
+      "~> 3.3"
     ]
   }
 }
