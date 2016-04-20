@@ -8,6 +8,8 @@
 
 import UIKit
 import Foundation
+import BSImagePicker
+import Photos
 
 public class PineImagePicker: UIImageView, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
@@ -42,7 +44,8 @@ public class PineImagePicker: UIImageView, UINavigationControllerDelegate, UIIma
         let alert = UIAlertController(title: "Choose a photo", message: "Choose from either your gallery of take a photo now", preferredStyle: .ActionSheet)
         
         let gallery = UIAlertAction(title: "Gallery", style: .Default) { (action) -> Void in
-            self.open(.PhotoLibrary)
+//            self.open(.PhotoLibrary)
+            self.openPhotoGallery()
         }
         
         let camera = UIAlertAction(title: "Take a photo", style: .Default) { (action) -> Void in
@@ -60,17 +63,39 @@ public class PineImagePicker: UIImageView, UINavigationControllerDelegate, UIIma
         self.controller?.presentViewController(self.cameraController, animated: true, completion: nil)
     }
     
+    // THIS OPENS A PHOTO GALLERY WITH MULTI PICK OPTION
+    public func openPhotoGallery(){
+        let vc = BSImagePickerViewController()
+        
+        self.controller?.bs_presentImagePickerController(vc, animated: true, select: nil, deselect: nil, cancel: nil, finish: { (assets) in
+            
+            var images : [UIImage] = []
+            let manager = PHImageManager.defaultManager()
+            let options = PHImageRequestOptions()
+            
+            options.synchronous = true
+            
+            for asset in assets {
+                manager.requestImageForAsset(assets.first!, targetSize: CGSize(width: 600, height: 800), contentMode: .AspectFit, options: options, resultHandler: { (image, info) in
+                    images.append(image!)
+                })
+            }
+            
+            self.onSelection(images: images)
+        }, completion: nil)
+    }
+    
     public func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         picker.dismissViewControllerAnimated(true, completion: nil)
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.contentMode = UIViewContentMode.ScaleAspectFill
         self.clipsToBounds = true
 
-        onSelection(image: image!)
+        onSelection(images: [image!])
     }
     
-    public func onSelection(image image: UIImage){
-        self.image = image
+    public func onSelection(images images: [UIImage]){
+        self.image = images.first!
     }
 
 }

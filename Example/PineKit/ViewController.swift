@@ -10,6 +10,8 @@ import UIKit
 import Cartography
 import PineKit
 import SwiftyJSON
+import BSImagePicker
+import Photos
 
 class ViewController: UIViewController {
     
@@ -43,7 +45,6 @@ class ViewController: UIViewController {
         }
         
         ip.backgroundColor = UIColor.greenColor()
-
     }
     
     func open(sender: AnyObject){
@@ -55,11 +56,14 @@ class ViewController: UIViewController {
         print(balls?.getValues())
     }
     
+    func show(sender: AnyObject? = nil){
+           }
+    
     class Picker : PineImagePicker {
         
-        override func onSelection(image image: UIImage) {
-            print("yes I am selected")
-        }
+//        override func onSelection(image image: UIImage) {
+//            print("yes I am selected")
+//        }
         
     }
     
