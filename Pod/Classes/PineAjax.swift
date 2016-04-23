@@ -98,7 +98,10 @@ public class PineAjax: NSObject {
     }
     
     public func onResponse(response: Response<AnyObject, NSError>) -> Void {
-        let json = JSON(rawValue: response.result.value!)
+        var json = JSON(rawValue: "{}")
+        if response.result.value != nil {
+            json = JSON(rawValue: response.result.value!)
+        }
         let code = response.response?.statusCode
         if code >= 200 && code <= 300 {
             self.successCallback(json: json!, response: response)
