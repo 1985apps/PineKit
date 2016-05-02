@@ -91,6 +91,10 @@ public class PineSelectGroup: UIView {
             (item as! PineSelectGroupItem).set(state: .Inactive).update()
         }
     }
+    
+    public func selectItemAt(index: Int){
+        (self.items[index] as! PineSelectGroupItem).set(state: .Active).update()
+    }
 
     public func positionItems(){
 

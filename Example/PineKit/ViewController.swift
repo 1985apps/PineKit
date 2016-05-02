@@ -35,16 +35,20 @@ class ViewController: UIViewController {
     
     func setup(){
         
-        let ip = Picker(controller: self)
-        view.addSubview(ip)
+        var items = [
+            ["text": "One", "value": true],
+            ["text": "Two", "value": false]
+        ]
+        let rg = PineSelectGroup(items: items)
+        rg.singleSelect = true
+        rg.selectItemAt(0)
         
-        ip.snp_makeConstraints { (make) in
+        view.addSubview(rg)
+        
+        rg.snp_makeConstraints { (make) in
             make.center.equalTo(view)
-            make.size.equalTo(80)
-            
+            make.size.equalTo(200)
         }
-        
-        ip.backgroundColor = UIColor.greenColor()
     }
     
     func open(sender: AnyObject){
