@@ -73,6 +73,12 @@ public class PineSelectGroupItem : UIView {
     }
 
     func tapped(sender: UITapGestureRecognizer? = nil){
+        
+        // DO NOTHING, IF THE SELECTED ITEM IS TAPPED ON AND IF THE GROUP HAS A SINGLESELECT == TRUE (acting as radio group)
+        if self.group?.singleSelect == true && self.state == .Active {
+            return
+        }
+        
         let s : State = (self.state == .Active) ? .Inactive : .Active
         if self.group?.singleSelect == true {
             self.group?.unselectAll()
