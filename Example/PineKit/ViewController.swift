@@ -39,8 +39,11 @@ class ViewController: UIViewController {
             ["text": "One", "value": true],
             ["text": "Two", "value": false]
         ]
-        let rg = PineSelectGroup(items: items)
-//        rg.singleSelect = true
+        //let rg = PineSelectGroup(items: items)
+        let rg = PineSelectGroup(items: items) { (group) in
+            print("yes yes")
+        }
+        rg.singleSelect = true
 //        rg.selectItemAt(0)
         
         view.addSubview(rg)

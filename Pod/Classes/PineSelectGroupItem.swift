@@ -75,7 +75,9 @@ public class PineSelectGroupItem : UIView {
     func tapped(sender: UITapGestureRecognizer? = nil){
         
         // DO NOTHING, IF THE SELECTED ITEM IS TAPPED ON AND IF THE GROUP HAS A SINGLESELECT == TRUE (acting as radio group)
+        // IT CALLS THE CALLBACK AS WELL
         if self.group?.singleSelect == true && self.state == .Active {
+            self.group?.onSelection()
             return
         }
         
