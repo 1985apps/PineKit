@@ -16,6 +16,7 @@ public class PineMenuViewController : UIViewController, PineMenuDelegate  {
     public var contentNavigationController: UINavigationController?
     public var transition = PineMenuTransition()
     public var rootViewController = PineBaseViewController()
+    public let blockView = UIView()
 
     public init(menuView: PineBaseMenuView, rootViewController: PineBaseViewController, transition: PineMenuTransition = PineMenuTransition()){
 
@@ -63,14 +64,23 @@ public class PineMenuViewController : UIViewController, PineMenuDelegate  {
 
 
         // SETUP THE BACKGROUND COLOR OF NAVBAR
-        self.contentNavigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        self.contentNavigationController!.navigationBar.shadowImage = UIImage()
-        self.contentNavigationController!.navigationBar.translucent = true
-        self.contentNavigationController?.navigationBar.tintColor = UIColor.redColor()
+        //self.contentNavigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        //self.contentNavigationController!.navigationBar.shadowImage = UIImage()
+        //self.contentNavigationController!.navigationBar.translucent = true
+        self.contentNavigationController?.navigationBar.tintColor = UIColor.clearColor()
     }
 
-    func toggleMenu(){
+    func toggleMenu(sender: AnyObject? = nil){
         self.transition.toggle()
+        if transition.isOpen() {
+            let vcView = self.contentNavigationController?.viewControllers.last!.view
+            blockView.frame = vcView!.frame
+            let t = UITapGestureRecognizer(target: self, action: #selector(self.toggleMenu(_:)))
+            blockView.addGestureRecognizer(t)
+            vcView!.addSubview(blockView)
+        } else {
+            blockView.removeFromSuperview()
+        }
     }
 
 

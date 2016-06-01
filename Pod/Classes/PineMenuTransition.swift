@@ -32,7 +32,7 @@ public class PineMenuTransition : NSObject {
     }
     
     func toggle(){
-
+	setup()
         if self.isOpen() {
             close()
         } else {
