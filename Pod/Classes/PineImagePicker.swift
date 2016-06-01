@@ -76,7 +76,7 @@ public class PineImagePicker: UIImageView, UINavigationControllerDelegate, UIIma
             options.synchronous = true
             
             for asset in assets {
-                manager.requestImageForAsset(assets.first!, targetSize: CGSize(width: 600, height: 800), contentMode: .AspectFit, options: options, resultHandler: { (image, info) in
+                manager.requestImageForAsset(asset, targetSize: CGSize(width: 600, height: 800), contentMode: .AspectFit, options: options, resultHandler: { (image, info) in
                     images.append(image!)
                 })
             }
