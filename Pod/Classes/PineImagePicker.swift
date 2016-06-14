@@ -41,7 +41,7 @@ public class PineImagePicker: UIImageView, UINavigationControllerDelegate, UIIma
     }
     
     public func showOpenOptions(sender: AnyObject? = nil){
-        let alert = UIAlertController(title: "Choose a photo", message: "Choose from either your gallery of take a photo now", preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: "Choose a photo", message: "Choose from either your gallery of take a photo now", preferredStyle: .ActionSheet)
         
         let gallery = UIAlertAction(title: "Gallery", style: .Default) { (action) -> Void in
 //            self.open(.PhotoLibrary)
@@ -52,10 +52,14 @@ public class PineImagePicker: UIImageView, UINavigationControllerDelegate, UIIma
             self.open(.Camera)
         }
         
-        alert.addAction(gallery)
-        alert.addAction(camera)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        self.controller?.presentViewController(alert, animated: true, completion: nil)
+        alertController.addAction(gallery)
+        alertController.addAction(camera)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = self
+            popoverController.sourceRect = self.bounds
+        }
+        self.controller?.presentViewController(alertController, animated: true, completion: nil)
     }
     
     public func open(sourceType: UIImagePickerControllerSourceType){
