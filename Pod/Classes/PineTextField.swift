@@ -66,6 +66,11 @@ public class PineTextField: UITextField {
         self.font = PineConfig.Font.get(PineConfig.Font.REGULAR, size: 14)
     }
     
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        self.onChange()
+    }
+    
     /**
         Sets the bottom border color
 
@@ -96,7 +101,7 @@ public class PineTextField: UITextField {
         return CGRectInset(rect, 0, 10)
     }
     
-    func onChange(sender: AnyObject?){
+    public func onChange(sender: AnyObject? = nil){
         if self.text?.characters.count < 1 {
             self.label.text = ""
         } else {

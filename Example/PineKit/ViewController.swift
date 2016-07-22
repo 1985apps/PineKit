@@ -34,44 +34,17 @@ class ViewController: UIViewController {
     }
     
     func setup(){
+        var tf = PineTextField(placeholder: "this is it")
+        self.view.addSubview(tf)
         
-        var items = [
-            ["text": "One", "value": true],
-            ["text": "Two", "value": false]
-        ]
-        //let rg = PineSelectGroup(items: items)
-        let rg = PineSelectGroup(items: items) { (group) in
-            print("yes yes")
+        tf.snp_makeConstraints { (make) in
+            make.center.equalTo(self.view)
+            make.height.equalTo(40)
+            make.width.equalTo(200)
         }
-        rg.singleSelect = true
-//        rg.selectItemAt(0)
         
-        view.addSubview(rg)
-        
-        rg.snp_makeConstraints { (make) in
-            make.center.equalTo(view)
-            make.size.equalTo(200)
-        }
-    }
-    
-    func open(sender: AnyObject){
-        let menu = PineMenuViewController(menuView: MenuView(), rootViewController: ElementViewController())
-        self.presentViewController(menu, animated: true, completion: nil)
-    }
-    
-    func done(sender: AnyObject?){
-        print(balls?.getValues())
-    }
-    
-    func show(sender: AnyObject? = nil){
-           }
-    
-    class Picker : PineImagePicker {
-        
-//        override func onSelection(image image: UIImage) {
-//            print("yes I am selected")
-//        }
-        
+        tf.text = "this could there already"
+//        tf.onChange()
     }
     
 }
