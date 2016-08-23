@@ -15,13 +15,6 @@ import Photos
 
 class ViewController: UIViewController {
     
-    var bar = UINavigationBar()
-    var swipe = PineSwipeView()
-    var range = PineRangeSlider(min: 1, max: 10)
-    var tf = PineTextField(placeholder: "sdf")
-    
-    var balls : PineRangeSlider? = nil
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -34,17 +27,7 @@ class ViewController: UIViewController {
     }
     
     func setup(){
-        var tf = PineTextField(placeholder: "this is it")
-        self.view.addSubview(tf)
-        
-        tf.snp_makeConstraints { (make) in
-            make.center.equalTo(self.view)
-            make.height.equalTo(40)
-            make.width.equalTo(200)
-        }
-        
-        tf.text = "this could there already"
-//        tf.onChange()
+        let select = PineSelectGroup(items: <#T##[AnyObject]#>)
     }
     
 }
