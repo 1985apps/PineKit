@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     func setup(){
-        let select = PineSelectGroup(items: <#T##[AnyObject]#>)
+//        let select = PineSelectGroup(items: <#T##[AnyObject]#>)
     }
     
 }
