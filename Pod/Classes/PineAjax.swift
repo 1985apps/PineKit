@@ -13,6 +13,7 @@ import Alamofire
 public class PineAjax: NSObject {
     
     public static var baseUrl = "http://"
+    public var headers : Dictionary <String, String> = Dictionary<String, String>()
     
     public var request: Request?
     public var url : String = ""
@@ -46,7 +47,6 @@ public class PineAjax: NSObject {
     
     public func runRequest() -> PineAjax {
         let url = PineAjax.baseUrl + self.url
-        var headers : Dictionary <String, String> = Dictionary<String, String>()
         if let token = PineSimpleData.getString("token") {
             headers["token"] = token
             print("Token: \(token)")
@@ -59,7 +59,6 @@ public class PineAjax: NSObject {
     
     public func runUpload() -> PineAjax {
         let url = PineAjax.baseUrl + self.url
-        var headers : Dictionary <String, String> = Dictionary<String, String>()
         if let token = PineSimpleData.getString("token") {
             headers["token"] = token
             print("Token: \(token)")

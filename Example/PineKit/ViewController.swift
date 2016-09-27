@@ -15,13 +15,6 @@ import Photos
 
 class ViewController: UIViewController {
     
-    var bar = UINavigationBar()
-    var swipe = PineSwipeView()
-    var range = PineRangeSlider(min: 1, max: 10)
-    var tf = PineTextField(placeholder: "sdf")
-    
-    var balls : PineRangeSlider? = nil
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -34,44 +27,7 @@ class ViewController: UIViewController {
     }
     
     func setup(){
-        
-        var items = [
-            ["text": "One", "value": true],
-            ["text": "Two", "value": false]
-        ]
-        //let rg = PineSelectGroup(items: items)
-        let rg = PineSelectGroup(items: items) { (group) in
-            print("yes yes")
-        }
-        rg.singleSelect = true
-//        rg.selectItemAt(0)
-        
-        view.addSubview(rg)
-        
-        rg.snp_makeConstraints { (make) in
-            make.center.equalTo(view)
-            make.size.equalTo(200)
-        }
-    }
-    
-    func open(sender: AnyObject){
-        let menu = PineMenuViewController(menuView: MenuView(), rootViewController: ElementViewController())
-        self.presentViewController(menu, animated: true, completion: nil)
-    }
-    
-    func done(sender: AnyObject?){
-        print(balls?.getValues())
-    }
-    
-    func show(sender: AnyObject? = nil){
-           }
-    
-    class Picker : PineImagePicker {
-        
-//        override func onSelection(image image: UIImage) {
-//            print("yes I am selected")
-//        }
-        
+//        let select = PineSelectGroup(items: <#T##[AnyObject]#>)
     }
     
 }
