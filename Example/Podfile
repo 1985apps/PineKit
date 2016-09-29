@@ -6,10 +6,10 @@ target 'PineKit_Example', :exclusive => true do
 end
 
 target 'PineKit_Tests', :exclusive => true do
-  pod 'PineKit', :path => '../'
-
-  
+  pod 'PineKit', :path => '../'  
 end
 
 pod 'SnapKit', '~> 0.15.0'
 pod 'DLRadioButton', '~> 1.4'
+pod 'SwiftyJSON', '~> 2.3.1'
+pod 'Alamofire', '~> 3.3'

@@ -21,16 +21,5 @@
     "PineKit": [
       "Pod/Assets/*.png"
     ]
-  },
-  "dependencies": {
-    "SnapKit": [
-      "~> 0.15.0"
-    ],
-    "SwiftyJSON": [
-      "~> 2.3.1"
-    ],
-    "Alamofire": [
-      "~> 3.3"
-    ]
   }
 }

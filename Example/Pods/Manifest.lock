@@ -1,17 +1,16 @@
 PODS:
   - Alamofire (3.5.0)
   - DLRadioButton (1.4.9)
-  - PineKit (0.1.0):
-    - Alamofire (~> 3.3)
-    - SnapKit (~> 0.15.0)
-    - SwiftyJSON (~> 2.3.1)
+  - PineKit (0.1.0)
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
+  - Alamofire (~> 3.3)
   - DLRadioButton (~> 1.4)
   - PineKit (from `../`)
   - SnapKit (~> 0.15.0)
+  - SwiftyJSON (~> 2.3.1)
 
 EXTERNAL SOURCES:
   PineKit:
@@ -20,7 +19,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
   DLRadioButton: 7bb8a6e3768b572469ace553391ab4d2af6f9c19
-  PineKit: fd340f32cb8f613955b0fd3263d8ddd0437688b7
+  PineKit: d3e5b5841b93329b4faa66abb425c3ca2ab014fd
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
