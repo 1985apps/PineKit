@@ -10,7 +10,7 @@ import UIKit
 import Cartography
 import PineKit
 import SwiftyJSON
-import BSImagePicker
+//import BSImagePicker
 import Photos
 
 class ViewController: UIViewController {

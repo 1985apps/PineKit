@@ -11,8 +11,5 @@ target 'PineKit_Tests', :exclusive => true do
   
 end
 
-
-pod 'Cartography'
 pod 'SnapKit', '~> 0.15.0'
-pod 'SwiftyJSON'
 pod 'DLRadioButton', '~> 1.4'

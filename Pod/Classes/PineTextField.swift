@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-import Cartography
+//import Cartography
 
 /// PineKits TextField SubClass
 public class PineTextField: UITextField {
@@ -41,23 +41,23 @@ public class PineTextField: UITextField {
     public func setup(){
         self.addSubview(line)
 
-        constrain(line) { line in
-            line.height == 1
-            line.bottom == line.superview!.bottom
-            line.width == line.superview!.width
-            line.left == line.superview!.left
-        }
+//        constrain(line) { line in
+//            line.height == 1
+//            line.bottom == line.superview!.bottom
+//            line.width == line.superview!.width
+//            line.left == line.superview!.left
+//        }
         
         self.setBottomBorderColor(PineConfig.TextField.bottomBorderColor)
         
         // LABEL
         self.addSubview(self.label)
-        constrain(self.label) { label in
-            label.leading == label.superview!.leading
-            label.top == label.superview!.top
-            label.left == label.superview!.left
-            label.right == label.superview!.right
-        }
+//        constrain(self.label) { label in
+//            label.leading == label.superview!.leading
+//            label.top == label.superview!.top
+//            label.left == label.superview!.left
+//            label.right == label.superview!.right
+//        }
         self.label.text = ""
         self.label.textColor = PineConfig.Color.blue
         

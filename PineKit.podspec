@@ -37,10 +37,10 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Cartography'
+  # s.dependency 'Cartography'
   s.dependency 'SnapKit', '~> 0.15.0'
-  s.dependency 'SwiftyJSON'
-  s.dependency 'Alamofire', '~> 3.3'  
-  s.dependency 'BSImagePicker', '~> 2.3' 
+  s.dependency 'SwiftyJSON', '~> 2.3.1'
+  s.dependency 'Alamofire', '~> 3.3'
+  # s.dependency 'BSImagePicker', '~> 2.3'
 
 end

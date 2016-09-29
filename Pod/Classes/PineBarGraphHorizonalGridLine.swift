@@ -8,7 +8,6 @@
 
 import UIKit
 import Foundation
-import Cartography
 
 public class PineBarGraphHorizonalGridLine: UIView {
     
@@ -29,22 +28,22 @@ public class PineBarGraphHorizonalGridLine: UIView {
         let label = PineLabel(text: self.text)
         label.font = PineConfig.Font.get(PineConfig.Font.REGULAR, size: 11)
         self.addSubview(label)
-        constrain(label, self) { label, row in
-            label.top == row.top
-            label.left == row.left
-            label.height == row.height
-            label.width == 25
-        }
+//        constrain(label, self) { label, row in
+//            label.top == row.top
+//            label.left == row.left
+//            label.height == row.height
+//            label.width == 25
+//        }
         
         let line = UIView()
         line.backgroundColor = self.lineColor
         self.addSubview(line)
-        constrain(line, label) { (line, label) in
-            line.centerY == label.centerY
-            line.left == label.right
-            line.right == line.superview!.right
-            line.height == 1
-        }
+//        constrain(line, label) { (line, label) in
+//            line.centerY == label.centerY
+//            line.left == label.right
+//            line.right == line.superview!.right
+//            line.height == 1
+//        }
     }
 
 }
