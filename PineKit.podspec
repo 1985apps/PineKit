@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PineKit"
-  s.version          = "0.1.2"
+  s.version          = "2.3.0"
   s.summary          = "UI Development Kit"
 
 # This description is used to generate tags and improve search results.
