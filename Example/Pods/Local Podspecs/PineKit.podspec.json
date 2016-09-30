@@ -21,22 +21,5 @@
     "PineKit": [
       "Pod/Assets/*.png"
     ]
-  },
-  "dependencies": {
-    "Cartography": [
-
-    ],
-    "SnapKit": [
-      "~> 0.15.0"
-    ],
-    "SwiftyJSON": [
-
-    ],
-    "Alamofire": [
-      "~> 3.3"
-    ],
-    "BSImagePicker": [
-      "~> 2.3"
-    ]
   }
 }

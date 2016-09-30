@@ -84,22 +84,8 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-PineKit_Example/Cartography.framework"
-  install_framework "Pods-PineKit_Example/SnapKit.framework"
-  install_framework "Pods-PineKit_Example/SwiftyJSON.framework"
-  install_framework "Pods-PineKit_Example/Alamofire.framework"
-  install_framework "Pods-PineKit_Example/BSGridCollectionViewLayout.framework"
-  install_framework "Pods-PineKit_Example/BSImagePicker.framework"
   install_framework "Pods-PineKit_Example/PineKit.framework"
-  install_framework "Pods-PineKit_Example/UIImageViewModeScaleAspect.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-PineKit_Example/Cartography.framework"
-  install_framework "Pods-PineKit_Example/SnapKit.framework"
-  install_framework "Pods-PineKit_Example/SwiftyJSON.framework"
-  install_framework "Pods-PineKit_Example/Alamofire.framework"
-  install_framework "Pods-PineKit_Example/BSGridCollectionViewLayout.framework"
-  install_framework "Pods-PineKit_Example/BSImagePicker.framework"
   install_framework "Pods-PineKit_Example/PineKit.framework"
-  install_framework "Pods-PineKit_Example/UIImageViewModeScaleAspect.framework"
 fi
