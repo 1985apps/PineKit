@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/1985apps/PineKit.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.platform     = :ios, '10.0'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'SnapKit' #, '~> 0.15.0'
   s.dependency 'SwiftyJSON' #, '~> 2.3.1'
-  s.dependency 'Alamofire' #, '~> 3.3'
+  s.dependency 'Alamofire' , '~> 3.5'
   # s.dependency 'Cartography'
   # s.dependency 'BSImagePicker', '~> 2.3'
 

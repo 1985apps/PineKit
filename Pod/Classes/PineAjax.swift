@@ -21,8 +21,8 @@ public class PineAjax: NSObject {
     public var method = Alamofire.Method.GET
     public var _files : [Dictionary<String, AnyObject>] = []
     
-    private var successCallback : (_ json: JSON, _ response: Response<AnyObject, NSError>) -> Void = {_ in }
-    private var errorCallback : (_ json: JSON, _ response: Response<AnyObject, NSError>) -> Void = {_ in }
+    private var successCallback : (json: JSON, response: Response<AnyObject, NSError>) -> Void = {_ in }
+    private var errorCallback : (json: JSON, response: Response<AnyObject, NSError>) -> Void = {_ in }
     
     public init(method: Alamofire.Method = .GET, url: String){
         self.url = url
@@ -109,12 +109,12 @@ public class PineAjax: NSObject {
         }
     }
     
-    public func success(callback: (_ json: JSON, _ response: Response<AnyObject, NSError>) -> Void) -> PineAjax {
+    public func success(callback: (json: JSON, response: Response<AnyObject, NSError>) -> Void) -> PineAjax {
         self.successCallback = callback
         return self
     }
     
-    public func error(callback: (_ json: JSON, _ response: Response<AnyObject, NSError>) -> Void ) -> PineAjax {
+    public func error(callback: (json: JSON, response: Response<AnyObject, NSError>) -> Void ) -> PineAjax {
         self.errorCallback = callback
         return self
     }
