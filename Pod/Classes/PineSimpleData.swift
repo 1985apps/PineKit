@@ -50,12 +50,12 @@ public class PineSimpleData: NSObject, NSCoding {
     }
     
     func save(){
-        NSKeyedArchiver.archiveRootObject(self, toFile: PineSimpleData.ArchiveURL.path!)
+        NSKeyedArchiver.archiveRootObject(self, toFile: PineSimpleData.ArchiveURL!.path!)
     }
     
     
     static func getSingle() -> PineSimpleData {
-        let item = NSKeyedUnarchiver.unarchiveObjectWithFile(PineSimpleData.ArchiveURL.path!) as? PineSimpleData
+        let item = NSKeyedUnarchiver.unarchiveObjectWithFile(PineSimpleData.ArchiveURL!.path!) as? PineSimpleData
         if (item != nil) {
             return item!
         }

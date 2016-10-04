@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PineKit"
-  s.version          = "0.1.0"
+  s.version          = "2.3.0"
   s.summary          = "UI Development Kit"
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/1985apps/PineKit.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.platform     = :ios, '8.0'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
@@ -35,12 +35,13 @@ Pod::Spec.new do |s|
     'PineKit' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.frameworks = 'UIKit', 'MapKit'
+
+  s.dependency 'SnapKit' #, '~> 0.15.0'
+  s.dependency 'SwiftyJSON' #, '~> 2.3.1'
+  s.dependency 'Alamofire' , '~> 3.5'
   # s.dependency 'Cartography'
-#  s.dependency 'SnapKit', '~> 0.15.0'
-#  s.dependency 'SwiftyJSON', '~> 2.3.1'
-#  s.dependency 'Alamofire', '~> 3.3'
   # s.dependency 'BSImagePicker', '~> 2.3'
 
 end
