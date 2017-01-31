@@ -1,5 +1,5 @@
 //
-//  KamaConfig.swift
+//  PineMenuTransitionSqueeze.swift
 //  KamaUIKit
 //
 //  Created by Prakash Raman on 13/02/16.
@@ -24,9 +24,13 @@ public class PineMenuTransitionSqueeze : PineMenuTransition {
         let navigationView = self.mainController?.contentNavigationController!.view
         let contentController = self.mainController?.contentNavigationController?.viewControllers.last
         
-        UIView.animateWithDuration(PineConfig.Menu.transitionDuration) { () -> Void in
+        UIView.animateWithDuration(PineConfig.Menu.transitionDuration, animations: {
             navigationView!.frame = self.getOpenFrame()
             contentController?.view.layer.cornerRadius = 4
+        }) { (finished) in
+            UIView.animateWithDuration(0.2, animations: {
+                self.mainController?.contentNavigationController?.navigationBar.frame.size.height += 20
+            })
         }
         
         let layer = navigationView?.layer
@@ -38,6 +42,7 @@ public class PineMenuTransitionSqueeze : PineMenuTransition {
     
     func getOpenFrame() -> CGRect {
         var frame = self.mainController?.contentNavigationController?.view.frame
+        self.mainController?.contentNavigationController?.navigationBar.frame.size.height += 20
         let height : CGFloat = (frame?.size.height)! - self.squeezeBy
         frame?.size.height = height - self.squeezeBy
         frame?.origin.x = self.moveX
