@@ -1,7 +1,7 @@
 //
 //  SnapKit
 //
-//  Copyright (c) 2011-2015 SnapKit Team - https://github.com/SnapKit
+//  Copyright (c) 2011-Present SnapKit Team - https://github.com/SnapKit
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,18 +21,29 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#if os(iOS)
-import UIKit
-public typealias EdgeInsets = UIEdgeInsets
-public func EdgeInsetsMake(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) -> EdgeInsets {
-    return EdgeInsets(top: top, left: left, bottom: bottom, right: right)
-}
-public let EdgeInsetsZero = EdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+#if os(iOS) || os(tvOS)
+    import UIKit
 #else
-import AppKit
-public typealias EdgeInsets = NSEdgeInsets
-public func EdgeInsetsMake(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) -> EdgeInsets {
-    return EdgeInsets(top: top, left: left, bottom: bottom, right: right)
-}
-public let EdgeInsetsZero = EdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    import AppKit
 #endif
+
+
+public class ConstraintMakerFinalizable {
+    
+    internal let description: ConstraintDescription
+    
+    internal init(_ description: ConstraintDescription) {
+        self.description = description
+    }
+    
+    @discardableResult
+    public func labeled(_ label: String) -> ConstraintMakerFinalizable {
+        self.description.label = label
+        return self
+    }
+    
+    public var constraint: Constraint {
+        return self.description.constraint!
+    }
+    
+}

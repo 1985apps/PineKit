@@ -9,27 +9,27 @@
 import UIKit
 import SnapKit
 
-public class PineSelectGroupItem : UIView {
+open class PineSelectGroupItem : UIView {
 
-    public var data : Dictionary<String, AnyObject> = Dictionary<String, AnyObject>()
+    open var data : Dictionary<String, AnyObject> = Dictionary<String, AnyObject>()
 
     public enum State {
-        case Active, Inactive
+        case active, inactive
     }
 
-    public let label = UILabel()
-    public let icon = PineIcon(named: "checkbox_inactive")
-    public var text: String = ""
-    public var value: AnyObject = ""
-    public var state: State = .Inactive
-    public var group: PineSelectGroup? = nil
+    open let label = UILabel()
+    open let icon = PineIcon(named: "checkbox_inactive")
+    open var text: String = ""
+    open var value: AnyObject = "" as AnyObject
+    open var state: State = .inactive
+    open var group: PineSelectGroup? = nil
 
 
     public init(data: Dictionary<String, AnyObject>, group: PineSelectGroup){
         super.init(frame: CGRect.zero)
         self.data = data
         self.text = data["text"] as? String ?? ""
-        self.value = data["value"] ?? ""
+        self.value = data["value"] ?? "" as AnyObject
         self.group = group
 
         setup()
@@ -40,7 +40,7 @@ public class PineSelectGroupItem : UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func setup(){
+    open func setup(){
         self.addSubview(self.label)
         self.addSubview(self.icon)
 
@@ -49,18 +49,18 @@ public class PineSelectGroupItem : UIView {
         update()
     }
 
-    public func drawSelf(){
+    open func drawSelf(){
         drawLabel()
         drawIcon()
     }
 
-    public func drawLabel(){
+    open func drawLabel(){
         self.label.snp_makeConstraints { (make) -> Void in
             make.centerY.left.equalTo(self)
         }
     }
 
-    public func drawIcon(){
+    open func drawIcon(){
         self.icon.snp_makeConstraints { (make) -> Void in
             make.right.centerY.equalTo(self)
             make.size.equalTo(PineConfig.Size.icon)
@@ -68,20 +68,20 @@ public class PineSelectGroupItem : UIView {
     }
 
     func observeTouch(){
-        let gesture = UITapGestureRecognizer(target: self, action: "tapped:")
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(PineSelectGroupItem.tapped(_:)))
         self.addGestureRecognizer(gesture)
     }
 
-    func tapped(sender: UITapGestureRecognizer? = nil){
+    func tapped(_ sender: UITapGestureRecognizer? = nil){
         
         // DO NOTHING, IF THE SELECTED ITEM IS TAPPED ON AND IF THE GROUP HAS A SINGLESELECT == TRUE (acting as radio group)
         // IT CALLS THE CALLBACK AS WELL
-        if self.group?.singleSelect == true && self.state == .Active {
+        if self.group?.singleSelect == true && self.state == .active {
             self.group?.onSelection()
             return
         }
         
-        let s : State = (self.state == .Active) ? .Inactive : .Active
+        let s : State = (self.state == .active) ? .inactive : .active
         if self.group?.singleSelect == true {
             self.group?.unselectAll()
         }
@@ -89,20 +89,20 @@ public class PineSelectGroupItem : UIView {
         self.group?.onSelection()
     }
 
-    public func set(state state: State) -> PineSelectGroupItem {
+    open func set(state: State) -> PineSelectGroupItem {
         self.state = state
         return self
     }
 
-    public func isActive() -> Bool {
-        return self.state == .Active ? true : false
+    open func isActive() -> Bool {
+        return self.state == .active ? true : false
     }
 
-    public func beforeUpdate() -> PineSelectGroupItem {
+    open func beforeUpdate() -> PineSelectGroupItem {
         return self
     }
 
-    public func update(){
+    open func update(){
         self.label.text = self.text
         let iconname = self.isActive() ? "checkbox_active" : "checkbox_inactive"
         self.icon.change(named: iconname)

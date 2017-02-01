@@ -8,15 +8,15 @@
 
 import UIKit
 
-public class PineSelectTextFieldInputView: UIControl {
+open class PineSelectTextFieldInputView: UIControl {
     
-    public var done : PineButton = PineButton(title: "DONE")
-    public var select : PineSelectGroup = PineSelectGroup()
-    public var items : [AnyObject] = []
-    public var textField : UITextField? = nil
+    open var done : PineButton = PineButton(title: "DONE")
+    open var select : PineSelectGroup = PineSelectGroup()
+    open var items : [AnyObject] = []
+    open var textField : UITextField? = nil
     
     public init(items: [AnyObject] = []){
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         self.frame = CGRect(x: 0, y: 0, width: 0, height: 250)
         self.items = items
         setup()
@@ -31,33 +31,33 @@ public class PineSelectTextFieldInputView: UIControl {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(){
+    open func setup(){
         self.select = preferredSelectGroup()
         self.addSubview(done)
         self.addSubview(select)
         style()
     }
     
-    public func style(){
+    open func style(){
         styleSelect()
         styleDone()
     }
     
-    public func styleSelect(){
+    open func styleSelect(){
         self.select.snp_makeConstraints { (make) -> Void in
             make.left.top.right.equalTo(self)
             make.bottom.equalTo(self.done.snp_top)
         }
     }
     
-    public func styleDone(){
+    open func styleDone(){
         self.done.snp_makeConstraints { (make) -> Void in
             make.left.right.bottom.equalTo(self)
             make.height.equalTo(PineConfig.Button.height)
         }
     }
     
-    public func preferredSelectGroup() -> PineSelectGroup {
+    open func preferredSelectGroup() -> PineSelectGroup {
         return PineSelectGroup(items: items)
     }
     

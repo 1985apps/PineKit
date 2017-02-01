@@ -1,7 +1,7 @@
 //
 //  SnapKit
 //
-//  Copyright (c) 2011-2015 SnapKit Team - https://github.com/SnapKit
+//  Copyright (c) 2011-Present SnapKit Team - https://github.com/SnapKit
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,25 +21,17 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#if os(iOS)
-import UIKit
+#if os(iOS) || os(tvOS)
+    import UIKit
+    public typealias ConstraintInterfaceLayoutDirection = UIUserInterfaceLayoutDirection
+#else
+    import AppKit
+    public typealias ConstraintInterfaceLayoutDirection = NSUserInterfaceLayoutDirection
+#endif
 
-/**
-    Used to expose public API on view controllers
-*/
-public extension UIViewController {
+
+public struct ConstraintConfig {
     
-    /// top layout guide top
-    public var snp_topLayoutGuideTop: ConstraintItem { return ConstraintItem(object: self.topLayoutGuide, attributes: ConstraintAttributes.Top) }
-    
-    /// top layout guide bottom
-    public var snp_topLayoutGuideBottom: ConstraintItem { return ConstraintItem(object: self.topLayoutGuide, attributes: ConstraintAttributes.Bottom) }
-    
-    /// bottom layout guide top
-    public var snp_bottomLayoutGuideTop: ConstraintItem { return ConstraintItem(object: self.bottomLayoutGuide, attributes: ConstraintAttributes.Top) }
-    
-    /// bottom layout guide bottom
-    public var snp_bottomLayoutGuideBottom: ConstraintItem { return ConstraintItem(object: self.bottomLayoutGuide, attributes: ConstraintAttributes.Bottom) }
+    public static var interfaceLayoutDirection: ConstraintInterfaceLayoutDirection = .leftToRight
     
 }
-#endif

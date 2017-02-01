@@ -9,12 +9,12 @@
 import UIKit
 import PineKit
 
-public class PineProfileImageView: UIImageView {
+open class PineProfileImageView: UIImageView {
     
     public init(image: UIImage?, border: CGFloat = 3) {
         super.init(image: image)
         self.layer.borderWidth = border
-        self.layer.borderColor = UIColor.whiteColor().CGColor
+        self.layer.borderColor = UIColor.white.cgColor
         self.clipsToBounds = true
     }
 
@@ -22,12 +22,12 @@ public class PineProfileImageView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         makeCircular()
     }
     
-    public func makeCircular(){
+    open func makeCircular(){
         self.layer.cornerRadius = self.frame.height / 2
     }
 

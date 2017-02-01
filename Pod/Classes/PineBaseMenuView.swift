@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 
-public class PineBaseMenuView : UIView {
+open class PineBaseMenuView : UIView {
     
-    public var delegate : PineMenuDelegate?
+    open var delegate : PineMenuDelegate?
     
     public init(){
         super.init(frame: CGRect.zero)
@@ -23,15 +23,15 @@ public class PineBaseMenuView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(){
-        self.backgroundColor = UIColor.greenColor()
+    open func setup(){
+        self.backgroundColor = UIColor.green
         let b = PineButton(title: "Call")
         self.addSubview(b)
 
-        b.addTarget(self, action: "callme:", forControlEvents: .TouchUpInside)
+        b.addTarget(self, action: #selector(PineBaseMenuView.callme(_:)), for: .touchUpInside)
     }
 
-    func callme(sender: AnyObject?){
+    func callme(_ sender: AnyObject?){
 //        self.delegate?.loadContentViewController(ViewController2())
     }
     

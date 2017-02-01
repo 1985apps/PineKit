@@ -8,17 +8,41 @@
 
 import UIKit
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
 
-public class PineSwipeView: UIView {
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
+
+open class PineSwipeView: UIView {
     
-    public var stages : [UIView] = []
-    public var onChange : (stage : Int) -> Void = {_ in}
-    public var stage = 0
+    open var stages : [UIView] = []
+    open var onChange : (_ stage : Int) -> Void = {_ in}
+    open var stage = 0
     
 
-    public init(stages: [UIView] = [], onChange: ((stage: Int) -> Void)? = nil){
+    public init(stages: [UIView] = [], onChange: ((_ stage: Int) -> Void)? = nil){
         super.init(frame: CGRect.zero)
-        self.stages = stages.reverse()
+        self.stages = stages.reversed()
         self.clipsToBounds = true
         if onChange != nil {
             self.onChange = onChange!
@@ -30,16 +54,16 @@ public class PineSwipeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(){
+    open func setup(){
         for view in self.stages {
             self.addSubview(view)
         }
         setupPan()
     }
     
-    public func setupPan(){
+    open func setupPan(){
     // REGISTERS THE PAN
-        let pan = UIPanGestureRecognizer(target: self, action: "panning:")
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(PineSwipeView.panning(_:)))
         if self.stages.count == 0 || self.stage >= self.stages.count {
             return
         }
@@ -48,21 +72,21 @@ public class PineSwipeView: UIView {
     }
     
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         for view in self.stages {
             view.frame = CGRect(origin: CGPoint.zero, size: self.frame.size)
         }
     }
 
-    public func panning(pan: UIPanGestureRecognizer){
-        let finger = pan.translationInView(pan.view)
+    open func panning(_ pan: UIPanGestureRecognizer){
+        let finger = pan.translation(in: pan.view)
         let view = pan.view
         var move = view?.frame
         move?.origin.x = finger.x
         view?.frame = move!
         
-        if pan.state == .Ended {
+        if pan.state == .ended {
             // CHECK IF THE SWIPE HAS BEEN MORE THAN HALF . ELSE REVERT
             if view?.frame.origin.x >= self.frame.width / 2 {
                 nextView(from: view!)
@@ -72,12 +96,12 @@ public class PineSwipeView: UIView {
         }
     }
     
-    public func resetView(view: UIView){
-        UIView.animateWithDuration(0.3) { () -> Void in
+    open func resetView(_ view: UIView){
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
             var f = view.frame
             f.origin.x = 0
             view.frame = f
-        }
+        }) 
         self.stage  = self.getStageForView(view)
     }
     
@@ -87,32 +111,32 @@ public class PineSwipeView: UIView {
     // REMOVES FROM THE SELF.stages
     // CALLS ONCHAGE
     // INCREMENTS "STAGE"
-    public func nextView(from from: UIView){
+    open func nextView(from: UIView){
         let view = from
-        UIView.animateWithDuration(0.1, animations: { () -> Void in
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
             var f = view.frame
             f.origin.x = self.frame.width
             view.frame = f
-        }) { (done) -> Void in
+        }, completion: { (done) -> Void in
             self.stage += 1
             self.setupPan() // SETUPS UP THE PAN FOR THE NEXT VIEW
-            self.onChange(stage: self.stage)
-        }
+            self.onChange(self.stage)
+        }) 
     }
     
-    public func getVisibleView() -> UIView {
+    open func getVisibleView() -> UIView {
         return self.stages[self.stages.count - stage - 1]
     }
     
-    public func getViewForStage(stage: Int) -> UIView {
+    open func getViewForStage(_ stage: Int) -> UIView {
         return self.stages[self.stages.count - stage - 1]
     }
     
-    public func getStageForView(view: UIView) -> Int {
-        return self.stages.count - self.stages.indexOf(view)! - 1
+    open func getStageForView(_ view: UIView) -> Int {
+        return self.stages.count - self.stages.index(of: view)! - 1
     }
     
-    public func back(){
+    open func back(){
         if stage < 1 {
             return
         }

@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 
-public class PineMenuTransitionSqueeze : PineMenuTransition {
+open class PineMenuTransitionSqueeze : PineMenuTransition {
     
-    public var squeezeBy : CGFloat = PineConfig.Menu.Transition.Squeeze.by
-    public var moveX = PineConfig.Menu.Transition.Squeeze.x
+    open var squeezeBy : CGFloat = PineConfig.Menu.Transition.Squeeze.by
+    open var moveX = PineConfig.Menu.Transition.Squeeze.x
     
     public override init(){
         super.init()
@@ -24,19 +24,19 @@ public class PineMenuTransitionSqueeze : PineMenuTransition {
         let navigationView = self.mainController?.contentNavigationController!.view
         let contentController = self.mainController?.contentNavigationController?.viewControllers.last
         
-        UIView.animateWithDuration(PineConfig.Menu.transitionDuration, animations: {
+        UIView.animate(withDuration: PineConfig.Menu.transitionDuration, animations: {
             navigationView!.frame = self.getOpenFrame()
             contentController?.view.layer.cornerRadius = 4
-        }) { (finished) in
-            UIView.animateWithDuration(0.2, animations: {
+        }, completion: { (finished) in
+            UIView.animate(withDuration: 0.2, animations: {
                 self.mainController?.contentNavigationController?.navigationBar.frame.size.height += 20
             })
-        }
+        }) 
         
         let layer = navigationView?.layer
-        layer!.shadowColor = UIColor.blackColor().CGColor
+        layer!.shadowColor = UIColor.black.cgColor
         layer!.shadowOpacity = 0.2
-        layer!.shadowOffset = CGSizeZero
+        layer!.shadowOffset = CGSize.zero
         layer!.shadowRadius = 4
     }
     

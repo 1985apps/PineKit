@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-public class PineButton : UIButton {
+open class PineButton : UIButton {
     
     public init(title: String){
         super.init(frame: CGRect.zero)
-        self.setTitle(title, forState: .Normal)
+        self.setTitle(title, for: UIControlState())
         setup()
         style()
     }
@@ -30,20 +30,20 @@ public class PineButton : UIButton {
     }
     
     // THIS FUNCTION SHOULD BE OVERRIDDEN IN CASE OF SUB CLASSES
-    public func style(){
+    open func style(){
 
     }
     
     
     // Hollow Button
-    public class Hollow : PineButton {
+    open class Hollow : PineButton {
         
-        override public func style(){
+        override open func style(){
             super.style()
-            self.backgroundColor = UIColor.clearColor()
+            self.backgroundColor = UIColor.clear
             self.layer.borderWidth = 1
-            self.layer.borderColor = PineConfig.Color.cream.CGColor
-            self.setTitleColor(PineConfig.Color.cream, forState: .Normal)
+            self.layer.borderColor = PineConfig.Color.cream.cgColor
+            self.setTitleColor(PineConfig.Color.cream, for: UIControlState())
         }
         
     }

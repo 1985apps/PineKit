@@ -8,30 +8,30 @@
 
 import UIKit
 
-public class PineSegmentedControl: UIControl {
+open class PineSegmentedControl: UIControl {
     
-    public var labels : [PineLabel] = []
-    var onchange : PineSegmentedControl -> Void = {_ in}
+    open var labels : [PineLabel] = []
+    var onchange : (PineSegmentedControl) -> Void = {_ in}
     
-    public var active : Int = 0 {
+    open var active : Int = 0 {
         didSet {
             positionThumbview()
         }
     }
     
-    public var thumbview : UIView = UIView() {
+    open var thumbview : UIView = UIView() {
         didSet {
             setupThumbview()
         }
         
         willSet {
-            if thumbview.isDescendantOfView(self) {
+            if thumbview.isDescendant(of: self) {
                 thumbview.removeFromSuperview()
             }
         }
     }
     
-    public init(labels: [String], thumbview: UIView = UIView(), change: (PineSegmentedControl -> Void) = {_ in }){
+    public init(labels: [String], thumbview: UIView = UIView(), change: @escaping ((PineSegmentedControl) -> Void) = {_ in }){
         super.init(frame: CGRect.zero)
         for l in labels {
             self.labels.append(PineLabel(text: l))
@@ -46,31 +46,31 @@ public class PineSegmentedControl: UIControl {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(){
+    open func setup(){
         self.subviews.forEach { $0.removeFromSuperview() }
         for label in self.labels {
             self.addSubview(label)
-            label.textAlignment = .Center
-            label.userInteractionEnabled = true
-            label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "ontap:"))
+            label.textAlignment = .center
+            label.isUserInteractionEnabled = true
+            label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PineSegmentedControl.ontap(_:))))
             label.layer.zPosition = 2
         }
         self.clipsToBounds = true
     }
     
-    public func setupThumbview(){
+    open func setupThumbview(){
         self.addSubview(self.thumbview)
     }
     
-    public func positionThumbview() {
+    open func positionThumbview() {
 
         self.thumbview.layer.zPosition = 1
-        UIView.animateWithDuration(0.2) { () -> Void in
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
             self.thumbview.center = self.labels[self.active].center
-        }
+        }) 
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         let width = self.frame.width / CGFloat(self.labels.count)
         for index  in 0...self.labels.count - 1 {
@@ -81,13 +81,13 @@ public class PineSegmentedControl: UIControl {
         positionThumbview()
     }
     
-    public func ontap(sender: UITapGestureRecognizer){
+    open func ontap(_ sender: UITapGestureRecognizer){
         let label = sender.view as! PineLabel
-        self.active = self.labels.indexOf(label)!
+        self.active = self.labels.index(of: label)!
         self.update()
     }
 
-    public func update(){
+    open func update(){
         self.onchange(self)
     }
     

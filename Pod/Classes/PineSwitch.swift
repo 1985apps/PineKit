@@ -9,10 +9,10 @@
 import UIKit
 import Foundation
 
-public class PineSwitch: UISwitch {
+open class PineSwitch: UISwitch {
     
     /// The total distance travelled by the bicycle, in meters.
-    public var label = PineLabel()
+    open var label = PineLabel()
     
     public init(text: String) {
         super.init(frame: CGRect.zero)
@@ -37,7 +37,7 @@ public class PineSwitch: UISwitch {
      
      - Returns: Nothing
      */
-    public func setup(){
+    open func setup(){
         self.addSubview(self.label)
         self.label.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(self.snp_right).offset(15)
@@ -45,7 +45,7 @@ public class PineSwitch: UISwitch {
         }
     }
     
-    public func style(){
+    open func style(){
         self.onTintColor = PineConfig.Switch.onTintColor
     }
     

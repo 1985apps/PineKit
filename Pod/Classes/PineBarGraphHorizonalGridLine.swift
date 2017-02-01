@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-public class PineBarGraphHorizonalGridLine: UIView {
+open class PineBarGraphHorizonalGridLine: UIView {
     
     var text = ""
     var lineColor = PineConfig.Graph.gridLineColor
@@ -24,7 +24,7 @@ public class PineBarGraphHorizonalGridLine: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(){
+    open func setup(){
         let label = PineLabel(text: self.text)
         label.font = PineConfig.Font.get(PineConfig.Font.REGULAR, size: 11)
         self.addSubview(label)

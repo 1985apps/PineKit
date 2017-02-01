@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 
-public class PineMenuTransitionXY : PineMenuTransition {
+open class PineMenuTransitionXY : PineMenuTransition {
     
     override func open(){
-        UIView.animateWithDuration(PineConfig.Menu.transitionDuration) { () -> Void in
+        UIView.animate(withDuration: PineConfig.Menu.transitionDuration, animations: { () -> Void in
             var frame = (self.mainController?.contentNavigationController!.view.frame)! as CGRect
             frame.origin.x = 200
             frame.origin.y = 200
             self.mainController?.contentNavigationController!.view.frame = frame
-        }
+        }) 
     }
     
     
