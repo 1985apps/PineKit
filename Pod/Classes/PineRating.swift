@@ -8,14 +8,14 @@
 
 import UIKit
 
-public class PineRating: UIControl {
+open class PineRating: UIControl {
     
-    public var items : [UIImageView] = []
-    public var rating : CGFloat = 0
-    public var outof : CGFloat = 5
+    open var items : [UIImageView] = []
+    open var rating : CGFloat = 0
+    open var outof : CGFloat = 5
     
     public init(rating: CGFloat, outof: CGFloat = 5){
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         self.rating = rating
         self.outof = outof
         setup()
@@ -25,37 +25,37 @@ public class PineRating: UIControl {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(){
+    open func setup(){
         for i in 0...Int(self.outof) - 1 {
             let iv = UIImageView(image: getPreferredImageForIndex(i))
             items.append(iv)
             self.addSubview(iv)
-            iv.contentMode = .Center
+            iv.contentMode = .center
             iv.clipsToBounds = true
         }
     }
     
-    public func getPreferredDullImage() -> UIImage {
+    open func getPreferredDullImage() -> UIImage {
         return UIImage(named: "star_dull")!
     }
     
-    public func getPreferredImage() -> UIImage {
+    open func getPreferredImage() -> UIImage {
         return UIImage(named: "star")!
     }
     
-    public func getPreferredImageForIndex(index: Int = 0) -> UIImage {
+    open func getPreferredImageForIndex(_ index: Int = 0) -> UIImage {
         return index < Int(self.rating) ? getPreferredImage() : getPreferredDullImage()
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         positionItems()
     }
     
-    public func positionItems(){
+    open func positionItems(){
         var x : CGFloat = 0
-        var height = self.frame.height
-        var width = self.frame.width / CGFloat(items.count)
+        let height = self.frame.height
+        let width = self.frame.width / CGFloat(items.count)
         
         for iv in items {
             iv.frame = CGRect(x: x, y: 0, width: width, height: height)

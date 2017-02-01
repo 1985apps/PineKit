@@ -9,9 +9,9 @@
 import UIKit
 import Foundation
 
-public class PineBarGraph: UIView {
+open class PineBarGraph: UIView {
     
-    public var barColor = PineConfig.Color.purple
+    open var barColor = PineConfig.Color.purple
     
     var yDivisions : CGFloat = 5
     var axisMargin : CGFloat = 20
@@ -33,7 +33,7 @@ public class PineBarGraph: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(){
+    open func setup(){
         setupCanvas()
         setupXAxis()
         setupYAxis()
@@ -69,7 +69,7 @@ public class PineBarGraph: UIView {
             let label = item["text"]!
             let l = PineLabel(text: label)
             l.font = PineConfig.Font.get(PineConfig.Font.LIGHT, size: 11)
-            l.textAlignment = .Center
+            l.textAlignment = .center
             labelsView.addSubview(l)
             let f = CGRect(x: x, y: 0, width: labelWidth, height: frame.height)
             l.frame = f
@@ -79,7 +79,7 @@ public class PineBarGraph: UIView {
     
     func setupYAxis(){
         let r = self.ySet?.range
-        let sectionSize = ((r?.endIndex)! - (r?.startIndex)!) / Int(yDivisions)
+        let sectionSize = ((r?.upperBound)! - (r?.lowerBound)!) / Int(yDivisions)
         print(sectionSize)
         
         self.addSubview(yAxisView)
@@ -87,7 +87,7 @@ public class PineBarGraph: UIView {
         
         var y = yAxisView.frame.height
         let sectionHeight = yAxisView.frame.height / yDivisions
-        var value = Int((r?.startIndex)!)
+        var value = Int((r?.lowerBound)!)
         
         for _ in 0...(Int(self.yDivisions) - 1) {
             let line = PineBarGraphHorizonalGridLine(text: String(value))
@@ -101,9 +101,9 @@ public class PineBarGraph: UIView {
         
     }
     
-    public func applyLayer(values: [CGFloat]){
+    open func applyLayer(_ values: [CGFloat]){
         
-        for (index, value) in values.enumerate() {
+        for (index, value) in values.enumerated() {
             
             let bar = UIView()
             var frame = self.getFrameForColumn(number: CGFloat(index), value: value)
@@ -116,7 +116,7 @@ public class PineBarGraph: UIView {
 
             self.canvas.addSubview(bar)
 
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
+            UIView.animate(withDuration: 0.5, animations: { () -> Void in
                 frame.size.height = animateToHeight
                 frame.origin.y = animateToY
                 bar.frame = frame
@@ -126,7 +126,7 @@ public class PineBarGraph: UIView {
         }
     }
     
-    func getFrameForColumn(number number: CGFloat, value: CGFloat) -> CGRect {
+    func getFrameForColumn(number: CGFloat, value: CGFloat) -> CGRect {
         
         let canvasWidth = self.canvas.frame.width
         let sectionWidth = canvasWidth / CGFloat(self.xSet.count)

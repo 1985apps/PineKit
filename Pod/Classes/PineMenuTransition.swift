@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 
-public class PineMenuTransition : NSObject {
+open class PineMenuTransition : NSObject {
     
-    public var mainController: PineMenuViewController?
-    public var menuView: PineBaseMenuView?
+    open var mainController: PineMenuViewController?
+    open var menuView: PineBaseMenuView?
     
     public override init(){
         self.mainController = nil        
@@ -21,7 +21,7 @@ public class PineMenuTransition : NSObject {
     
     // ONCE THE CONTROLLER IS SETUP THE MENU IS SETUP AS WELL
     // START MENU POSITION IS VERY IMPORTANT
-    func setController(controller: PineMenuViewController){
+    func setController(_ controller: PineMenuViewController){
         self.mainController = controller
         self.menuView = self.mainController!.menuView!
         self.setup()
@@ -47,17 +47,17 @@ public class PineMenuTransition : NSObject {
     }
     
     func open(){
-        UIView.animateWithDuration(PineConfig.Menu.transitionDuration) { () -> Void in
+        UIView.animate(withDuration: PineConfig.Menu.transitionDuration, animations: { () -> Void in
             var frame = (self.mainController?.contentNavigationController!.view.frame)! as CGRect
             frame.origin.x = 200
             self.mainController?.contentNavigationController!.view.frame = frame
-        }
+        }) 
     }
     
     func close(){
-        UIView.animateWithDuration(PineConfig.Menu.transitionDuration) { () -> Void in
+        UIView.animate(withDuration: PineConfig.Menu.transitionDuration, animations: { () -> Void in
             self.mainController!.contentNavigationController!.view.frame = self.mainController!.view.frame
-        }
+        }) 
     }
     
 }

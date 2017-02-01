@@ -11,7 +11,7 @@ import Foundation
 //import BSImagePicker
 import Photos
 
-public class PineImagePicker: UIImageView, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+open class PineImagePicker: UIImageView, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
 //    public let controller : UIViewController?
 //    public var sourceType: UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.Camera

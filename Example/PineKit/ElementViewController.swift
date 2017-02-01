@@ -18,15 +18,15 @@ class ElementViewController: PineBaseViewController {
 //        self.view.layer.cornerRadius = 20
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     override func preferredRightButton() -> UIImage {
         return UIImage(named: "menu")!
     }
     
-    override func preferredRightButtonTarget(sender: AnyObject) {
+    override func preferredRightButtonTarget(_ sender: AnyObject) {
         print("you clicked me")
     }
     

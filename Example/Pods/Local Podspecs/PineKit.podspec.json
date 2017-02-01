@@ -1,6 +1,6 @@
 {
   "name": "PineKit",
-  "version": "2.3.0",
+  "version": "3.0",
   "summary": "UI Development Kit",
   "description": "The smallest pod ever!",
   "homepage": "https://github.com/1985apps/PineKit.git",
@@ -10,7 +10,10 @@
   },
   "source": {
     "git": "https://github.com/1985apps/PineKit.git",
-    "tag": "2.3.0"
+    "tag": "3.0"
+  },
+  "platforms": {
+    "ios": "10.0"
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
@@ -34,11 +37,5 @@
     "Alamofire": [
 
     ]
-  },
-  "platforms": {
-    "osx": null,
-    "ios": null,
-    "tvos": null,
-    "watchos": null
   }
 }

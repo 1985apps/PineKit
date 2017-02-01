@@ -9,13 +9,13 @@
 import UIKit
 import SnapKit
 
-public class PineSelectGroup: UIView {
+open class PineSelectGroup: UIView {
 
-    public var items: [UIView] = []
-    var callOnSelection : PineSelectGroup -> Void = {_ in }
-    public var separator : Bool = true
-    public var itemHeight = 40
-    public var singleSelect = false
+    open var items: [UIView] = []
+    var callOnSelection : (PineSelectGroup) -> Void = {_ in }
+    open var separator : Bool = true
+    open var itemHeight = 40
+    open var singleSelect = false
 
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -33,34 +33,34 @@ public class PineSelectGroup: UIView {
         self.after()
     }
 
-    public convenience init(items: [AnyObject], onselection: (PineSelectGroup) -> Void){
+    public convenience init(items: [AnyObject], onselection: @escaping (PineSelectGroup) -> Void){
         self.init(items: items)
         self.callOnSelection = onselection
     }
 
-    public func setup(){
+    open func setup(){
         
     }
 
-    public func createItem(data: Dictionary<String, AnyObject>, group: PineSelectGroup) -> UIView {
+    open func createItem(_ data: Dictionary<String, AnyObject>, group: PineSelectGroup) -> UIView {
         let item = PineSelectGroupItem(data: data, group: self)
         return item
     }
 
-    func pushItems(items: [AnyObject]){
-        for (_, item) in items.enumerate() {
+    func pushItems(_ items: [AnyObject]){
+        for (_, item) in items.enumerated() {
             let entry = item as! Dictionary<String, AnyObject>
             let i = createItem(entry, group: self) as! PineSelectGroupItem
             addItem(i)
         }
     }
 
-    func addItem(item: PineSelectGroupItem){
+    func addItem(_ item: PineSelectGroupItem){
         self.addSubview(item)
         items.append(item)
     }
 
-    public func getSelectedItems() -> [PineSelectGroupItem] {
+    open func getSelectedItems() -> [PineSelectGroupItem] {
         var selected : [PineSelectGroupItem] = []
         for item in self.items {
             if let obj = item as? PineSelectGroupItem {
@@ -72,31 +72,31 @@ public class PineSelectGroup: UIView {
         return selected
     }
 
-    public func getSelectedValues() -> [AnyObject] {
-        return self.getSelectedItems().map { (let item) -> AnyObject in
+    open func getSelectedValues() -> [AnyObject] {
+        return self.getSelectedItems().map { (item) -> AnyObject in
             return item.value
         }
     }
 
-    public func getSelectedValue() -> AnyObject {
+    open func getSelectedValue() -> AnyObject {
         return self.getSelectedValues().first!
     }
 
-    public func onSelection(){
+    open func onSelection(){
         self.callOnSelection(self)
     }
     
-    public func unselectAll(){
+    open func unselectAll(){
         for item in self.items {
-            (item as! PineSelectGroupItem).set(state: .Inactive).update()
+            (item as! PineSelectGroupItem).set(state: .inactive).update()
         }
     }
     
-    public func selectItemAt(index: Int){
-        (self.items[index] as! PineSelectGroupItem).set(state: .Active).update()
+    open func selectItemAt(_ index: Int){
+        (self.items[index] as! PineSelectGroupItem).set(state: .active).update()
     }
 
-    public func positionItems(){
+    open func positionItems(){
 
         if self.items.count <= 1 {
             return
@@ -107,7 +107,7 @@ public class PineSelectGroup: UIView {
             
             let top = index == 0 ? self.snp_top : self.items[index - 1].snp_bottom
             
-            item.snp_updateConstraints(closure: { (make) -> Void in
+            item.snp_updateConstraints({ (make) -> Void in
                 make.left.width.equalTo(self)
                 make.height.equalTo(self.itemHeight)
                 make.top.equalTo(top).offset(1)
@@ -116,7 +116,7 @@ public class PineSelectGroup: UIView {
     }
 
     // OVERIDE THIS FUNCTION TO DO THINGS AFTER THE GROUP HAS BEEN DRAWN
-    public func after(){
+    open func after(){
 
     }
 

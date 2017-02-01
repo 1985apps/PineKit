@@ -24,38 +24,38 @@ import SwiftyJSON
         // To remove a value
         PineSimpleData.remove("tvshow")
 */
-public class PineSimpleData: NSObject, NSCoding {
+open class PineSimpleData: NSObject, NSCoding {
 
     /// The Dictionary<String, AnyObject>  instance variable that holds the key-value pairs.
-    public var data: Dictionary<String, AnyObject> = Dictionary<String, AnyObject>()
+    open var data: Dictionary<String, AnyObject> = Dictionary<String, AnyObject>()
     
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("PineSimpleData")
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("PineSimpleData")
     
     init(data: Dictionary<String, AnyObject>) {
         super.init()
         self.data = data
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.data, forKey: "raw")
+    open func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.data, forKey: "raw")
     }
     
     required convenience public init(coder aDecoder: NSCoder){
         var data = Dictionary<String, AnyObject>()
-        if (aDecoder.decodeObjectForKey("raw") != nil) {
-            data = (aDecoder.decodeObjectForKey("raw") as! Dictionary<String, AnyObject>)
+        if (aDecoder.decodeObject(forKey: "raw") != nil) {
+            data = (aDecoder.decodeObject(forKey: "raw") as! Dictionary<String, AnyObject>)
         }
         self.init(data: data)
     }
     
     func save(){
-        NSKeyedArchiver.archiveRootObject(self, toFile: PineSimpleData.ArchiveURL!.path!)
+        NSKeyedArchiver.archiveRootObject(self, toFile: PineSimpleData.ArchiveURL.path)
     }
     
     
     static func getSingle() -> PineSimpleData {
-        let item = NSKeyedUnarchiver.unarchiveObjectWithFile(PineSimpleData.ArchiveURL!.path!) as? PineSimpleData
+        let item = NSKeyedUnarchiver.unarchiveObject(withFile: PineSimpleData.ArchiveURL.path) as? PineSimpleData
         if (item != nil) {
             return item!
         }
@@ -68,7 +68,7 @@ public class PineSimpleData: NSObject, NSCoding {
     - parameter key: String
     - parameter value: AnyObject
     */
-    public static func update(key: String, value: AnyObject?){
+    open static func update(_ key: String, value: AnyObject?){
         let single = getSingle()
         single.data[key] = value
         single.save()
@@ -82,7 +82,7 @@ public class PineSimpleData: NSObject, NSCoding {
     - returns: AnyObject
      
      */
-    public static func get(key: String) -> AnyObject? {
+    open static func get(_ key: String) -> AnyObject? {
         return getSingle().data[key]
     }
     
@@ -94,7 +94,7 @@ public class PineSimpleData: NSObject, NSCoding {
      - returns: AnyObject
      
      */
-    public static func getString(key: String) -> String? {
+    open static func getString(_ key: String) -> String? {
         return get(key) as? String
     }
     
@@ -105,7 +105,7 @@ public class PineSimpleData: NSObject, NSCoding {
 
     - returns: Int
     */
-    public static func getInt(key: String) -> Int? {
+    open static func getInt(_ key: String) -> Int? {
         return get(key) as? Int
     }
     
@@ -114,27 +114,27 @@ public class PineSimpleData: NSObject, NSCoding {
 
     - returns: Dictionary<String, AnyObject>
     */
-    public static func getFull() -> Dictionary<String, AnyObject> {
+    open static func getFull() -> Dictionary<String, AnyObject> {
         return getSingle().data
     }
     
-    public static func getJSON(key: String) -> JSON {
+    open static func getJSON(_ key: String) -> JSON {
         return JSON(get(key)!)
     }
     
-    public static func remove(key: String){
+    open static func remove(_ key: String){
         let single = getSingle()
-        single.data.removeValueForKey(key)
+        single.data.removeValue(forKey: key)
         single.save()
     }
     
-    public static func removeKeys(keys: [String]){
+    open static func removeKeys(_ keys: [String]){
         for key in keys {
             remove(key)
         }
     }
     
-    public static func clear(){
+    open static func clear(){
         let single = getSingle()
         single.data.removeAll()
         single.save()

@@ -10,22 +10,22 @@ import UIKit
 import SnapKit
 
 public enum PineLinearLayoutType {
-    case Vertical, Horizontal
+    case vertical, horizontal
 }
 
 public enum PineLinearLayoutAlignment {
-    case Left, Right, Center
+    case left, right, center
 }
 
-public class PineLinearLayout: UIView {
+open class PineLinearLayout: UIView {
 
     var gutter : CGFloat = 0
     var alignment: PineLinearLayoutAlignment? = nil
     var addedViews : [UIView] = []
 
-    var contentSizeRestTimer : NSTimer? = nil
+    var contentSizeRestTimer : Timer? = nil
 
-    public init(type: PineLinearLayoutType = .Vertical, gutter: CGFloat = 0, alignment: PineLinearLayoutAlignment? = nil){
+    public init(type: PineLinearLayoutType = .vertical, gutter: CGFloat = 0, alignment: PineLinearLayoutAlignment? = nil){
         super.init(frame: CGRect.zero)
         self.gutter = gutter
         self.alignment = alignment
@@ -35,16 +35,16 @@ public class PineLinearLayout: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func addSubview(view: UIView, gutter: CGFloat){
+    open func addSubview(_ view: UIView, gutter: CGFloat){
         super.addSubview(view)
         self.positionViewVertical(view, gutter: gutter)
     }
 
-    public override func addSubview(view: UIView) {
+    open override func addSubview(_ view: UIView) {
         self.addSubview(view, gutter: self.gutter)
     }
 
-    public func positionViewVertical(view: UIView, gutter: CGFloat){
+    open func positionViewVertical(_ view: UIView, gutter: CGFloat){
         view.snp_makeConstraints { (make) -> Void in
             if self.subviews.count <= 1 {
                 make.top.equalTo(self)
@@ -53,18 +53,18 @@ public class PineLinearLayout: UIView {
                 make.top.equalTo(self.subviews[self.subviews.count - 2].snp_bottom).offset(gutter)
             }
 
-            if alignment == .Center {
+            if alignment == .center {
                 make.centerX.equalTo(self)
-            } else if alignment == .Left {
+            } else if alignment == .left {
                 make.left.equalTo(self)
-            } else if alignment == .Right {
+            } else if alignment == .right {
                 make.right.equalTo(self)
             }
         }
 
     }
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
     }
 

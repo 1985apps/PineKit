@@ -8,15 +8,15 @@
 
 import UIKit
 
-public class PineFluidGridLayout: UIView {
+open class PineFluidGridLayout: UIView {
     
-    public var items : [UIView] = []
-    public var containers : [UIView] = []
-    public var maxColumns: Int = 3
-    public var rows : Int = 0
+    open var items : [UIView] = []
+    open var containers : [UIView] = []
+    open var maxColumns: Int = 3
+    open var rows : Int = 0
     
     public init(views: [UIView], maxColumns: Int = 3){
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         self.maxColumns = maxColumns
         self.items = views
         setup()
@@ -40,7 +40,7 @@ public class PineFluidGridLayout: UIView {
         }
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         positionBoxes()
     }
@@ -66,12 +66,12 @@ public class PineFluidGridLayout: UIView {
             if (index >= maxColumns - 1) {
                 index = 0
                 x = 0
-                y++
+                y += 1
             } else {
-                index++
+                index += 1
             }
             
-            item.snp_makeConstraints(closure: { (make) in
+            item.snp_makeConstraints({ (make) in
                 make.center.equalTo(box)
             })
             

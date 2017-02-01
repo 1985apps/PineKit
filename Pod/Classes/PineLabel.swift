@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 
-public class PineLabel : UILabel {
+open class PineLabel : UILabel {
     
-    public var lineSpaccing : CGFloat = 1.0 {
+    open var lineSpaccing : CGFloat = 1.0 {
         didSet {
             let style = NSMutableParagraphStyle()
             style.lineSpacing = lineSpaccing
@@ -41,7 +41,7 @@ public class PineLabel : UILabel {
     }
     
     // THIS FUNCTION SHOULD BE OVERRIDDEN IN CASE OF SUB CLASSES
-    public func style(){
+    open func style(){
         
     }
     

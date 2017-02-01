@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 
-public class PineMenuViewController : UIViewController, PineMenuDelegate  {
+open class PineMenuViewController : UIViewController, PineMenuDelegate  {
     
-    public var menuView: PineBaseMenuView?
-    public var contentNavigationController: UINavigationController?
-    public var transition = PineMenuTransition()
-    public var rootViewController = PineBaseViewController()
-    public let blockView = UIView()
+    open var menuView: PineBaseMenuView?
+    open var contentNavigationController: UINavigationController?
+    open var transition = PineMenuTransition()
+    open var rootViewController = PineBaseViewController()
+    open let blockView = UIView()
     
     public init(menuView: PineBaseMenuView, rootViewController: PineBaseViewController, transition: PineMenuTransition = PineMenuTransition()){
         
@@ -35,13 +35,13 @@ public class PineMenuViewController : UIViewController, PineMenuDelegate  {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setup()
     }
     
-    override public func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -56,7 +56,7 @@ public class PineMenuViewController : UIViewController, PineMenuDelegate  {
         
         self.addChildViewController(self.contentNavigationController!)
         self.view.addSubview(self.contentNavigationController!.view)
-        self.contentNavigationController!.didMoveToParentViewController(self)
+        self.contentNavigationController!.didMove(toParentViewController: self)
         
         // SET THE FRAME TO THE PARENT FRAME
         // THIS DOES NOT USE AUTOLAYOUT - AS THERE WILL BE ANIMATIONS ON THE FRAME
@@ -67,11 +67,11 @@ public class PineMenuViewController : UIViewController, PineMenuDelegate  {
         //self.contentNavigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         //self.contentNavigationController?.navigationBar.shadowImage = UIImage()
         //self.contentNavigationController?.navigationBar.translucent = true
-        self.contentNavigationController?.navigationBar.tintColor = UIColor.clearColor()
+        self.contentNavigationController?.navigationBar.tintColor = UIColor.clear
         self.setupSwipeLeft()
     }
     
-    func toggleMenu(sender: AnyObject? = nil){
+    func toggleMenu(_ sender: AnyObject? = nil){
         self.transition.toggle()
         if transition.isOpen() {
             let vcView = self.contentNavigationController?.viewControllers.last!.view
@@ -83,7 +83,7 @@ public class PineMenuViewController : UIViewController, PineMenuDelegate  {
             
             // SWIPE RIGHT
             let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.toggleMenu(_:)))
-            swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+            swipeLeft.direction = UISwipeGestureRecognizerDirection.left
             blockView.addGestureRecognizer(swipeLeft)
             
             vcView!.addSubview(blockView)
@@ -94,30 +94,30 @@ public class PineMenuViewController : UIViewController, PineMenuDelegate  {
     
     func setupSwipeLeft() {
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(self.swipeLeft(_:)))
-        edgePan.edges = .Left
+        edgePan.edges = .left
         // ADD TO FIRST VC VIEW
         self.contentNavigationController?.viewControllers.first?.view.addGestureRecognizer(edgePan)
     }
     
-    func swipeLeft(recognizer: UIScreenEdgePanGestureRecognizer) {
-        if recognizer.state == .Recognized {
+    func swipeLeft(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .recognized {
             self.toggleMenu()
         }
     }
     
     
     /* DELEGATE METHODS public */
-    public func loadContentViewController(viewController: PineBaseViewController) {
+    open func loadContentViewController(_ viewController: PineBaseViewController) {
         self.contentNavigationController?.setViewControllers([viewController], animated: true)
         self.setupSwipeLeft()
         self.transition.close()
     }
     
-    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
-        if let style = self.contentNavigationController?.viewControllers.last?.preferredStatusBarStyle() {
+    override open var preferredStatusBarStyle : UIStatusBarStyle {
+        if let style = self.contentNavigationController?.viewControllers.last?.preferredStatusBarStyle {
             return style
         }
-        return .Default
+        return .default
     }
     
 }

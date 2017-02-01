@@ -11,19 +11,19 @@ import Foundation
 import SnapKit
 
 // A two-ball slider which returns both the upper and lower limit of the slider
-public class PineRangeSlider: UIControl {
+open class PineRangeSlider: UIControl {
     
-    public var min : CGFloat = 0
-    public var max : CGFloat = 100
-    public var seed : (min: CGFloat, max: CGFloat)? = nil
+    open var min : CGFloat = 0
+    open var max : CGFloat = 100
+    open var seed : (min: CGFloat, max: CGFloat)? = nil
     
-    public var minBall: UIImageView?
-    public var maxBall: UIImageView?
+    open var minBall: UIImageView?
+    open var maxBall: UIImageView?
     
-    public var bar : UIView?
-    public var barActive: UIView?
+    open var bar : UIView?
+    open var barActive: UIView?
     
-    public var onChange : PineRangeSlider -> Void = {_ in }
+    open var onChange : (PineRangeSlider) -> Void = {_ in }
 
     // THIS IS USED TO ONLY CAPTURE THE ORIGINAL OFFSET
     var _moveByOffset : CGFloat = 0
@@ -37,7 +37,7 @@ public class PineRangeSlider: UIControl {
         self.init(min: 0, max: 100)
     }
     
-    public init(min: CGFloat, max: CGFloat, onChange: ((PineRangeSlider) -> Void) = {_ in} ){
+    public init(min: CGFloat, max: CGFloat, onChange: @escaping ((PineRangeSlider) -> Void) = {_ in} ){
         super.init(frame: CGRect.zero)
         self.min = min
         self.max = max
@@ -49,13 +49,13 @@ public class PineRangeSlider: UIControl {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(){
+    open func setup(){
         self.clipsToBounds = true
         
         self.minBall = UIImageView(image: preferredThumbImage())
         self.maxBall = UIImageView(image: preferredThumbImage())
         
-        self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
 
         self.minBall!.tintColor = self.ballTintColor
         self.maxBall!.tintColor = self.ballTintColor
@@ -90,57 +90,57 @@ public class PineRangeSlider: UIControl {
         }
 
         // PANNING
-        minBall!.userInteractionEnabled = true
-        maxBall!.userInteractionEnabled = true
+        minBall!.isUserInteractionEnabled = true
+        maxBall!.isUserInteractionEnabled = true
         
-        let panMin = UIPanGestureRecognizer(target: self, action: "panningMinBall:")
+        let panMin = UIPanGestureRecognizer(target: self, action: #selector(PineRangeSlider.panningMinBall(_:)))
         minBall!.addGestureRecognizer(panMin)
         
-        let panMax = UIPanGestureRecognizer(target: self, action: "panningMaxBall:")
+        let panMax = UIPanGestureRecognizer(target: self, action: #selector(PineRangeSlider.panningMaxBall(_:)))
         maxBall!.addGestureRecognizer(panMax)
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         // THIS SHOULD RUN ONLY ONCE
         if let s = seed {
             let xs = getXForValues(s.min, max: s.max)
-            self.minBallPositionConstraint?.updateOffset(xs.min)
+            self.minBallPositionConstraint?.updateOffset(amount: xs.min)
             self.maxBallPositionConstraint?.uninstall()
-            maxBall?.snp_makeConstraints(closure: { (make) in
+            maxBall?.snp_makeConstraints({ (make) in
                 self.maxBallPositionConstraint = make.left.equalTo(xs.max - (maxBall?.frame.width)!).constraint
             })
             self.seed = nil
         }
     }
     
-    public func preferredBarView() -> UIView {
+    open func preferredBarView() -> UIView {
         let view = UIView()
         view.backgroundColor = PineConfig.Color.grayLight
         return view
     }
     
-    public func preferredBarActiveView() -> UIView {
+    open func preferredBarActiveView() -> UIView {
         let view = self.preferredBarView()
         view.backgroundColor = PineConfig.Color.blue
         return view
     }
     
-    public func preferredThumbImage() -> UIImage {
-        return UIImage(named: "filled-circle+black")!.imageWithRenderingMode(.AlwaysTemplate)
+    open func preferredThumbImage() -> UIImage {
+        return UIImage(named: "filled-circle+black")!.withRenderingMode(.alwaysTemplate)
     }
     
-    public func preferredBarHeight() -> CGFloat {
+    open func preferredBarHeight() -> CGFloat {
         return 2
     }
     
-    func panningMinBall(pan: UIPanGestureRecognizer){
+    func panningMinBall(_ pan: UIPanGestureRecognizer){
         var move : CGFloat = 0
-        if pan.state == .Began {
-            self._moveByOffset = pan.locationInView(self).x - pan.locationInView(pan.view).x
+        if pan.state == .began {
+            self._moveByOffset = pan.location(in: self).x - pan.location(in: pan.view).x
         }
-        move = pan.translationInView(self).x + self._moveByOffset
+        move = pan.translation(in: self).x + self._moveByOffset
         
         // DOES NOT LET THE BALL GO OVER MAX; AND LESS THAN 0
         if(move + (maxBall?.frame.width)! > maxBall!.frame.origin.x) {
@@ -148,26 +148,27 @@ public class PineRangeSlider: UIControl {
         } else if (move < 0){
             move = 0
         }
-        self.minBallPositionConstraint?.updateOffset(move)
+        self.minBallPositionConstraint?.updateOffset(amount: move)
         self.onChange(self)
     }
     
-    public func setMinBallValue(var move: CGFloat){
+    public func setMinBallValue(_ move: CGFloat){
+        var move = move
         // DOES NOT LET THE BALL GO OVER MAX; AND LESS THAN 0
         if(move + (maxBall?.frame.width)! > maxBall!.frame.origin.x) {
             move = maxBall!.frame.origin.x - (maxBall?.frame.width)!
         } else if (move < 0){
             move = 0
         }
-        self.minBallPositionConstraint?.updateOffset(move)
+        self.minBallPositionConstraint?.updateOffset(amount: move)
     }
     
-    func panningMaxBall(pan: UIPanGestureRecognizer){
+    func panningMaxBall(_ pan: UIPanGestureRecognizer){
         var move : CGFloat = 0
-        if pan.state == .Began {
-            self._moveByOffset = pan.locationInView(self).x - pan.locationInView(pan.view).x
+        if pan.state == .began {
+            self._moveByOffset = pan.location(in: self).x - pan.location(in: pan.view).x
         }
-        move = pan.translationInView(self).x + self._moveByOffset
+        move = pan.translation(in: self).x + self._moveByOffset
         self.maxBallPositionConstraint?.uninstall()
         
         // DOES NOT LET THE BALL GO OVER MIN; NOT MOVE OUTSIDE PARENT FRAME
@@ -177,7 +178,7 @@ public class PineRangeSlider: UIControl {
             move = self.frame.width - (maxBall?.frame.width)!
         }
         
-        pan.view?.snp_makeConstraints(closure: { (make) -> Void in
+        pan.view?.snp_makeConstraints({ (make) -> Void in
             self.maxBallPositionConstraint = make.left.equalTo(move).constraint
         })
         
@@ -185,18 +186,18 @@ public class PineRangeSlider: UIControl {
     }
     
     
-    public func getValues() -> (min: CGFloat, max: CGFloat) {
+    open func getValues() -> (min: CGFloat, max: CGFloat) {
         let min = ((minBall?.frame.origin.x)! / self.frame.width)
         let max = (((maxBall?.frame.origin.x)! + (maxBall?.frame.width)!) / self.frame.width)
         let rangeSize = self.max - self.min
         return (min: (self.min + rangeSize * min), max: (self.min + rangeSize * max))
     }
     
-    public func setDefaultValues(min min: CGFloat, max: CGFloat){
+    open func setDefaultValues(min: CGFloat, max: CGFloat){
         self.seed = (min, max)
     }
     
-    func getXForValues(min: CGFloat, max: CGFloat) -> (min: CGFloat, max: CGFloat){
+    func getXForValues(_ min: CGFloat, max: CGFloat) -> (min: CGFloat, max: CGFloat){
         let rangeSize = self.max - self.min
         let minPc = (100 * (min - self.min)) / rangeSize
         let maxPc = (100 * (max - self.min)) / rangeSize
