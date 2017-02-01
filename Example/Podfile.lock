@@ -1,26 +1,31 @@
 PODS:
-  - Alamofire (3.5.0)
+  - Alamofire (3.5.1)
   - DLRadioButton (1.4.9)
-  - PineKit (0.1.0)
-  - SnapKit (0.15.0)
-  - SwiftyJSON (2.3.2)
+  - PineKit (2.3.0):
+    - Alamofire
+    - SnapKit
+    - SwiftyJSON
+  - SnapKit (0.22.0)
+  - SwiftyJSON (2.3.3)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
   - DLRadioButton (~> 1.4)
   - PineKit (from `../`)
-  - SnapKit (~> 0.15.0)
-  - SwiftyJSON (~> 2.3.1)
+  - SnapKit (~> 0.22.0)
+  - SwiftyJSON (~> 2.3.3)
 
 EXTERNAL SOURCES:
   PineKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
+  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
   DLRadioButton: 7bb8a6e3768b572469ace553391ab4d2af6f9c19
-  PineKit: d3e5b5841b93329b4faa66abb425c3ca2ab014fd
-  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  PineKit: ee63fe18495bc2a515567bd7107c0682a2259891
+  SnapKit: 0dd2fd157330f1ea11fd84da13e6be8a7a22bae0
+  SwiftyJSON: 0fd0a115a3c0c09b277d2ab801df154902b942c3
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 94ce75b4acc67d3c0726c0fde7254ffa1224dea3
+
+COCOAPODS: 1.2.0
