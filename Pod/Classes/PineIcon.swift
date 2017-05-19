@@ -9,14 +9,14 @@
 import UIKit
 import SnapKit
 
-public class PineIcon: UIImageView {
+open class PineIcon: UIImageView {
         
     var named : String = "1x1"
     
     public init(named name: String){
         super.init(frame: CGRect.zero)
         self.image = UIImage(named: name)
-        self.contentMode = UIViewContentMode.Center
+        self.contentMode = UIViewContentMode.center
         self.named = name
     }
     
@@ -24,7 +24,7 @@ public class PineIcon: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func change(named name: String){
+    open func change(named name: String){
         self.named = name
         self.image = UIImage(named: name)
     }

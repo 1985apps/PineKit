@@ -9,20 +9,20 @@
 import UIKit
 import SnapKit
 
-public class PineRadioGroupItem : PineSelectGroupItem {
+open class PineRadioGroupItem : PineSelectGroupItem {
         
-    public override func beforeUpdate() -> PineSelectGroupItem {
+    open override func beforeUpdate() -> PineSelectGroupItem {
         for item in self.group!.items {
             if let obj = item as? PineRadioGroupItem {
                 // DIACTIVATES ALL THE ITEMS
-                obj.set(state: PineSelectGroupItem.State.Inactive).update()
+                obj.set(state: PineSelectGroupItem.State.inactive).update()
             }
         }
-        self.set(state: State.Active)
+        self.set(state: State.active)
         return self
     }
     
-    public override func update() {
+    open override func update() {
         self.label.text = self.text
         let iconname = self.isActive() ? "radio_button_active" : "radio_button_inactive"
         self.icon.change(named: iconname)

@@ -10,42 +10,42 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-public class PineAjax: NSObject {
+/*open class PineAjax: NSObject {
     
-    public static var baseUrl = "http://"
-    public var headers : Dictionary <String, String> = Dictionary<String, String>()
+    open static var baseUrl = "http://"
+    open var headers : Dictionary <String, String> = Dictionary<String, String>()
     
-    public var request: Request?
-    public var url : String = ""
-    public var _parameters : Dictionary<String, AnyObject> = Dictionary<String, AnyObject>()
-    public var method = Alamofire.Method.GET
-    public var _files : [Dictionary<String, AnyObject>] = []
+    open var request: Request?
+    open var url : String = ""
+    open var _parameters : Dictionary<String, AnyObject> = Dictionary<String, AnyObject>()
+    open var method = Alamofire.Method.GET
+    open var _files : [Dictionary<String, AnyObject>] = []
     
-    private var successCallback : (json: JSON, response: Response<AnyObject, NSError>) -> Void = {_ in }
-    private var errorCallback : (json: JSON, response: Response<AnyObject, NSError>) -> Void = {_ in }
+    fileprivate var successCallback : (_ json: JSON, _ response: Response<AnyObject, NSError>) -> Void = {_ in }
+    fileprivate var errorCallback : (_ json: JSON, _ response: Response<AnyObject, NSError>) -> Void = {_ in }
     
     public init(method: Alamofire.Method = .GET, url: String){
         self.url = url
         self.method = method
     }
     
-    public func params(params: Dictionary<String, AnyObject>) -> PineAjax {
+    open func params(_ params: Dictionary<String, AnyObject>) -> PineAjax {
         self._parameters = params
         return self
     }
     
-    public func file(name: String, data: NSData, fileName: String, mimeType: String = "image/jpg") -> PineAjax {
-        let item = ["name": name, "data": data, "fileName": fileName, "mimeType": mimeType]
-        self._files.append(item)
+    open func file(_ name: String, data: Data, fileName: String, mimeType: String = "image/jpg") -> PineAjax {
+        let item = ["name": name, "data": data, "fileName": fileName, "mimeType": mimeType] as [String : Any]
+        self._files.append(item as [String : AnyObject])
         return self
     }
     
-    public func run() -> PineAjax {
+    open func run() -> PineAjax {
         print("Running the Ajax: params: \(self._parameters)")
         return self._files.count > 0 ? runUpload() : runRequest()
     }
     
-    public func runRequest() -> PineAjax {
+    open func runRequest() -> PineAjax {
         let url = PineAjax.baseUrl + self.url
         if let token = PineSimpleData.getString("token") {
             headers["token"] = token
@@ -57,7 +57,7 @@ public class PineAjax: NSObject {
         return self
     }
     
-    public func runUpload() -> PineAjax {
+    open func runUpload() -> PineAjax {
         let url = PineAjax.baseUrl + self.url
         if let token = PineSimpleData.getString("token") {
             headers["token"] = token
@@ -96,7 +96,7 @@ public class PineAjax: NSObject {
         return self
     }
     
-    public func onResponse(response: Response<AnyObject, NSError>) -> Void {
+    open func onResponse(_ response: Response<AnyObject, NSError>) -> Void {
         var json = JSON(rawValue: "{}")
         if response.result.value != nil {
             json = JSON(rawValue: response.result.value!)
@@ -109,12 +109,12 @@ public class PineAjax: NSObject {
         }
     }
     
-    public func success(callback: (json: JSON, response: Response<AnyObject, NSError>) -> Void) -> PineAjax {
+    open func success(_ callback: (_ json: JSON, _ response: Response<AnyObject, NSError>) -> Void) -> PineAjax {
         self.successCallback = callback
         return self
     }
     
-    public func error(callback: (json: JSON, response: Response<AnyObject, NSError>) -> Void ) -> PineAjax {
+    open func error(_ callback: (_ json: JSON, _ response: Response<AnyObject, NSError>) -> Void ) -> PineAjax {
         self.errorCallback = callback
         return self
     }
@@ -122,3 +122,4 @@ public class PineAjax: NSObject {
     
 }
 
+*/

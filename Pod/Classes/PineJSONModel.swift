@@ -9,9 +9,9 @@
 import UIKit
 import SwiftyJSON
 
-public class PineJSONModel: NSObject {
+open class PineJSONModel: NSObject {
     
-    public var _map : JSON = JSON("[]")
+    open var _map : JSON = JSON("[]")
     
     public init(map: JSON){
         super.init()
@@ -19,11 +19,11 @@ public class PineJSONModel: NSObject {
         self.map()
     }
     
-    public func map() {
+    open func map() {
          
     }
     
-    public func pull(key: String) -> JSON {
+    open func pull(_ key: String) -> JSON {
         return _map[key]
     }
     

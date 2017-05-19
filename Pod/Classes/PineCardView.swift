@@ -8,16 +8,16 @@
 
 import UIKit
 
-public class PineCardView: UIView {
+open class PineCardView: UIView {
     
     var cornerRadius: CGFloat = 2
     var shadowOffsetWidth: Int = 0
     var shadowOffsetHeight: Int = 3
-    var shadowColor: UIColor? = UIColor.blackColor()
+    var shadowColor: UIColor? = UIColor.black
     var shadowOpacity: Float = 0.5
     
     public init(){
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         setup()
     }
     
@@ -25,27 +25,27 @@ public class PineCardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(){
+    open func setup(){
         self.clipsToBounds = true
         style()
     }
     
-    public func style(){
-        self.backgroundColor = UIColor.whiteColor()
+    open func style(){
+        self.backgroundColor = UIColor.white
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = PineConfig.Color.grayLight.CGColor
-        layer.shadowColor = UIColor.grayColor().CGColor
-        layer.shadowOffset = CGSizeMake(0, 1)
+        layer.borderColor = PineConfig.Color.grayLight.cgColor
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1)
         layer.shadowOpacity = 0.8;
         layer.shadowRadius = 2;
         layer.borderWidth = 1
         
         let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
-        layer.shadowPath = shadowPath.CGPath
+        layer.shadowPath = shadowPath.cgPath
     }
     
 }

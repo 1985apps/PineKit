@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class PineBarGraphYSet: NSObject {
+open class PineBarGraphYSet: NSObject {
     
-    var range : Range<Int> = 0...0
+    var range : CountableClosedRange<Int> = 0...0
     var labels : [String] = []
 
-    public init(range: Range<Int>, labels: [String] = []){
+    public init(range: CountableClosedRange<Int>, labels: [String] = []){
         super.init()
         self.range = range
         self.labels = labels

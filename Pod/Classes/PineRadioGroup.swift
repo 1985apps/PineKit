@@ -9,9 +9,9 @@
 import UIKit
 import SnapKit
 
-public class PineRadioGroup: PineSelectGroup {
+open class PineRadioGroup: PineSelectGroup {
         
-    public override func createItem(data: Dictionary<String, AnyObject>, group: PineSelectGroup) -> UIView {
+    open override func createItem(_ data: Dictionary<String, AnyObject>, group: PineSelectGroup) -> UIView {
         return PineRadioGroupItem(data: data, group: self)
     }
     

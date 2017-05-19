@@ -12,6 +12,6 @@ import UIKit
 
 public protocol PineMenuDelegate {
     
-    func loadContentViewController(viewController: PineBaseViewController)
+    func loadContentViewController(_ viewController: PineBaseViewController)
     
 }

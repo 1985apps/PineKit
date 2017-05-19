@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-public class PineConfig {
+open class PineConfig {
 
     // COLORS
 
@@ -32,13 +32,13 @@ public class PineConfig {
         public static var icon = CGSize(width: 44, height: 44)
     }
 
-    public class Font {
+    open class Font {
 
-        public static var REGULAR = "HelveticaNeue"
-        public static var BOLD = "HelveticaNeue-Bold"
-        public static var LIGHT = "HelveticaNeue-Light"
+        open static var REGULAR = "HelveticaNeue"
+        open static var BOLD = "HelveticaNeue-Bold"
+        open static var LIGHT = "HelveticaNeue-Light"
 
-        public static func get(type: String = REGULAR, size: CGFloat = 17.0) -> UIFont {
+        open static func get(_ type: String = REGULAR, size: CGFloat = 17.0) -> UIFont {
             return UIFont(name: type, size: size)!
         }
 
@@ -102,7 +102,7 @@ public class PineConfig {
 
 extension UIView {
     
-    func addSubviews(views: [UIView]){
+    func addSubviews(_ views: [UIView]){
         for view in views {
             self.addSubview(view)
         }

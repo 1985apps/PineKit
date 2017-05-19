@@ -13,7 +13,7 @@ class MenuView: PineBaseMenuView {
 
     
     override func setup() {
-        self.backgroundColor = UIColor.greenColor()
+        self.backgroundColor = UIColor.green
         print("I am here")
     }
     

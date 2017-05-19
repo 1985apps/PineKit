@@ -8,15 +8,28 @@
 
 import UIKit
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 //import Cartography
 
 /// PineKits TextField SubClass
-public class PineTextField: UITextField {
+open class PineTextField: UITextField {
     
     let line = UIView()
     
     /// The floating text label
-    public var label = PineLabel(text: "")
+    open var label = PineLabel(text: "")
     
     /**
      - parameter placehoder: Placeholder and floating label
@@ -24,7 +37,7 @@ public class PineTextField: UITextField {
     public init(placeholder: String){
         let frame = CGRect(x: 0, y: 0, width: PineConfig.TextField.width, height: PineConfig.TextField.width)
         super.init(frame: frame)
-        self.contentVerticalAlignment = .Bottom
+        self.contentVerticalAlignment = .bottom
         self.placeholder = placeholder
         self.setup()
         self.style()
@@ -38,7 +51,7 @@ public class PineTextField: UITextField {
     /**
      Sets up all the elements of the textfield. Do not override this method unless neccessary. Override 'func style' in order to make styling changes
     */
-    public func setup(){
+    open func setup(){
         self.addSubview(line)
 
 //        constrain(line) { line in
@@ -62,11 +75,11 @@ public class PineTextField: UITextField {
         self.label.textColor = PineConfig.Color.blue
         
         // EVENTS
-        self.addTarget(self, action: "onChange:", forControlEvents: .EditingChanged)
+        self.addTarget(self, action: #selector(PineTextField.onChange(_:)), for: .editingChanged)
         self.font = PineConfig.Font.get(PineConfig.Font.REGULAR, size: 14)
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         self.onChange()
     }
@@ -78,7 +91,7 @@ public class PineTextField: UITextField {
      
         - returns "self"
     */
-    public func setBottomBorderColor(color: UIColor) -> PineTextField {
+    open func setBottomBorderColor(_ color: UIColor) -> PineTextField {
         self.line.backgroundColor = color
         return self
     }
@@ -86,22 +99,22 @@ public class PineTextField: UITextField {
     /**
         Responsible for styling all the elements of the textfield. Override this method to make styling changes
     */
-    public func style(){
+    open func style(){
         self.label.font = PineConfig.Font.get(PineConfig.Font.BOLD, size: 12)
         self.label.textAlignment = self.textAlignment
     }
     
     /// You know what this does :) Override if needed
-    public override func editingRectForBounds(rect: CGRect) -> CGRect {
-        return self.textRectForBounds(rect)
+    open override func editingRect(forBounds rect: CGRect) -> CGRect {
+        return self.textRect(forBounds: rect)
     }
 
     /// You know what this does :) Override if needed
-    public override func textRectForBounds(rect: CGRect) -> CGRect {
-        return CGRectInset(rect, 0, 10)
+    open override func textRect(forBounds rect: CGRect) -> CGRect {
+        return rect.insetBy(dx: 0, dy: 10)
     }
     
-    public func onChange(sender: AnyObject? = nil){
+    open func onChange(_ sender: AnyObject? = nil){
         if self.text?.characters.count < 1 {
             self.label.text = ""
         } else {
