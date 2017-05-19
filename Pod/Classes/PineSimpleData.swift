@@ -7,32 +7,32 @@
 //
 
 import UIKit
-import Foundation
 import SwiftyJSON
 
 /**
-    An easy-to-use wrapper convenience class to NSCoding. It's primary usage is as a key - value pair peristent (NSCoding) data storage. 
- 
-    Could be used to hold session variables, etc.
- 
-        // To set a value
-        PineSimpleData.update("tvshow", "LOST")
- 
-        // To retrieve a value
-        PineSimpleData.get("tvshow") // RETURNS: "LOST"
- 
-        // To remove a value
-        PineSimpleData.remove("tvshow")
-*/
-open class PineSimpleData: NSObject, NSCoding {
+ * An easy-to-use wrapper convenience class to NSCoding. It's primary usage is as a key - value pair peristent (NSCoding) data storage.
+ *
+ * Could be used to hold session variables, etc.
+ *
+ * // To set a value
+ * PineSimpleData.update("tvshow", "LOST")
+ *
+ * // To retrieve a value
+ * PineSimpleData.get("tvshow") // RETURNS: "LOST"
+ *
+ * // To remove a value
+ * PineSimpleData.remove("tvshow")
+ */
 
+open class PineSimpleData: NSObject, NSCoding {
+    
     /// The Dictionary<String, AnyObject>  instance variable that holds the key-value pairs.
-    open var data: Dictionary<String, AnyObject> = Dictionary<String, AnyObject>()
+    open var data: Dictionary<String, Any> = Dictionary<String, Any>()
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("PineSimpleData")
     
-    init(data: Dictionary<String, AnyObject>) {
+    init(data: Dictionary<String, Any>) {
         super.init()
         self.data = data
     }
@@ -42,9 +42,9 @@ open class PineSimpleData: NSObject, NSCoding {
     }
     
     required convenience public init(coder aDecoder: NSCoder){
-        var data = Dictionary<String, AnyObject>()
+        var data = Dictionary<String, Any>()
         if (aDecoder.decodeObject(forKey: "raw") != nil) {
-            data = (aDecoder.decodeObject(forKey: "raw") as! Dictionary<String, AnyObject>)
+            data = (aDecoder.decodeObject(forKey: "raw") as! Dictionary<String, Any>)
         }
         self.init(data: data)
     }
@@ -59,30 +59,30 @@ open class PineSimpleData: NSObject, NSCoding {
         if (item != nil) {
             return item!
         }
-        return PineSimpleData(data: Dictionary<String, AnyObject>())
+        return PineSimpleData(data: Dictionary<String, Any>())
     }
     
     /**
-    Set / update a value of the data storage
-
-    - parameter key: String
-    - parameter value: AnyObject
-    */
-    open static func update(_ key: String, value: AnyObject?){
+     Set / update a value of the data storage
+     
+     - parameter key: String
+     - parameter value: AnyObject
+     */
+    open static func update(_ key: String, value: Any?){
         let single = getSingle()
         single.data[key] = value
         single.save()
     }
     
     /**
-    Retrieves the value associated to the key
-
-    - parameter key: String
-
-    - returns: AnyObject
+     Retrieves the value associated to the key
+     
+     - parameter key: String
+     
+     - returns: AnyObject
      
      */
-    open static func get(_ key: String) -> AnyObject? {
+    open static func get(_ key: String) -> Any? {
         return getSingle().data[key]
     }
     
@@ -98,23 +98,23 @@ open class PineSimpleData: NSObject, NSCoding {
         return get(key) as? String
     }
     
-    /** 
-    Retrives type-casted Int of the value associated to the key
-
-    - parameter key: String
-
-    - returns: Int
-    */
+    /**
+     Retrives type-casted Int of the value associated to the key
+     
+     - parameter key: String
+     
+     - returns: Int
+     */
     open static func getInt(_ key: String) -> Int? {
         return get(key) as? Int
     }
     
     /**
-    Returns the data dictionary holding the entire key-value pair
-
-    - returns: Dictionary<String, AnyObject>
-    */
-    open static func getFull() -> Dictionary<String, AnyObject> {
+     Returns the data dictionary holding the entire key-value pair
+     
+     - returns: Dictionary<String, AnyObject>
+     */
+    open static func getFull() -> Dictionary<String, Any> {
         return getSingle().data
     }
     
