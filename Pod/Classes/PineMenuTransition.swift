@@ -14,9 +14,10 @@ open class PineMenuTransition : NSObject {
     
     open var mainController: PineMenuViewController?
     open var menuView: PineBaseMenuView?
+    open var x : CGFloat = 200
     
     public override init(){
-        self.mainController = nil        
+        self.mainController = nil
     }
     
     // ONCE THE CONTROLLER IS SETUP THE MENU IS SETUP AS WELL
@@ -32,7 +33,7 @@ open class PineMenuTransition : NSObject {
     }
     
     func toggle(){
-	setup()
+        setup()
         if self.isOpen() {
             close()
         } else {
@@ -49,15 +50,15 @@ open class PineMenuTransition : NSObject {
     func open(){
         UIView.animate(withDuration: PineConfig.Menu.transitionDuration, animations: { () -> Void in
             var frame = (self.mainController?.contentNavigationController!.view.frame)! as CGRect
-            frame.origin.x = 200
+            frame.origin.x = self.x
             self.mainController?.contentNavigationController!.view.frame = frame
-        }) 
+        })
     }
     
     func close(){
         UIView.animate(withDuration: PineConfig.Menu.transitionDuration, animations: { () -> Void in
             self.mainController!.contentNavigationController!.view.frame = self.mainController!.view.frame
-        }) 
+        })
     }
     
 }
